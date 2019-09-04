@@ -1,7 +1,7 @@
-### Users
+### `users`
 
 | Column Name       | Data Type | Details               |
-|-------------------|-----------|-----------------------|
+| ----------------- | --------- | --------------------- |
 | `id`              | integer   | not null, primary key |
 | `handle`          | string    | not null, unique      |
 | `username`        | string    | not null              |
@@ -15,10 +15,10 @@
 
 ###### use array of item ids in user or is it necessary if I have an association??
 
-### Items
+### `items`
 
 | Column Name   | Data Type | Details               |
-|---------------|-----------|-----------------------|
+| ------------- | --------- | --------------------- |
 | `id`          | integer   | not null, primary key |
 | `seller_id`   | integer   | not null, foreign key |
 | `img_url`     | string    | not null              |
@@ -27,12 +27,22 @@
 | `created_at`  | datetime  | not null              |
 | `updated_at`  | datetime  | not null              |
 
-### Follows
+### `follows`
 
 | Column Name   | Data Type | Details               |
-|---------------|-----------|-----------------------|
+| ------------- | --------- | --------------------- |
 | `id`          | integer   | not null, primary key |
 | `followee_id` | integer   | not null, foreign key |
-| `follower_id` | string    | not null, foreign key |
+| `follower_id` | integer   | not null, foreign key |
+
+### `ratings`
+
+| Column Name | Data Type | Details               |
+| ----------- | --------- | --------------------- |
+| `id`        | integer   | not null, primary key |
+| `buyer_id`  | integer   | not null, foreign key |
+| `buyer_id`  | integer   | not null              |
+| `seller_id` | integer   | not null, foreign key |
+| `rating`    | integer   | not null              |
 
 # How to go about using a no-cart system?? Single item checkout.
