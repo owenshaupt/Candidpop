@@ -13,8 +13,8 @@
 *= require_self
 */
 
-/* font import */
-@import './base/01fonts.css';
-
 /* base testing */
-@import './base/00reset.css';
+@import 'base/00test.css';
+
+/* font import */
+@import 'base/01fonts.css';
