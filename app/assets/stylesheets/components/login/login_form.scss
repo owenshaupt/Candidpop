@@ -1,0 +1,112 @@
+.login-holder {
+  max-width: 440px;
+  margin: 0px auto;
+  padding: 80px 24px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+h1 {
+  margin-bottom: 8px;
+  font-family: 'gt-america-extended-bold';
+  font-size: 18px;
+  line-height: 1.2em;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-display-block {
+  display: block;
+}
+
+.login-form-data {
+  line-height: 48px;
+}
+
+.login-form-data > input {
+  border: 1px solid #afafaf;
+  border-radius: 2px;
+  padding: 0px 2px 0px 2px;
+  // height: 48px;
+  width: 100%;
+  // max-width: 376px;
+  font-size: 16px;
+  vertical-align: middle;
+  margin-bottom: 8px;
+  color: #000000;
+  font-family: 'gt-america-extended-regular';
+}
+
+.button {
+  width: 100%;
+  max-width: 376px;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  padding: 8px 6px;
+  margin: 8px 0px;
+  transition-property: background-color, border-color;
+  transition-duration: 0.2s, 0.2s;
+  transition-timing-function: ease-in-out, ease-in-out;
+  transition-delay: 0s, 0s;
+  font-family: 'gt-america-extended-bold';
+}
+
+.login-button {
+  color: rgb(255, 255, 255);
+  background-color: rgb(38, 38, 38);
+  border-color:  rgb(38, 38, 38);
+  margin-bottom: 24px;
+  max-width: 376px;
+}
+
+.login-button:hover {
+  background-color: #595959;
+  border-color: #595959;
+}
+
+.signup-and-guest-section {
+  max-width: 392px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid rgb(175, 175, 175);
+}
+
+.signup-button {
+  color: rgb(0,0,0);
+  background-color: #FFFFFF;
+  border-color: black;
+  margin-top: 18px;
+  margin-bottom: 8px;
+  max-width: 376px;
+}
+
+.signup-guest-button {
+  margin-top: 0px;
+  max-width: 376px;
+}
+
+.or-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.or {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: -11px;
+  color: rgb(38, 38, 38);
+  font-size: 12px;
+  background: rgb(255, 255, 255);
+  padding: 3px 7px;
+  z-index: 10;
+}

@@ -43,30 +43,41 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <h2>LOGIN TO CONTINUE</h2>
-          <input
-            type="text"
-            value={this.state.username}
-            placeholder='Username*'
-            onChange={this.update('username')}
-          />
-
-          <input
-            type="password"
-            value={this.state.password}
-            placeholder='Password*'
-            onChange={this.update('password')}
-          />
-
-          <input type="submit" value='Login'/>
-          <p>or</p>
+      <div className='login-holder'>
+        <h1>LOGIN TO CONTINUE</h1>
+        <form className='login-form' onSubmit={this.handleSubmit}>
+          <div className='login-display-block'>
+            <div className='login-form-data'>
+              <input
+                type="text"
+                value={this.state.username}
+                placeholder='Username*'
+                onChange={this.update('username')}
+              />
+            </div>
+          </div>
+          <div className='login-display-block'>
+            <div className='login-form-data'>
+              <input
+                type="password"
+                value={this.state.password}
+                placeholder='Password*'
+                onChange={this.update('password')}
+              />
+            </div>
+          </div>
+          <input className='login-button button' type="submit" value='Login'/>
         </form>
 
-        <div>
-          <Link to='/signup/'>Sign up</Link>
-          <button onClick={this.handleGuest}>
+        <div className='or-box'>
+          <p className='or'>or</p>
+        </div>
+
+        <div className="signup-and-guest-section">
+          
+          <Link className='button signup-button' to='/signup/'>Sign up</Link>
+
+          <button className='button login-button signin-guest-button' onClick={this.handleGuest}>
             Sign in as guest
           </button>
         </div>

@@ -13,11 +13,17 @@
 *= require_self
 */
 
-// css reset
-@import 'base/reset.scss';
-
 // fonts
 @import 'base/fonts.scss';
 
+// css reset
+@import 'base/reset.scss';
+
 // Session
-@import 'api/sessions.scss'
+@import 'api/sessions.scss';
+
+// Nav
+@import 'components/nav/nav.scss';
+
+// Login page
+@import 'components/login/login_form.scss';

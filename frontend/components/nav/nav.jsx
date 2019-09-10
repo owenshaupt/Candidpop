@@ -9,17 +9,29 @@ class Nav extends React.Component {
   render() {
     if (this.props.currentUser === undefined) {
       return (
-        <div>
-          <Link to="/login">Log In</Link>
+        <div className='nav-bar'>
+          <div className='nav-left'>
+            <a href="/">candidpop</a>
+          </div>
+        
+          <div className='nav-right'>
+            <Link to="/login">Login</Link>
+          </div>
         </div>
       );
     }
 
     return (
-      <div className='nav-right'>
-        <button>Search</button>
-        <button>Profile</button>
-        <button onClick={this.props.logout}>Log Out</button>
+      <div className='nav-bar'>
+        <div className='nav-left'>
+          <Link to='/'>candidpop</Link>
+        </div>
+        
+        <div className='nav-right'>
+          <button>Search</button>
+          <button>Profile</button>
+          <button onClick={this.props.logout}>Log Out</button>
+        </div>
       </div>
     );
   }

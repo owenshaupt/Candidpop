@@ -7,7 +7,6 @@ import SignupFormContainer from './signup/signup_form_container';
 const App = () => (
   <div>
     <header>
-      <h1>Candidpop</h1>
       <NavContainer />
     </header>
 
