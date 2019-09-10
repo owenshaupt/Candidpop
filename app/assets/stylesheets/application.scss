@@ -13,8 +13,11 @@
 *= require_self
 */
 
-/* base testing */
-@import 'base/00test.css';
+// css reset
+@import 'base/reset.scss';
 
-/* font import */
-@import 'base/01fonts.css';
+// fonts
+@import 'base/fonts.scss';
+
+// Session
+@import 'api/sessions.scss'
