@@ -1,10 +1,12 @@
 .login-holder {
+  box-sizing: border-box;
   max-width: 440px;
   margin: 0px auto;
   padding: 80px 24px;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
+  display: block;
+  // flex-direction: column;
+  // justify-content: center;
+  // flex-shrink: 1;
 }
 
 h1 {
@@ -15,16 +17,19 @@ h1 {
 }
 
 .login-form {
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .login-display-block {
   display: block;
+  flex-shrink: 1;
 }
 
 .login-form-data {
   line-height: 48px;
+  display: flex;
 }
 
 .login-form-data > input {
@@ -39,11 +44,11 @@ h1 {
   margin-bottom: 8px;
   color: #000000;
   font-family: 'gt-america-extended-regular';
+  flex-shrink: 1;
 }
 
 .button {
   width: 100%;
-  max-width: 376px;
   border-width: 2px;
   border-style: solid;
   border-radius: 2px;
@@ -65,7 +70,9 @@ h1 {
   background-color: rgb(38, 38, 38);
   border-color:  rgb(38, 38, 38);
   margin-bottom: 24px;
-  max-width: 376px;
+  width: 100%;
+  flex-shrink: 1;
+  flex-grow: 1;
 }
 
 .login-button:hover {
@@ -74,31 +81,36 @@ h1 {
 }
 
 .signup-and-guest-section {
-  max-width: 392px;
+  width: 100%;
+  border-top: 1px solid rgb(175, 175, 175);
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-top: 1px solid rgb(175, 175, 175);
 }
 
 .signup-button {
+  width: inherit;
   color: rgb(0,0,0);
   background-color: #FFFFFF;
   border-color: black;
   margin-top: 18px;
   margin-bottom: 8px;
-  max-width: 376px;
+  flex-grow: 1;
+  flex-shrink: 1;
 }
 
-.signup-guest-button {
+.signin-guest-button {
+  width: inherit;
   margin-top: 0px;
-  max-width: 376px;
+  flex-grow: 1;
+  flex-shrink: 1;
 }
 
 .or-box {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-shrink: 1;
 }
 
 .or {

@@ -66,7 +66,7 @@ class LoginForm extends React.Component {
               />
             </div>
           </div>
-          <input className='login-button button' type="submit" value='Login'/>
+          <input className='button login-button' type="submit" value='Login'/>
         </form>
 
         <div className='or-box'>
