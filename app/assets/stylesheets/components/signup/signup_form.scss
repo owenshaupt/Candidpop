@@ -4,7 +4,6 @@
   align-items: center;
   max-width: 366px;
   margin: 0px auto;
-  border: 1px solid black;
 }
 
 .signup-h1 {
@@ -25,7 +24,6 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  border: 1px solid blue;
 }
 
 .signup-form-your-details {
@@ -36,7 +34,6 @@
   font-family: 'gt-america-extended-bold';
   font-size: 16px;
   margin-bottom: 16px;
-  border: 1px solid red;
 }
 
 legend {
@@ -49,6 +46,7 @@ legend {
 
 .signup-form-top-row {
   display: flex;
+  line-height: 48px;
   justify-content: space-between;
 }
 
@@ -57,13 +55,164 @@ legend {
   font-size: 14px;
   border: 1px solid #afafaf;
   border-radius: 2px;
+  padding: 0px 2px 0px 8px;
+  width: 100%;
+  vertical-align: middle;
+  color: #000000;
+  flex-shrink: 1;
+  margin-bottom: 8px;
 }
 
 .signup-form-bottom-row {
   display: flex;
+  line-height: 48px;
 }
 
 .signup-email {
   width: 100%;
   flex-grow: 1;
+}
+
+.signup-form-userpass {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: 'gt-america-extended-bold';
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.userpass-inputs {
+  padding: 0px 2px 0px 8px;
+  margin-bottom: 8px;
+}
+
+.signup-username {
+  display: flex;
+  line-height: 48px;
+}
+
+.signup-password {
+  display: flex;
+  line-height: 48px;
+}
+
+#country-placeholder {
+  color: rgb(153, 153, 153);
+}
+
+.signup-form-location {
+  box-sizing: border-box;
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.country-select {
+  display: flex;
+  position: relative;
+  border: 1px solid #afafaf;
+  border-radius: 2px;
+}
+
+select {
+  display: block;
+  box-sizing: border-box;
+  line-height: 48px;
+  height: 48px;
+  background-color: transparent;
+  font-family: 'gt-america-extended-regular';
+  font-size: 14px;
+  border: none;
+  padding: 0px 2px 0px 8px;
+  width: 100%;
+  vertical-align: middle;
+  color: #000000;
+}
+
+.signup-form-checkbox {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.signup-form-left {
+  display: flex;
+  font-family: "gt-america-extended-regular", Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.signup-form-left > input {
+  margin: 4px 8px 0px 0px;
+}
+
+.signup-h2 {
+  margin-bottom: 8px;
+  font-family: 'gt-america-extended-bold';
+  font-size: 18px;
+  line-height: 1.2em;
+}
+
+.terms-holder {
+  margin-bottom: 8px;
+}
+
+.signup-terms {
+  font-family: "gt-america-extended-regular", Arial, sans-serif;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.h6 {
+  text-align: center;
+  font-family: "gt-america-standard-regular", Arial, sans-serif;
+  font-size: 12px;
+  color: rgb(175, 175, 175);
+  margin: 0px auto 32px;
+}
+
+.signup-form-terms {
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  display: block;
+}
+
+.signup-form-link {
+  font-size: 14px;
+  font-family: 'gt-america-extended-regular';
+  color: rgb(38, 38, 38);
+  display: inline-block;
+  text-decoration: underline;
+}
+
+.link-2 {
+  margin-left: 32px;
+}
+
+.create-account-button {
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 2px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(38, 38, 38);
+  border-color:  rgb(38, 38, 38);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  padding: 8px 6px;
+  margin: 8px 0px;
+  transition-property: background-color, border-color;
+  transition-duration: 0.2s, 0.2s;
+  transition-timing-function: ease-in-out, ease-in-out;
+  transition-delay: 0s, 0s;
+  font-family: 'gt-america-extended-bold';
+}
+
+.create-account-button:hover {
+  background-color: #595959;
+  border-color: #595959;
 }

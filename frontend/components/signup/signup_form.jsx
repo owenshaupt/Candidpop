@@ -27,11 +27,21 @@ class SignupForm extends React.Component {
       .then(() => { this.props.history.push('/') })
   }
 
+  renderErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   render() {
     return (
       <div className='signup-master'>
-        // back button and progress bar
-
         <form className='signup-form' onSubmit={this.handleSubmit}>
           <h1 className='signup-h1'>GET READY</h1>   
           <p className='signup-p'>Enter a few details to join the Candidpop community</p>
@@ -69,30 +79,35 @@ class SignupForm extends React.Component {
             </div>
           </fieldset>
 
-          <fieldset className='signup-form-user-pass'>
+          <fieldset className='signup-form-userpass'>
             <legend>Create your username and password</legend>
-              <div>
-                <input
+            <div className='signup-userpass-username'>
+              <div className='signup-username'>
+                <input className='signup-inputs userpass-inputs'
                   type="text"
                   value={this.state.username}
                   placeholder='Username'
                   onChange={this.update('username')}
                 />
+              </div>
             </div>
-            <div>
-              <input
-                type="password"
-                value={this.state.password}
-                placeholder='Password'
-                onChange={this.update('password')}
-              />
+            <div className='signup-userpass-password'>
+              <div className='signup-password'>
+                <input className='signup-inputs userpass-inputs'
+                  type="password"
+                  value={this.state.password}
+                  placeholder='Password'
+                  onChange={this.update('password')}
+                />
+              </div>
             </div>
           </fieldset>
 
           <fieldset className='signup-form-location'>
-            <legend>Your location
-              <select name="location" onChange={this.update('location')}>
-                <option disabled=""></option>
+            <legend>Your location</legend>
+            <div className='country-select'>
+              <select className='select' name="location" onChange={this.update('location')}>
+                <option disabled="">Country</option>
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Albania">Albania</option>
                 <option value="Algeria">Algeria</option>
@@ -350,34 +365,37 @@ class SignupForm extends React.Component {
                 <option value="Zimbabwe">Zimbabwe</option>
                 <option value="Åland Islands">Åland Islands</option>
               </select>
-
-            </legend>
+            </div>
           </fieldset>
 
           <fieldset className='signup-form-checkbox'>
-            <input type="checkbox" name="email_list" value="true" /> Get emails from Candidpop, including special promotions and selling tips.
+            <label className='signup-form-left'>
+              <input type="checkbox" name="email_list" value="true" />Get emails from Candidpop, including special promotions and selling tips.
+            </label>
           </fieldset>
           
-          <h1>CANDIDPOP TERMS</h1>
-          <br/>
-          <p>Candidpop is a social media-inspired marketplace which uses artificial 
-            intelligence to suggest buyers, sellers and items based on user 
-            preferences and other information submitted to us.</p>
-          <br/>
-          <p>Your use of Candidpop is subject to our Terms of Service and our Privacy 
-            Policy which sets out how we use your personal data</p>
-          <br/>
-          <div className='signup-form-terms'>
-            {/* <Link></Link>
-            <Link></Link> */}
-            <a href="">Terms of Service</a>
-            <a href="">Privacy Policy</a>
-          </div>
-          <br/>
-          <input type="submit" value="Create Account"/>
-          <br/>
-          <h6>By continuing you accept Candidpop's Terms of Service</h6>
+          <h2 className='signup-h2'>CANDIDPOP TERMS</h2>
 
+          <div className='terms-holder'>
+            <p className='signup-terms'>Candidpop is a social media-inspired marketplace which uses artificial 
+              intelligence to suggest buyers, sellers and items based on user 
+              preferences and other information submitted to us.</p>
+            <p className='signup-terms'>Your use of Candidpop is subject to our Terms of Service and our Privacy 
+              Policy which sets out how we use your personal data</p>
+          </div>
+
+          <div className='signup-form-terms'>
+            <a  className='signup-form-link' href="https://explore.depop.com/en/terms/">Terms of Service</a>
+            <a  className='signup-form-link link-2' href="https://explore.depop.com/en/privacy/">Privacy Policy</a>
+          </div>
+
+          <div className='errors-div'>
+            {this.renderErrors()}
+          </div>
+
+          <input className='create-account-button' type="submit" value="Create Account"/>
+
+          <p className='signup-terms h6'>By continuing you accept Candidpop's Terms of Service</p>
         </form>
       </div>
     )
