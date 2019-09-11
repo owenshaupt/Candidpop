@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import configureStore from "./store/store";
 import Root from './components/root';
+import * as APIUtil from './util/item_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -18,6 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
   
+  window.fetchItems = APIUtil.fetchItems;
+  window.fetchItem = APIUtil.fetchItem;
+  window.createItem = APIUtil.createItem;
+  window.updateItem = APIUtil.updateItem;
+  window.deleteItem = APIUtil.deleteItem;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
   
