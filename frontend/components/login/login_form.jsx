@@ -32,13 +32,25 @@ class LoginForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.login(this.state)
-      .then(() => {this.props.history.push('/')})
+      // .then(() => {this.props.history.push('/')})
   }
 
   handleGuest(e) {
     e.preventDefault();
     this.props.login(this.guest)
       .then(() => {this.props.history.push('/')})
+  }
+
+  renderErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
   }
 
   render() {
@@ -65,6 +77,9 @@ class LoginForm extends React.Component {
                 onChange={this.update('password')}
               />
             </div>
+          </div>
+          <div className='errors-div'>
+            {this.renderErrors()}
           </div>
           <input className='button login-button' type="submit" value='Login'/>
         </form>
