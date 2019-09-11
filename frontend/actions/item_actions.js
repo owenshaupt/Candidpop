@@ -14,8 +14,9 @@ const recieveItem = item => ({
   item
 })
 
-const removeItem = () => ({
-  type: REMOVE_ITEM
+const removeItem = id => ({
+  type: REMOVE_ITEM,
+  id
 })
 
 export const fetchItems = () => dispatch => {
