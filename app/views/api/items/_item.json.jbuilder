@@ -1,0 +1,1 @@
+json.extract! item, :seller_id, :img_url, :description, :price, :sold
