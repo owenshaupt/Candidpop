@@ -54,7 +54,7 @@ class User < ApplicationRecord
     self.session_token
   end
 
-  has_many :items_for_sale
-    primary_key: :id
-    foreign_key: :user_id
+  # has_many :items_for_sale
+  #   primary_key: :id
+  #   foreign_key: :user_id
 end
