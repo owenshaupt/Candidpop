@@ -16,6 +16,7 @@ export const createItem = (item) => {
   return $.ajax({
     type: 'POST',
     url: `/api/items`,
+    data: { item },
     error: (err) => console.log(err)
   });
 };
@@ -24,6 +25,7 @@ export const updateItem = (item) => {
   return $.ajax({
     type: 'PATCH',
     url: `/api/items/${item.id}`,
+    data: { item },
     error: (err) => console.log(err)
   });
 };

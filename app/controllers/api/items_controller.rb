@@ -1,7 +1,6 @@
 class Api::ItemsController < ApplicationController
   def new
     @item = Item.new
-    render :new
   end
 
   def create
@@ -23,24 +22,34 @@ class Api::ItemsController < ApplicationController
   end
 
   def edit
-  
+    @item = Item.find(params[:id])
   end
 
   def update
-  
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      render :show
+    else
+      render json: @item.errors.full_messages, status: 422
+    end
   end
 
-  def delete
-  
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    @items = Item.all
+    render :index
   end
 
   private
 
   def item_params
     params.require(:item).permit(
+      :seller_id,
       :img_url,
       :description,
-      :price
+      :price,
+      :sold
     )
   end
 end
