@@ -1,7 +1,7 @@
 import { RECEIVE_ITEMS, RECEIVE_ITEM, REMOVE_ITEM} from '../actions/item_actions';
 
 const itemsReducer = (oldState = {}, action) => {
-  Object.freeze(state);
+  Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_ITEMS:
       return action.items;

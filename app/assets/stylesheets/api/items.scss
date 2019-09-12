@@ -1,3 +1,45 @@
 // Place all the styles related to the api/items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.top {
+  max-width: 1280px;
+  margin: 0px auto;
+  padding: 0px 1rem 4rem;
+  display: block;
+  box-sizing: border-box;
+}
+
+.item-master {
+  display: block;
+}
+
+.item-index-item {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0px, 1fr));
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+}
+
+.item-card {  // a
+  color: rgb(38, 38, 38);
+  position: relative;
+  // padding-bottom: 100%;
+  margin-bottom: 1rem;
+  // background-color: rgb(234, 234, 234);
+  text-decoration: none;
+}
+
+.image-container {
+  border: solid;
+}
+
+.item-photo {
+  // position: absolute;
+}
+
+.index-item-price {
+  color: #262626;
+  font-size: 12px;
+  font-family: 'gt-america-extended-bold';
+}

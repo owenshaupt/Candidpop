@@ -23,9 +23,13 @@
 @import 'api/sessions.scss';
 
 // Nav
+@import 'App.scss';
 @import 'components/nav/nav.scss';
 
 // Login page
 @import 'components/login/login_form.scss';
 // Signin page
 @import 'components/signup/signup_form.scss';
+
+//items
+@import 'api/items.scss';
