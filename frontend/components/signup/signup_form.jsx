@@ -44,7 +44,7 @@ class SignupForm extends React.Component {
       <div className='signup-master'>
         <form className='signup-form' onSubmit={this.handleSubmit}>
           <h1 className='signup-h1'>GET READY</h1>   
-          <p className='signup-p'>Enter a few details to join the Candidpop community</p>
+          <p className='signup-p'>Enter a few details to join the Candidpop community.</p>
 
           <fieldset className='signup-form-your-details'>
             <legend>Your details</legend>

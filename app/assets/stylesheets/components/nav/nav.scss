@@ -17,3 +17,12 @@
   font-family: 'gt-america-extended-bold';
   font-size: 16px;
 }
+
+.nav-button {
+  margin-left: 24px;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  text-decoration: underline;
+}

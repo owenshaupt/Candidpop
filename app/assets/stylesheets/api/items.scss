@@ -2,44 +2,89 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.top {
+
+.items-list-container {
   max-width: 1280px;
   margin: 0px auto;
   padding: 0px 1rem 4rem;
-  display: block;
+}
+
+.items-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: space-evenly;
+  list-style-type: none;
+  margin: auto;
+}
+
+.items-list::after {
+  // justify-content: flex-start;
+  // box-sizing: border-box;
+  // border: 1px solid black;
+  // max-width: 185px;
+  // height: 204px;
+  // margin: none;
+  // content: "";
+  // flex: auto;
+}
+
+.items-index-li {
+  flex: 1 0 20%;
+  box-sizing: border-box;
+  // border: 1px solid black;
+  max-width: 185px;
+  height: 204px;
+  margin: 0px 4px 24px 4px;
+}
+
+.items-index-item {
+  // border: 1px solid red;
+  width: 185px;
+  height: 200px;
+}
+
+.item-card-link {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // border: 1px solid blue;
+}
+
+.index-item-photo {
+  display: inline;
+  margin: 0 auto;
+  height: 185px;
+  width: 185px;
+  align-items: center;
   box-sizing: border-box;
 }
 
-.item-master {
-  display: block;
-}
 
-.item-index-item {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0px, 1fr));
-  grid-column-gap: 1rem;
-  grid-row-gap: 1rem;
-}
-
-.item-card {  // a
-  color: rgb(38, 38, 38);
+.image-grey-out {
   position: relative;
-  // padding-bottom: 100%;
-  margin-bottom: 1rem;
-  // background-color: rgb(234, 234, 234);
-  text-decoration: none;
+  background-color: black;
+  height: 185px;
+  width: 185px;
 }
 
-.image-container {
-  border: solid;
+.photo {
+  position: absolute;
 }
 
-.item-photo {
-  // position: absolute;
+.photo:hover {
+  opacity: .65;
 }
 
 .index-item-price {
-  color: #262626;
   font-size: 12px;
   font-family: 'gt-america-extended-bold';
+  color: rgb(38, 38, 38);
+  // border: 1px solid palevioletred;
+}
+
+.filler-items {
+  width: 185px;
+  margin: 0px 4px 24px 4px;
 }

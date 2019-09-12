@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ItemIndexItem from './item_index_item';
 
 class ItemIndex extends React.Component {
   componentDidMount() {
@@ -10,31 +9,31 @@ class ItemIndex extends React.Component {
   render() {
     const items = this.props.items.map(item => {
       return (
-        <a key={item.id} className='item-card' href="/#/feed/">
-
-            {/* <div>
-              <ItemIndexItem
-                key={item.id}  
-                item={item}
-            /> */}
-         
-          <div className='index-item-container'>
-            <div className='image-container'>
-              <img width="50" height="50" className='item-photo' src="https://tshop.r10s.jp/habanakoubou-tomato/cabinet/chukohanbai/camera10/9394.jpg?downsize=200:*" alt="" />
-            </div>
-            <p className='index-item-price'>${item.price}</p>
+        <li key={item.id} className='items-index-li'>
+          <div className='items-index-item'>
+            <a className='item-card-link' href="/#/feed/">
+              <div className='image-grey-out'>
+                <div className='index-item-photo'>
+                  <img width="100%" height="100%" className='photo' src="https://d2h1pu99sxkfvn.cloudfront.net/b0/241754/557377096_zTirsda74A/P8.jpg" alt="" />
+                </div>
+              </div>
+              <p className='index-item-price'>${item.price}</p>
+            </a>
           </div>
-        </a>
+        </li>
       )
     });
 
     return (
-      <div className='top'>
-        <div className='item-master'>
-          <div className='item-index-item'>
-            { items }
-          </div>
-        </div>
+      <div className='items-list-container'>
+        <ul className='items-list'>
+          {items}
+          <i className='filler-items' aria-hidden="true"></i>
+          <i className='filler-items' aria-hidden="true"></i>
+          <i className='filler-items' aria-hidden="true"></i>
+          <i className='filler-items' aria-hidden="true"></i>
+          <i className='filler-items' aria-hidden="true"></i>
+        </ul>
       </div>
     );
   };

@@ -1,0 +1,73 @@
+.create-item-master {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 366px;
+  margin: 0px auto;
+  // border: 1px solid black;
+}
+
+.create-item-form {
+  flex: auto;
+}
+
+.create-item-h1 {
+
+}
+
+.create-item-description {
+  box-sizing: border-box;
+}
+
+.create-item-description > textarea {
+  border: 1px solid #afafaf;
+  border-radius: 2px;
+  font-family: "gt-america-extended-regular";
+  color: #000000;
+  padding: 8px;
+  max-width: 324.5px;
+  min-width: 324.5px;
+  margin-bottom: 16px;
+}
+
+.create-item-price {
+  box-sizing: border-box;
+  width: 324.5px;
+  margin-bottom: 8px;
+}
+
+.item-price-container {
+  font-family: "gt-america-extended-regular";
+  color: #757575;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #afafaf;
+  border-radius: 2px;
+}
+
+.item-price-container > p {
+  width: 13px;
+  padding: 8px;
+}
+
+.item-price-input-container {
+
+}
+
+.item-price-input-container > input {
+  font-family: "gt-america-extended-regular";
+  color: #000000;
+  padding: 8px;
+  width: 200px;
+}
+
+.create-item-button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.create-item-button { // does overwrite
+  flex: auto;         // create-account
+
+}

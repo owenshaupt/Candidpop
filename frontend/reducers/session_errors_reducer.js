@@ -1,5 +1,3 @@
-import * as APIUtil from "../util/session_api_util";
-
 import { RECEIVE_CURRENT_USER, RECEIVE_SESSION_ERRORS, LOGOUT_CURRENT_USER } from "../actions/session_actions";
 
 let _nullState = {

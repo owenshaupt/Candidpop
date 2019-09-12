@@ -15,7 +15,7 @@ class Nav extends React.Component {
           </div>
         
           <div className='nav-right'>
-            <Link to="/login">Login</Link>
+            <Link to="/login" className='nav-button'>Login</Link>
           </div>
         </div>
       );
@@ -28,9 +28,15 @@ class Nav extends React.Component {
         </div>
         
         <div className='nav-right'>
-          <button>Search</button>
-          <button>Profile</button>
-          <button onClick={this.props.logout}>Log Out</button>
+          <ul>
+            {(this.props.currentUser !== undefined) ?
+              <Link to='/items/new' className='nav-button'>Add Item</Link> :
+              <p height='0px'></p>
+            }
+            <button className='nav-button'>Search</button>
+            <button className='nav-button'>Profile</button>
+            <button className='nav-button' onClick={this.props.logout}>Log Out</button>
+          </ul>
         </div>
       </div>
     );

@@ -6,7 +6,6 @@ class LoginForm extends React.Component {
     super(props);
     this.state = {
       username: "",
-      // email = "",
       password: ""
     }
 
@@ -32,13 +31,13 @@ class LoginForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.login(this.state)
-      // .then(() => {this.props.history.push('/')})
+      .then(() => {this.props.history.push('/feed/')})
   }
 
   handleGuest(e) {
     e.preventDefault();
     this.props.login(this.guest)
-      .then(() => {this.props.history.push('/')})
+      .then(() => {this.props.history.push('/feed/')})
   }
 
   renderErrors() {
