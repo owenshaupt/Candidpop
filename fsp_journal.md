@@ -31,3 +31,5 @@
   - added five (n - 1, where n is max number of columns) i tags with the property [aria-hidden="true"]
   - these filled any spaces leftover in a given row but if five was too many, the leftovers would be pushed to the very bottom but did not have any height so it did not add any clickable elements to the page
 - Decided to not use ItemIndexItem components and instead use linked images
+- Completed item creation, still need to make update/delete options
+  - these will appear on item show page when the owner is viewing an item
