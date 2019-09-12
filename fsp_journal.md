@@ -33,3 +33,4 @@
 - Decided to not use ItemIndexItem components and instead use linked images
 - Completed item creation, still need to make update/delete options
   - these will appear on item show page when the owner is viewing an item
+- Still need to make footer
