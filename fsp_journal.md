@@ -24,3 +24,10 @@
 - Began index (feed) grid setup
 - After inspecting etsy's site (wow styling is SO much better/readable than depop's), I think I have decided to use flex instead of grid
   - Etsy uses no grid elements but the behavior of the feed (using flex) are *exactly* what I want to do on my site
+
+### Thrusday 09/12/2019 (W12D4)
+
+- Implemented flex and dealt with an issue where the bottom row of items would be spaced as per space-between
+  - added five (n - 1, where n is max number of columns) i tags with the property [aria-hidden="true"]
+  - these filled any spaces leftover in a given row but if five was too many, the leftovers would be pushed to the very bottom but did not have any height so it did not add any clickable elements to the page
+- Decided to not use ItemIndexItem components and instead use linked images
