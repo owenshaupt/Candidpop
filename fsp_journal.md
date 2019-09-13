@@ -57,3 +57,4 @@
   - Changing the images column into a single image carousal upon the same window resize
   
 - Need to link username on item show page to user profile
+- Need to build item purchasing / index grey-out
