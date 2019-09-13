@@ -47,16 +47,7 @@
 - Then mounting accordingly:
   - `componentDidMount() {this.props.fetchItem(this.props.ownProps.match.params.itemId);}`
 - Then adjusting the render method:
-  - `render() {
-    if (!this.props.item) {
-      return null;
-    }
-    
-    return (
-      <div>show!!
-        {this.props.item.description}
-        {this.props.item.price}
-        {this.props.item.sold}
-      </div>
-    );
-  };`
+  - `render()`
+  - `{if (!this.props.item) {return null;}`
+  - `return (<div>show!!{this.props.item.description}{this.props.item.price}{this.props.item.sold}</div>);};`
+- I'm still not sure why, but the state being passed from mapStateToProps did not contain the glocal items object at the time I wanted it to. Here, the fix is almost creating a delay in when the itemShow component receives the items object (in this case, just a single item).
