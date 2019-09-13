@@ -51,3 +51,7 @@
   - `{if (!this.props.item) {return null;}`
   - `return (<div>show!!{this.props.item.description}{this.props.item.price}{this.props.item.sold}</div>);};`
 - I'm still not sure why, but the state being passed from mapStateToProps did not contain the glocal items object at the time I wanted it to. Here, the fix is almost creating a delay in when the itemShow component receives the items object (in this case, just a single item).
+
+- Decided to not allow wrapping on item show page, i.e. when window is shrunk past a certain point, the info (right) column will not jump to below the item photos. This might be a future addition I can make with media queries:
+  - Removing the info column's left margin once window size is small enough to force the wrapping
+  - Changing the images column into a single image carousal upon the same window resize
