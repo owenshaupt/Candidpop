@@ -35,3 +35,28 @@
   - these will appear on item show page when the owner is viewing an item
 - Still need to make footer
 - Still need to create model associations
+
+### Friday 09/13/2019 (W12D5)
+
+- Helen helped me fix the problem I was having last night, detailed here:
+  - why is state not persisting on refresh, where as it seems to persist in that way when on the feed?
+  - weird refresh behavior
+  - full items state comes through on /items/1 after navigating there from /feed/ but not on refresh -- have to do with the times being loaded on the feed? if so, then why does feed get global items state when it mounts when coming from, say, the homepage??
+- The fix was mapping in ownProps along with item to the itemShow component:
+  - `const mapStateToProps = (state, ownProps) => ({ ownProps: ownProps, item: state.entities.items[ownProps.match.params.itemId] });`
+- Then mounting accordingly:
+  - `componentDidMount() {this.props.fetchItem(this.props.ownProps.match.params.itemId);}`
+- Then adjusting the render method:
+  - `render() {
+    if (!this.props.item) {
+      return null;
+    }
+    
+    return (
+      <div>show!!
+        {this.props.item.description}
+        {this.props.item.price}
+        {this.props.item.sold}
+      </div>
+    );
+  };`
