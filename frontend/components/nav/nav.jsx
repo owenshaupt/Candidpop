@@ -4,7 +4,16 @@ import { Link } from 'react-router-dom';
 class Nav extends React.Component {
   constructor(props) {
     super(props);
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
+
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.logout()
+      .then(() => { this.props.history.push('/') })
+  }
+
 
   render() {
     if (this.props.currentUser === undefined) {
@@ -35,7 +44,7 @@ class Nav extends React.Component {
             }
             <button className='nav-button'>Search</button>
             <button className='nav-button'>Profile</button>
-            <button className='nav-button' onClick={this.props.logout}>Log Out</button>
+            <button className='nav-button' onClick={this.handleSubmit}>Log Out</button>
           </ul>
         </div>
       </div>

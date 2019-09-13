@@ -8,4 +8,5 @@ class Item < ApplicationRecord
   # belongs_to :user
   #   primary_key: :id
   #   foreign_key: :user_id
+  has_one_attached :photo
 end

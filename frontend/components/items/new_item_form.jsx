@@ -8,6 +8,7 @@ class NewItemForm extends React.Component {
       seller_id: 1,
       description: "",
       price: "",
+      // photoFile: null,
       img_url: "createItem.example.org",
       sold: false
     }
@@ -45,6 +46,24 @@ class NewItemForm extends React.Component {
         <form className='create-item-form' onSubmit={this.handleSubmit}>
           <h1 className='signup-h1 create-item-h1'>READY TO SELL?</h1>   
           <p className='signup-p'>Enter your item details and be on your way.</p>
+
+          <fieldset className='create-item-item-photos'>
+            <legend>UPLOAD PHOTOS</legend>
+            <div className='item-photos-container'>
+              {/* <div className='item-photo'>
+                <input className='user-image' accept="image/*" type="file"/>
+              </div> */
+              /* <div className='item-photo'>
+                <input className='user-image' accept="image/*" type="file"/>
+              </div>
+              <div className='item-photo'>
+                <input className='user-image' accept="image/*" type="file"/>
+              </div>
+              <div className='item-photo'>
+                <input className='user-image' accept="image/*" type="file"/>
+              </div> */}
+            </div>
+          </fieldset>
 
           <fieldset className='create-item-item-details'>
             <legend>DESCRIPTION</legend>
