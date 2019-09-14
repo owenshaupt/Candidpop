@@ -1,9 +1,15 @@
+header {
+  box-sizing: border-box;
+}
+
 .nav-bar {
+  max-width: 1280px;
   display: flex;
   justify-content: space-between;
   background-color: #ffffff;
   font-size: 23px;
   padding: 16px;
+  margin: 0px auto;
 }
 
 .nav-left {

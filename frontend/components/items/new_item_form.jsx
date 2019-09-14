@@ -8,12 +8,12 @@ class NewItemForm extends React.Component {
       seller_id: 1,
       description: "",
       price: "",
-      // photoFile: null,
-      img_url: "createItem.example.org",
+      photoFiles: null,
       sold: false
     }
 
-    this.handleSubmit = this.handleSubmit.bind(this)    
+    this.handleSubmit = this.handleSubmit.bind(this)  
+    this.handleFile = this.handleFile.bind(this)  
   }
   
   update(field) {
@@ -22,10 +22,33 @@ class NewItemForm extends React.Component {
     );
   }
 
+  handleFile(e) {
+    this.setState({photoFiles: e.currentTarget.files});
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createItem(this.state)
-      .then(() => { this.props.history.push('/feed/') })
+    const formData = new FormData();
+    const { photoFiles } = this.state;
+    formData.append('item[seller_id]', this.state.seller_id)
+    formData.append('item[description]', this.state.description)
+    formData.append('item[price]', this.state.price)
+
+    for (let i = 0; i < photoFiles.length; i++) {
+      formData.append('item[photos][]', photoFiles[i]);
+    }
+
+    formData.append('item[sold]', this.state.sold)
+    $.ajax({
+      url: '/api/items',
+      method: 'POST',
+      data: formData,
+      contentType: false,
+      processData: false,
+      error: (err) => console.log(err)
+    });
+    // this.props.createItem(formData)
+      // .then(() => { this.props.history.push('/feed/') })
   }
 
   renderErrors() {
@@ -41,6 +64,7 @@ class NewItemForm extends React.Component {
   }
 
   render() {
+    console.log(this.state);
     return (
       <div className='create-item-master'>
         <form className='create-item-form' onSubmit={this.handleSubmit}>
@@ -50,18 +74,7 @@ class NewItemForm extends React.Component {
           <fieldset className='create-item-item-photos'>
             <legend>UPLOAD PHOTOS</legend>
             <div className='item-photos-container'>
-              {/* <div className='item-photo'>
-                <input className='user-image' accept="image/*" type="file"/>
-              </div> */
-              /* <div className='item-photo'>
-                <input className='user-image' accept="image/*" type="file"/>
-              </div>
-              <div className='item-photo'>
-                <input className='user-image' accept="image/*" type="file"/>
-              </div>
-              <div className='item-photo'>
-                <input className='user-image' accept="image/*" type="file"/>
-              </div> */}
+              <input multiple onChange={this.handleFile} type="file"/>
             </div>
           </fieldset>
 
@@ -85,6 +98,7 @@ class NewItemForm extends React.Component {
               <p>$</p>
               <div className='item-price-input-container'>
                 <input
+                  className='item-price-input'
                   placeholder='Enter a number'
                   type="number"
                   value={this.state.price}

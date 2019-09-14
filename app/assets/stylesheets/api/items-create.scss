@@ -67,8 +67,10 @@
   padding: 8px;
 }
 
-.item-price-input-container {
-
+.item-price-input::-webkit-inner-spin-button, 
+.item-price-input::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
 
 .item-price-input-container > input {

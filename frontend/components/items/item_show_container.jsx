@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import { fetchItem, updateItem, deleteItem } from '../../actions/item_actions';
+import { fetchItem, fetchItems, updateItem, deleteItem } from '../../actions/item_actions';
 import ItemShow from './item_show';
 
 const mapStateToProps = (state, ownProps) => ({
-  items: state.entities.items[ownProps.match.params.itemId]
-}};
+  item: state.entities.items[ownProps.match.params.itemId]
+});
 
 const mapDispatchToProps = dispatch => ({
   fetchItem: id => dispatch(fetchItem(id)),

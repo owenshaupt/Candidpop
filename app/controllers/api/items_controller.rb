@@ -5,6 +5,7 @@ class Api::ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    debugger
     if @item.save
       render :show
     else
@@ -43,24 +44,13 @@ class Api::ItemsController < ApplicationController
 
   private
 
-
-  # in form:
-  # make const formDate = new FormData();
-  # formData.append('post[title]', this.state.title);
-  # formData.append('post[photo]', this.state.photoFile);
-  # 
-  # trigger ajax request to create the item
-  # 
-  # I think I want to use the .files array and index as needed so I can have mulitple images per item
-
   def item_params
     params.require(:item).permit(
       :seller_id,
-      :img_url,
       :description,
       :price,
-      # :photo,
-      :sold
+      :sold,
+      photos: []
     )
   end
 end

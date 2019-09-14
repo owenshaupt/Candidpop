@@ -1,0 +1,127 @@
+.item-show-page-body {
+  // border: 1px solid black;
+  box-sizing: border-box;  
+} 
+
+.item-show {
+  // border: 1px solid red;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  max-width: 1280px;
+  margin: 0px auto;
+  padding: 24px 1rem 0px 1rem;
+}
+
+.item-show-item-photos {
+  // background-color: blue;
+  // background-image: linear-gradient(to bottom right, red, blue);
+  height: fit-content;
+  max-width: 640px;
+  min-width: 300px;
+  flex: 1 1 300px;
+  // border: 1px solid black;
+  margin-bottom: 32px;
+}
+
+.item-show-item-info {
+  position: sticky;
+  top: 58px;
+  // background-color: green;
+  height: fit-content;
+  width: 375px;
+  flex: 0 0 auto;
+  // border: 1px solid black;
+  margin-left: 2rem;
+}
+
+.item-image-container {
+  background-color: rgb(238, 238, 238);
+  margin-bottom: 8px;
+  min-width: 100%;
+  padding-top: 100%;
+  position: relative;
+}
+
+.item-image {
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;  
+  opacity: 1;
+  // transition: opacity 0.5s ease 0s; // ????
+  // position: absolute; // ????
+}
+
+#userphoto { // danger ----> id
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  background-color: aquamarine;
+  margin-bottom: 8px;
+}
+
+.item-show-seller {
+  font-size: 14px;
+  font-family: 'gt-america-extended-regular';
+  color: rgb(26, 26, 26);
+  padding-bottom: 64px
+}
+
+.item-seller-username {
+  color: rgb(26, 26, 26);
+  font-family: 'gt-america-extended-bold';
+}
+
+.item-show-description {
+  font-size: 14px;
+  font-family: 'gt-america-extended-regular';
+  color: rgb(38, 38, 38);
+  padding-bottom: 16px
+}
+
+.item-price-table {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.item-price-table-row {
+  border-bottom: 1px solid rgb(215, 215, 215);
+  display: flex;
+  justify-content: space-between;
+  font-family: 'gt-america-extended-regular';
+  font-size: 14px;
+  color: rgb(0, 0, 0);
+}
+
+.item-price-header {
+  text-align: left;
+}
+
+.item-price-data {
+  text-align: right;
+}
+
+.item-show-listed-time {
+  border: none;
+  font-family: 'gt-america-extended-regular';
+  font-size: 10px;
+  color: #999999;
+}
+
+.item-purchase-button {
+  color: rgb(255, 255, 255);
+  background-color: rgb(38, 38, 38);
+  border-color:  rgb(38, 38, 38);
+  margin: 0px 0px 24px 0px;
+  width: 100%;
+  flex-shrink: 1;
+  flex-grow: 1;
+}
+
+.item-purchase-button:hover {
+  background-color: #595959;
+  border-color: #595959;
+}

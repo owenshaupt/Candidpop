@@ -11,14 +11,19 @@ class ItemIndex extends React.Component {
       return (
         <li key={item.id} className='items-index-li'>
           <div className='items-index-item'>
-            <a className='item-card-link' href="/#/feed/">
-              <div className='image-grey-out'>
-                <div className='index-item-photo'>
-                  <img width="100%" height="100%" className='photo' src="https://d2h1pu99sxkfvn.cloudfront.net/b0/241754/557377096_zTirsda74A/P8.jpg" alt="" />
+            <Link className='item-card-link' to={`/items/${item.id}`}>
+                <div className='image-grey-out'>
+                  <div className='index-item-photo'>
+                    <img width="100%"
+                      height="100%"
+                      className='photo'
+                      src={item.photos[0].photoUrl}
+                      alt=""
+                    />
+                  </div>
                 </div>
-              </div>
-              <p className='index-item-price'>${item.price}</p>
-            </a>
+                <p className='index-item-price'>${item.price}</p>
+            </Link>
           </div>
         </li>
       )
