@@ -35,3 +35,29 @@
   - these will appear on item show page when the owner is viewing an item
 - Still need to make footer
 - Still need to create model associations
+
+### Friday 09/13/2019 (W12D5)
+
+- Helen helped me fix the problem I was having last night, detailed here:
+  - why is state not persisting on refresh, where as it seems to persist in that way when on the feed?
+  - weird refresh behavior
+  - full items state comes through on /items/1 after navigating there from /feed/ but not on refresh -- have to do with the times being loaded on the feed? if so, then why does feed get global items state when it mounts when coming from, say, the homepage??
+- The fix was mapping in ownProps along with item to the itemShow component:
+  - `const mapStateToProps = (state, ownProps) => ({ ownProps: ownProps, item: state.entities.items[ownProps.match.params.itemId] });`
+- Then mounting accordingly:
+  - `componentDidMount() {this.props.fetchItem(this.props.ownProps.match.params.itemId);}`
+- Then adjusting the render method:
+  - `render()`
+  - `{if (!this.props.item) {return null;}`
+  - `return (<div>show!!{this.props.item.description}{this.props.item.price}{this.props.item.sold}</div>);};`
+- I'm still not sure why, but the state being passed from mapStateToProps did not contain the glocal items object at the time I wanted it to. Here, the fix is almost creating a delay in when the itemShow component receives the items object (in this case, just a single item).
+
+- Decided to not allow wrapping on item show page, i.e. when window is shrunk past a certain point, the info (right) column will not jump to below the item photos. This might be a future addition I can make with media queries:
+  - Removing the info column's left margin once window size is small enough to force the wrapping
+  - Changing the images column into a single image carousal upon the same window resize
+  
+- Need to link username on item show page to user profile
+- Need to build item purchasing / index grey-out
+
+- Made a TON of great progress today. Designed item show and completed user upload for images!!
+  - Still need to style impage upload to accept multiple files in a way that looks nice (maybe similar to mobile graphics?)
