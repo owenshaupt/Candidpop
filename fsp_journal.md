@@ -68,3 +68,8 @@
 ### Saturday 09/14/2019 (W12D6)
 
 - Possible future addition: media queries to more tightly control the sizing of the main feed window
+- Completed create item page:
+  - Image thumbnails for uploading images in creation form are working properly
+    - Maybe initiate a lazy load with fade in transition in the future?
+  - Warning renders on new form page telling user they must upload at least one photo, then goes away after one photo has been uploaded
+  - Might consider making a pop-up "X" appear after upload so user can remove the photo; definitely an extra thing to add on after remaining MVPs
