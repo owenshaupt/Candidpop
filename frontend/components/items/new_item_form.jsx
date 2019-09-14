@@ -31,7 +31,6 @@ class NewItemForm extends React.Component {
   handleFile1(e) {
     this.setState({file1: e.currentTarget.files});
     this.setState({file1Url: URL.createObjectURL(e.target.files[0])}); // from Egor Egorvov @650egor on Medium
-    console.log(this.state);
   }
 
   handleFile2(e) {
@@ -42,13 +41,11 @@ class NewItemForm extends React.Component {
   handleFile3(e) {
     this.setState({file3: e.currentTarget.files});
     this.setState({file3Url: URL.createObjectURL(e.target.files[0])}); // from Egor Egorvov @650egor on Medium
-
   }
 
   handleFile4(e) {
     this.setState({file4: e.currentTarget.files});
     this.setState({file4Url: URL.createObjectURL(e.target.files[0])}); // from Egor Egorvov @650egor on Medium
-
   }
 
   handleSubmit(e) {
@@ -58,50 +55,23 @@ class NewItemForm extends React.Component {
     formData.append('item[seller_id]', this.state.seller_id)
     formData.append('item[description]', this.state.description)
     formData.append('item[price]', this.state.price)
+    formData.append('item[sold]', this.state.sold)
 
     if (file1 !== null) {
-      for (let i = 0; i < file1.length; i++) {
-        formData.append('item[photos][]', file1[i]);
-      }
+        formData.append('item[photos][]', file1[0])
     }
-
     if (file2 !== null) {
-      for (let i = 0; i < file2.length; i++) {
-        formData.append('item[photos][]', file2[i]);
-      }
+        formData.append('item[photos][]', file2[0])
     }
-
     if (file3 !== null) {
-      for (let i = 0; i < file3.length; i++) {
-        formData.append('item[photos][]', file3[i]);
-      }
+        formData.append('item[photos][]', file3[0])
     }
-
     if (file4 !== null) {
-      for (let i = 0; i < file4.length; i++) {
-        formData.append('item[photos][]', file4[i]);
-      }
+        formData.append('item[photos][]', file4[0])
     }
-
-    formData.append('item[sold]', this.state.sold)
 
     this.props.createItem(formData)
       .then(() => { this.props.history.push('/feed/') })
-
-    // $.ajax({
-    //   url: '/api/items',
-    //   method: 'POST',
-    //   data: formData,
-    //   contentType: false,
-    //   processData: false,
-    //   error: (err) => console.log(err)
-    // })
-    // .fail(error => dispatch(receiveErrors(error.responseJSON)));
-    
-    
-    // .then(() => { this.props.history.push('/feed/') })
-    // console.log("errors?")
-    // console.log(this.props.errors)
   }
 
   renderErrors() {
