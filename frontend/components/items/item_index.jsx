@@ -8,6 +8,7 @@ class ItemIndex extends React.Component {
 
   render() {
     const items = this.props.items.map(item => {
+      debugger
       return (
         <li key={item.id} className='items-index-li'>
           <div className='items-index-item'>

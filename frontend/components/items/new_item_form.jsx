@@ -8,8 +8,10 @@ class NewItemForm extends React.Component {
       seller_id: 1,
       description: "",
       price: "",
-      photoFiles1: null, photoFiles2: null,
-      photoFiles3: null, photoFiles4: null,
+      file1: null, file2: null,
+      file3: null, file4: null,
+      file1Url: null, file2Url: null,
+      file3Url: null, file4Url: null,
       sold: false
     }
 
@@ -27,50 +29,57 @@ class NewItemForm extends React.Component {
   }
 
   handleFile1(e) {
-    this.setState({photoFiles1: e.currentTarget.files});
+    this.setState({file1: e.currentTarget.files});
+    this.setState({file1Url: URL.createObjectURL(e.target.files[0])}); // from Egor Egorvov @650egor on Medium
+    console.log(this.state);
   }
 
   handleFile2(e) {
-    this.setState({photoFiles2: e.currentTarget.files});
+    this.setState({file2: e.currentTarget.files});
+    this.setState({file2Url: URL.createObjectURL(e.target.files[0])}); // from Egor Egorvov @650egor on Medium
   }
 
   handleFile3(e) {
-    this.setState({photoFiles3: e.currentTarget.files});
+    this.setState({file3: e.currentTarget.files});
+    this.setState({file3Url: URL.createObjectURL(e.target.files[0])}); // from Egor Egorvov @650egor on Medium
+
   }
 
   handleFile4(e) {
-    this.setState({photoFiles4: e.currentTarget.files});
+    this.setState({file4: e.currentTarget.files});
+    this.setState({file4Url: URL.createObjectURL(e.target.files[0])}); // from Egor Egorvov @650egor on Medium
+
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
-    const { photoFiles1, photoFiles2, photoFiles3, photoFiles4 } = this.state;
+    const { file1, file2, file3, file4 } = this.state;
     formData.append('item[seller_id]', this.state.seller_id)
     formData.append('item[description]', this.state.description)
     formData.append('item[price]', this.state.price)
 
-    if (photoFiles1 !== null) {
-      for (let i = 0; i < photoFiles1.length; i++) {
-        formData.append('item[photos][]', photoFiles1[i]);
+    if (file1 !== null) {
+      for (let i = 0; i < file1.length; i++) {
+        formData.append('item[photos][]', file1[i]);
       }
     }
 
-    if (photoFiles2 !== null) {
-      for (let i = 0; i < photoFiles2.length; i++) {
-        formData.append('item[photos][]', photoFiles2[i]);
+    if (file2 !== null) {
+      for (let i = 0; i < file2.length; i++) {
+        formData.append('item[photos][]', file2[i]);
       }
     }
 
-    if (photoFiles3 !== null) {
-      for (let i = 0; i < photoFiles3.length; i++) {
-        formData.append('item[photos][]', photoFiles3[i]);
+    if (file3 !== null) {
+      for (let i = 0; i < file3.length; i++) {
+        formData.append('item[photos][]', file3[i]);
       }
     }
 
-    if (photoFiles4 !== null) {
-      for (let i = 0; i < photoFiles4.length; i++) {
-        formData.append('item[photos][]', photoFiles4[i]);
+    if (file4 !== null) {
+      for (let i = 0; i < file4.length; i++) {
+        formData.append('item[photos][]', file4[i]);
       }
     }
 
@@ -108,10 +117,10 @@ class NewItemForm extends React.Component {
   }
 
   renderImageRequirements() {
-    if (this.state.photoFiles1 === null &&
-        this.state.photoFiles1 === null &&
-        this.state.photoFiles1 === null &&
-        this.state.photoFiles1 === null) {
+    if (this.state.file1 === null &&
+        this.state.file2 === null &&
+        this.state.file3 === null &&
+        this.state.file4 === null) {
           return (
             <p>Must upload at least 1 photo</p>
           )
@@ -135,7 +144,9 @@ class NewItemForm extends React.Component {
                   <div className='item-photo-holder'>
                     <img
                       className='upload-photo'
-                      src="assets/upload_item_icon.jpg"
+                      src={(!!this.state.file1) ? (this.state.file1Url) : (
+                        'assets/upload_item_icon.jpg')
+                      }
                       alt=""
                     />
                     <input type="file" onChange={this.handleFile1}/>
@@ -146,7 +157,9 @@ class NewItemForm extends React.Component {
                   <div className='item-photo-holder'>
                     <img
                       className='upload-photo'
-                      src="assets/upload_item_icon.jpg"
+                      src={(!!this.state.file2) ? (this.state.file2Url) : (
+                        'assets/upload_item_icon.jpg')
+                      }
                       alt=""
                     />
                     <input type="file" onChange={this.handleFile2} />
@@ -159,7 +172,9 @@ class NewItemForm extends React.Component {
                   <div className='item-photo-holder'>
                     <img
                       className='upload-photo'
-                      src="assets/upload_item_icon.jpg"
+                      src={(!!this.state.file3) ? (this.state.file3Url) : (
+                        'assets/upload_item_icon.jpg')
+                      }
                       alt=""
                     />
                     <input type="file" onChange={this.handleFile3} />
@@ -170,8 +185,10 @@ class NewItemForm extends React.Component {
                     <div className='item-photo-holder'>
                       <img
                         className='upload-photo'
-                        src="assets/upload_item_icon.jpg"
-                        alt=""
+                      src={(!!this.state.file4) ? (this.state.file4Url) : (
+                        'assets/upload_item_icon.jpg')
+                      }
+                      alt=""
                       />
                       <input type="file" onChange={this.handleFile4} />
                     </div>
