@@ -63,3 +63,4 @@
   - Still need to style impage upload to accept multiple files in a way that looks nice (maybe similar to mobile graphics?)
 
 - Noticed that errors from signin page persist through to login page if the link is clicked directly after.
+  - The same goes for the opposite direction.
