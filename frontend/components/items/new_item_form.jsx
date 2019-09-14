@@ -8,12 +8,16 @@ class NewItemForm extends React.Component {
       seller_id: 1,
       description: "",
       price: "",
-      photoFiles: null,
+      photoFiles1: null, photoFiles2: null,
+      photoFiles3: null, photoFiles4: null,
       sold: false
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)  
-    this.handleFile = this.handleFile.bind(this)  
+    this.handleFile1 = this.handleFile1.bind(this)  
+    this.handleFile2 = this.handleFile2.bind(this)  
+    this.handleFile3 = this.handleFile3.bind(this)  
+    this.handleFile4 = this.handleFile4.bind(this)  
   }
   
   update(field) {
@@ -22,33 +26,73 @@ class NewItemForm extends React.Component {
     );
   }
 
-  handleFile(e) {
-    this.setState({photoFiles: e.currentTarget.files});
+  handleFile1(e) {
+    this.setState({photoFiles1: e.currentTarget.files});
+  }
+
+  handleFile2(e) {
+    this.setState({photoFiles2: e.currentTarget.files});
+  }
+
+  handleFile3(e) {
+    this.setState({photoFiles3: e.currentTarget.files});
+  }
+
+  handleFile4(e) {
+    this.setState({photoFiles4: e.currentTarget.files});
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
-    const { photoFiles } = this.state;
+    const { photoFiles1, photoFiles2, photoFiles3, photoFiles4 } = this.state;
     formData.append('item[seller_id]', this.state.seller_id)
     formData.append('item[description]', this.state.description)
     formData.append('item[price]', this.state.price)
 
-    for (let i = 0; i < photoFiles.length; i++) {
-      formData.append('item[photos][]', photoFiles[i]);
+    if (photoFiles1 !== null) {
+      for (let i = 0; i < photoFiles1.length; i++) {
+        formData.append('item[photos][]', photoFiles1[i]);
+      }
+    }
+
+    if (photoFiles2 !== null) {
+      for (let i = 0; i < photoFiles2.length; i++) {
+        formData.append('item[photos][]', photoFiles2[i]);
+      }
+    }
+
+    if (photoFiles3 !== null) {
+      for (let i = 0; i < photoFiles3.length; i++) {
+        formData.append('item[photos][]', photoFiles3[i]);
+      }
+    }
+
+    if (photoFiles4 !== null) {
+      for (let i = 0; i < photoFiles4.length; i++) {
+        formData.append('item[photos][]', photoFiles4[i]);
+      }
     }
 
     formData.append('item[sold]', this.state.sold)
-    $.ajax({
-      url: '/api/items',
-      method: 'POST',
-      data: formData,
-      contentType: false,
-      processData: false,
-      error: (err) => console.log(err)
-    });
-    // this.props.createItem(formData)
-      // .then(() => { this.props.history.push('/feed/') })
+
+    this.props.createItem(formData)
+      .then(() => { this.props.history.push('/feed/') })
+
+    // $.ajax({
+    //   url: '/api/items',
+    //   method: 'POST',
+    //   data: formData,
+    //   contentType: false,
+    //   processData: false,
+    //   error: (err) => console.log(err)
+    // })
+    // .fail(error => dispatch(receiveErrors(error.responseJSON)));
+    
+    
+    // .then(() => { this.props.history.push('/feed/') })
+    // console.log("errors?")
+    // console.log(this.props.errors)
   }
 
   renderErrors() {
@@ -63,6 +107,17 @@ class NewItemForm extends React.Component {
     );
   }
 
+  renderImageRequirements() {
+    if (this.state.photoFiles1 === null &&
+        this.state.photoFiles1 === null &&
+        this.state.photoFiles1 === null &&
+        this.state.photoFiles1 === null) {
+          return (
+            <p>Must upload at least 1 photo</p>
+          )
+        }
+  }
+
   render() {
     console.log(this.state);
     return (
@@ -72,11 +127,62 @@ class NewItemForm extends React.Component {
           <p className='signup-p'>Enter your item details and be on your way.</p>
 
           <fieldset className='create-item-item-photos'>
-            <legend>UPLOAD PHOTOS</legend>
-            <div className='item-photos-container'>
-              <input multiple onChange={this.handleFile} type="file"/>
-            </div>
+            <legend id='upload-photos'>UPLOAD PHOTOS</legend>
+
+            <div className='item-photos-upload-container'>
+              <div className='item-photos-top-row'>
+                <div className='item-photo-upload-button'>
+                  <div className='item-photo-holder'>
+                    <img
+                      className='upload-photo'
+                      src="assets/upload_item_icon.jpg"
+                      alt=""
+                    />
+                    <input type="file" onChange={this.handleFile1}/>
+                  </div>
+                </div>
+
+                <div className='item-photo-upload-button'>
+                  <div className='item-photo-holder'>
+                    <img
+                      className='upload-photo'
+                      src="assets/upload_item_icon.jpg"
+                      alt=""
+                    />
+                    <input type="file" onChange={this.handleFile2} />
+                  </div>
+                </div>  
+              </div>
+
+              <div className='item-photos-bottom-row'>
+                <div className='item-photo-upload-button'><div className='item-photo-holder'>
+                  <div className='item-photo-holder'>
+                    <img
+                      className='upload-photo'
+                      src="assets/upload_item_icon.jpg"
+                      alt=""
+                    />
+                    <input type="file" onChange={this.handleFile3} />
+                  </div>
+                </div>
+                </div>
+                  <div className='item-photo-upload-button'>
+                    <div className='item-photo-holder'>
+                      <img
+                        className='upload-photo'
+                        src="assets/upload_item_icon.jpg"
+                        alt=""
+                      />
+                      <input type="file" onChange={this.handleFile4} />
+                    </div>
+                </div>
+              </div>
+          </div>
           </fieldset>
+
+          <div className='errors-div'>
+              {this.renderImageRequirements()}
+          </div>
 
           <fieldset className='create-item-item-details'>
             <legend>DESCRIPTION</legend>

@@ -14,9 +14,11 @@ export const fetchItem = (id) => {
 
 export const createItem = (item) => {
   return $.ajax({
-    type: 'POST',
-    url: `/api/items`,
-    data: { item },
+    url: '/api/items',
+    method: 'POST',
+    data: item,
+    contentType: false,
+    processData: false,
     error: (err) => console.log(err)
   });
 };
