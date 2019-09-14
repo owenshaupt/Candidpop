@@ -61,3 +61,5 @@
 
 - Made a TON of great progress today. Designed item show and completed user upload for images!!
   - Still need to style impage upload to accept multiple files in a way that looks nice (maybe similar to mobile graphics?)
+
+- Noticed that errors from signin page persist through to login page if the link is clicked directly after.
