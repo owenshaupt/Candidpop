@@ -30,7 +30,12 @@ class NewItemForm extends React.Component {
 
   handleFile1(e) {
     this.setState({file1: e.currentTarget.files});
+    console.log('e.currentTarget.files:');
+    console.log(e.currentTarget.files);
     this.setState({file1Url: URL.createObjectURL(e.target.files[0])}); // from Egor Egorvov @650egor on Medium
+    console.log('e.target.files[0]:');
+    console.log(e.target.files[0]);
+
   }
 
   handleFile2(e) {

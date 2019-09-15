@@ -12,21 +12,9 @@
 .items-list {
   display: flex;
   flex-wrap: wrap;
-
   justify-content: space-around;
   list-style-type: none;
   margin: auto;
-}
-
-.items-list::after {
-  // justify-content: flex-start;
-  // box-sizing: border-box;
-  // border: 1px solid black;
-  // max-width: 195px;
-  // height: 204px;
-  // margin: none;
-  // content: "";
-  // flex: auto;
 }
 
 .items-index-li {
@@ -35,7 +23,7 @@
   // border: 1px solid black;
   max-width: 195px;
   height: 204px;
-  margin: 0px 4px 8px 4px;
+  margin: 0px 4px 16px 4px;
 }
 
 .items-index-item {

@@ -20,7 +20,7 @@ class ItemShow extends React.Component {
     if (!this.props.item || !this.props.item.user || !this.props.item.photos) {
       return null; // returning react-spinner loader (component)
     }
-    
+
     return (
       <div className='item-show-page-body'>
         <div className='item-show'>
@@ -75,7 +75,10 @@ class ItemShow extends React.Component {
             </div>
 
             <div className='item-purchase'>
-              <button className='button item-purchase-button'>Buy now</button>
+              {(this.props.user === this.props.item.seller_id) ? 
+                <button className='button item-purchase-button'>Update item</button> : 
+                <button className='button item-purchase-button'>Buy now</button>
+              }
             </div>
           </div>
         </div>

@@ -3,7 +3,8 @@ import { fetchItem, fetchItems, updateItem, deleteItem } from '../../actions/ite
 import ItemShow from './item_show';
 
 const mapStateToProps = (state, ownProps) => ({
-  item: state.entities.items[ownProps.match.params.itemId]
+  item: state.entities.items[ownProps.match.params.itemId],
+  user: state.session.id
 });
 
 const mapDispatchToProps = dispatch => ({
