@@ -84,3 +84,7 @@
     - `@item = Item.find(params[:id])`
   - __UPDATED TO__
     - `@item = Item.find(params[:item][:id])`
+
+
+note to try tmrw: if index isn't undefined, replace only that one at same index
+also ask vanessa
