@@ -77,3 +77,10 @@
 ### Sunday 09/15/2019 (W13D0)
 
 - Worked on update item but ran into very difficult bug where rails controller cannot read `:id` of incoming item. Will ask TAs --> very stumped.
+- Fixed this issue, when finding the params in (update) item controller (using id), the id was nested under item params:
+  - `edit_item_form.jsx`
+    - `formData.append('item[id]', this.props.item.id);`
+  - __INCORRECT CODE__ in `items_controller.rb`
+    - `@item = Item.find(params[:id])`
+  - __UPDATED TO__
+    - `@item = Item.find(params[:item][:id])`
