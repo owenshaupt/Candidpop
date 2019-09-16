@@ -91,4 +91,5 @@ also ask vanessa
 
 ### Monday 09/13/2019 (W13D1)
 
-- Ask Vanessa about displaying "at least one photo" on item create form
+- __Ask Vanessa about displaying "at least one photo" on item create form
+- Finished CRUD update and delete functionality (except the update photos)
