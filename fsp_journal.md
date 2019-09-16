@@ -61,3 +61,36 @@
 
 - Made a TON of great progress today. Designed item show and completed user upload for images!!
   - Still need to style impage upload to accept multiple files in a way that looks nice (maybe similar to mobile graphics?)
+
+- Noticed that errors from signin page persist through to login page if the link is clicked directly after.
+  - The same goes for the opposite direction.
+
+### Saturday 09/14/2019 (W12D6)
+
+- Possible future addition: media queries to more tightly control the sizing of the main feed window
+- Completed create item page:
+  - Image thumbnails for uploading images in creation form are working properly
+    - Maybe initiate a lazy load with fade in transition in the future?
+  - Warning renders on new form page telling user they must upload at least one photo, then goes away after one photo has been uploaded
+  - Might consider making a pop-up "X" appear after upload so user can remove the photo; definitely an extra thing to add on after remaining MVPs
+
+### Sunday 09/15/2019 (W13D0)
+
+- Worked on update item but ran into very difficult bug where rails controller cannot read `:id` of incoming item. Will ask TAs --> very stumped.
+- Fixed this issue, when finding the params in (update) item controller (using id), the id was nested under item params:
+  - `edit_item_form.jsx`
+    - `formData.append('item[id]', this.props.item.id);`
+  - __INCORRECT CODE__ in `items_controller.rb`
+    - `@item = Item.find(params[:id])`
+  - __UPDATED TO__
+    - `@item = Item.find(params[:item][:id])`
+
+
+note to try tmrw: if index isn't undefined, replace only that one at same index
+also ask vanessa
+
+### Monday 09/13/2019 (W13D1)
+
+- __Ask Vanessa about displaying "at least one photo" on item create form
+- Finished CRUD update and delete functionality (except the update photos)
+  - Still need to add deletion after purchasing item
