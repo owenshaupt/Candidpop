@@ -1,3 +1,83 @@
 // Place all the styles related to the api/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-show-page-container {
+  max-width: 1280px;
+  // border: 1px solid blue;
+  margin: 0px auto;
+  box-sizing: border-box;
+}
+
+.user-show-page {
+  margin: 0px auto;
+  padding: 0px .75rem 4rem;
+  // border: 1px solid black;
+}
+
+.user-show-info {
+  margin-left: 4px;
+  // border: 1px solid red;
+}
+
+.user-show-top {
+  display: flex;
+  margin: 20px 0px 25px;
+}
+
+#user-show-profile-pic { // danger ----> id
+  border-radius: 50%;
+  width: 98px;
+  height: 98px;
+  background-color: aquamarine;
+}
+
+.user-names {
+  padding-left: 20px;
+}
+
+.user-first-last {
+  display: flex;
+}
+
+.user-first-last > h1 {
+  font-size: 24px;
+  font-family: 'gt-america-extended-bold';
+}
+
+.user-last {
+  margin-left: 8px;
+}
+
+.user-username {
+  font-family: "gt-america-extended-regular";
+  font-size: 13px;
+  color: rgb(153, 153, 153);
+  margin: 0px 0px 16px 0px;
+}
+
+.selling-header > h3 {
+  font-size: 16px;
+  font-family: 'gt-america-extended-bold';
+  padding: 10px 0px 10px 4px;
+  // border: 1px solid green;
+}
+
+.user-items-for-sale {
+  margin: 0px;
+  padding: 0px;
+  // border: 1px solid yellow;
+}
+
+.user-show-index-item {
+  padding-top: 6px;
+  margin: 0px 4px 16px;
+}
+
+.user-items-index-container {
+  padding: 0px;
+}
+
+.user-show-items-list {
+  justify-content: space-between;
+}

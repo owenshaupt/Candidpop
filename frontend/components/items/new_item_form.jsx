@@ -5,7 +5,7 @@ class NewItemForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      seller_id: 1,
+      seller_id: null,
       description: "",
       price: "",
       file1: null, file2: null,
@@ -23,18 +23,12 @@ class NewItemForm extends React.Component {
   }
   
   update(field) {
-    return (e) => (
-      this.setState({ [field]: e.target.value })
-    );
+    return (e) => (this.setState({ [field]: e.target.value }));
   }
 
   handleFile1(e) {
     this.setState({file1: e.currentTarget.files});
-    console.log('e.currentTarget.files:');
-    console.log(e.currentTarget.files);
     this.setState({file1Url: URL.createObjectURL(e.target.files[0])}); // from Egor Egorvov @650egor on Medium
-    console.log('e.target.files[0]:');
-    console.log(e.target.files[0]);
 
   }
 
@@ -57,7 +51,7 @@ class NewItemForm extends React.Component {
     e.preventDefault();
     const formData = new FormData();
     const { file1, file2, file3, file4 } = this.state;
-    formData.append('item[seller_id]', this.state.seller_id)
+    formData.append('item[seller_id]', this.props.user)
     formData.append('item[description]', this.state.description)
     formData.append('item[price]', this.state.price)
     formData.append('item[sold]', this.state.sold)
@@ -76,7 +70,7 @@ class NewItemForm extends React.Component {
     }
 
     this.props.createItem(formData)
-      .then(() => { this.props.history.push('/feed/') })
+      .then(() => { this.props.history.push('/items/') })
   }
 
   renderErrors() {

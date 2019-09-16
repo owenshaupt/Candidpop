@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 class ItemShow extends React.Component {
   constructor(props) {
     super(props);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -14,6 +15,12 @@ class ItemShow extends React.Component {
     if (prevProps.match.params.itemId !== this.props.match.params.itemId) {
       this.props.fetchItem(this.props.match.params.itemId);
     }
+  }
+
+  handleDelete(e) {
+    e.preventDefault();
+    this.props.deleteItem(this.props.item.id)
+      .then(() => { this.props.history.push('/items/') })
   }
 
   render() {
@@ -36,17 +43,24 @@ class ItemShow extends React.Component {
           </div>
 
           <div className='item-show-item-info'>
-            <div>
-              <div id='userphoto'></div>
-            </div>
-            
+            <Link to={`/${this.props.user}`}>
+              <div>
+                <div id='userphoto'></div>
+              </div>
+            </Link>
+
             <div className='item-show-seller'>
-              <div className='item-seller-username'>
-                {this.props.item.user.username}
-              </div>
-              <div className='item-seller-location'>
-                {this.props.item.user.location}
-              </div>
+              <Link to={`/${this.props.user}`}>
+                  <div className='item-seller-username'>
+                    {this.props.item.user.username}
+                  </div>
+              </Link>
+              
+              <Link to={`/${this.props.user}`}>
+                <div className='item-seller-location'>
+                  {this.props.item.user.location}
+                </div>
+              </Link>
             </div>
 
             <div className='item-show-description'>
@@ -76,8 +90,25 @@ class ItemShow extends React.Component {
 
             <div className='item-purchase'>
               {(this.props.user === this.props.item.seller_id) ? 
-                <button className='button item-purchase-button'>Update item</button> : 
-                <button className='button item-purchase-button'>Buy now</button>
+                <div>
+                  <Link to={`/items/${this.props.item.id}/edit/`}>
+                    <button
+                      id='update-item-button'
+                      className='button item-purchase-button'>Update item
+                    </button>
+                  </Link>
+
+                  <button
+                    onClick={this.handleDelete}
+                    id='delete-item-button'
+                    className='button item-purchase-button'
+                  >Delete item</button>
+                </div> :
+                
+                <button
+                  className='button item-purchase-button'
+                  onClick={this.handleDelete}
+                >Buy now</button>
               }
             </div>
           </div>

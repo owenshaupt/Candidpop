@@ -56,7 +56,8 @@ class User < ApplicationRecord
 
   has_many :items_for_sale,
     primary_key: :id,
-    foreign_key: :seller_id
+    foreign_key: :seller_id,
+    class_name: :Item
 
   has_one_attached :profile_pic
 end

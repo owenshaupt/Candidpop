@@ -5,6 +5,7 @@ import LoginFormContainer from './login/login_form_container';
 import SignupFormContainer from './signup/signup_form_container';
 import ItemIndexContainer from './items/item_index_container';
 import ItemShowContainer from './items/item_show_container';
+import UserShowContainer from './users/user_show_container';
 import NewItemFormContainer from './items/new_item_form_container';
 import EditItemFormContainer from './items/edit_item_form_container';
 import { AuthRoute } from '../util/route_util';
@@ -22,7 +23,8 @@ const App = () => (
       <Route exact path="/items/new/" component={ NewItemFormContainer }/>
       <Route exact path="/items/:itemId/edit" component={ EditItemFormContainer }/>
       <Route exact path="/items/:itemId/" component={ ItemShowContainer }/>
-      <Route exact path="/feed/" component={ ItemIndexContainer }/>
+      <Route exact path="/items/" component={ ItemIndexContainer }/>
+      <Route exact path="/:userId/" component={ UserShowContainer }/>
     </Switch>
 
     <footer>

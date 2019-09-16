@@ -33,7 +33,10 @@ class Nav extends React.Component {
     return (
       <div className='nav-bar'>
         <div className='nav-left'>
-          <Link to='/'>candidpop</Link>
+          {(this.props.currentUser !== undefined) ?
+            <Link to='/items/'>candidpop</Link> :
+            <Link to='/'>candidpop</Link>
+          }
         </div>
         
         <div className='nav-right'>
@@ -43,7 +46,10 @@ class Nav extends React.Component {
               <p height='0px'></p>
             }
             <button className='nav-button'>Search</button>
-            <button className='nav-button'>Profile</button>
+            <Link to={`/${this.props.currentUser.id}`}>
+              <button className='nav-button'>Profile</button>
+            </Link>
+
             <button className='nav-button' onClick={this.handleSubmit}>Log Out</button>
           </ul>
         </div>

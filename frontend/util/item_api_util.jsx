@@ -25,9 +25,11 @@ export const createItem = (item) => {
 
 export const updateItem = (item) => {
   return $.ajax({
-    type: 'PATCH',
     url: `/api/items/${item.id}`,
-    data: { item },
+    method: 'PATCH',
+    data: item,
+    contentType: false,
+    processData: false,
     error: (err) => console.log(err)
   });
 };

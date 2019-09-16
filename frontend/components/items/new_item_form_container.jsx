@@ -4,6 +4,7 @@ import { createItem } from '../../actions/item_actions'
 
 const mapStateToProps = (state, ownProps) => ({
   errors: state.errors.item.errors,
+  user: state.session.id,
   formType: "Create Item"
 });
 

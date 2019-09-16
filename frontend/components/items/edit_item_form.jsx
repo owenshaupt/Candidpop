@@ -16,10 +16,16 @@ class EditItemForm extends React.Component {
     this.props.fetchItem(this.props.match.params.itemId)
     
       .then(() => {
-        this.setState({ seller_id: this.props.item.seller_id, 
+        // console.log(this.props.item.photos); 
+        this.setState({ id: this.props.item.id, 
+          seller_id: this.props.item.seller_id, 
           description: this.props.item.description, 
           price: this.props.item.price, 
-          file1: null, file2: null, file3: null, file4: null, 
+          files: this.props.item.photos, 
+          file1: this.props.item.photos[0], 
+          file2: this.props.item.photos[1], 
+          file3: this.props.item.photos[2], 
+          file4: this.props.item.photos[3], 
           file1Url: this.props.item.photos[0].photoUrl, 
           file2Url: this.props.item.photos[1].photoUrl, 
           file3Url: this.props.item.photos[2].photoUrl, 
@@ -31,12 +37,12 @@ class EditItemForm extends React.Component {
   componentDidUpdate() {
     console.log('did update!');    
     console.log(this.state);    
+    console.log('this.props.item!:');    
+    console.log(this.props.item);    
   }
 
   update(field) {
-    return (e) => (
-      this.setState({ [field]: e.target.value })
-    );
+    return (e) => (this.setState({ [field]: e.target.value }));
   }
 
   handleFile1(e) {
@@ -62,30 +68,33 @@ class EditItemForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
-    const { file1, file2, file3, file4 } = this.state;
-    formData.append('item[seller_id]', this.state.seller_id)
-    formData.append('item[description]', this.state.description)
-    formData.append('item[price]', this.state.price)
-    formData.append('item[sold]', this.state.sold)
+    // const { file1, file2, file3, file4 } = this.state;
+    formData.append('item[id]', this.props.item.id);
+    formData.append('item[seller_id]', this.state.seller_id);
+    formData.append('item[description]', this.state.description);
+    formData.append('item[price]', this.state.price);
+    formData.append('item[sold]', this.state.sold);
+    debugger
 
-    if (file1 !== null) {
-      formData.append('item[photos][]', file1[0])
-    }
-    if (file2 !== null) {
-      formData.append('item[photos][]', file2[0])
-    }
-    if (file3 !== null) {
-      formData.append('item[photos][]', file3[0])
-    }
-    if (file4 !== null) {
-      formData.append('item[photos][]', file4[0])
-    }
+    // // if (file1 !== null) {
+    //   formData.append('item[photos][]', file1) // || this.props.item.)
+    // // }
+    // // if (file2 !== null) {
+    //   formData.append('item[photos][]', file2) // || this.props.item.)
+    // // }
+    // // if (file3 !== null) {
+    //   formData.append('item[photos][]', file3) // || this.props.item.)
+    // // }
+    // // if (file4 !== null) {
+    //   formData.append('item[photos][]', file4) // || this.props.item.)
+    // // }
 
-    this.props.createItem(formData)
-      .then(() => { this.props.history.push('/feed/') })
+    this.props.updateItem(formData)
+      .then(() => { this.props.history.push(`/items/${this.state.id}/`) })
   }
 
   renderErrors() {
+    console.log(this.props.errors);
     return (
       <ul>
         {this.props.errors.map((error, i) => (
@@ -100,13 +109,14 @@ class EditItemForm extends React.Component {
   render() {
     if (!this.state || !this.props.item) {
       this.state = {
+        id: null,
         seller_id: null,
         description: "",
         price: "",
-        file1: null, file2: null,
-        file3: null, file4: null,
-        file1Url: null, file2Url: null,
-        file3Url: null, file4Url: null,
+        // file1: null, file2: null,
+        // file3: null, file4: null,
+        // file1Url: null, file2Url: null,
+        // file3Url: null, file4Url: null,
         sold: false
       }
       return null; // returning react-spinner loader (component)
@@ -118,7 +128,7 @@ class EditItemForm extends React.Component {
           <h1 className='signup-h1 create-item-h1'>UPDATE YOUR ITEM</h1>
           <p className='signup-p'>Adjust your post and get back to selling.</p>
 
-          <fieldset className='create-item-item-photos'>
+          {/* <fieldset className='create-item-item-photos'>
             <legend id='upload-photos'>UPLOAD PHOTOS</legend>
 
             <div className='item-photos-upload-container'>
@@ -134,55 +144,43 @@ class EditItemForm extends React.Component {
                   </div>
                 </div>
 
-                {/* <div className='item-photo-upload-button'>
+                <div className='item-photo-upload-button'>
                   <div className='item-photo-holder'>
                     <img
                       className='upload-photo'
-                      src={
-                        (!!this.state.photos[1].photoUrl) ?
-                        (this.state.photos[1].photoUrl) :
-                        ('assets/upload_item_icon.jpg')
-                      }
+                      src={this.state.file2Url}
                       alt=""
                     />
                     <input type="file" onChange={this.handleFile2} />
                   </div>
-                </div> */}
+                </div>
               </div>
 
-              {/* <div className='item-photos-bottom-row'>
-                <div className='item-photo-upload-button'><div className='item-photo-holder'>
+              <div className='item-photos-bottom-row'>
+                <div className='item-photo-upload-button'>
                   <div className='item-photo-holder'>
                     <img
                       className='upload-photo'
-                      src={
-                        (!!this.state.photos[2].photoUrl) ?
-                        (this.state.photos[2].photoUrl) :
-                        ('assets/upload_item_icon.jpg')
-                      }
+                      src={this.state.file3Url}
                       alt=""
                     />
                     <input type="file" onChange={this.handleFile3} />
                   </div>
                 </div>
-                </div>
+
                 <div className='item-photo-upload-button'>
                   <div className='item-photo-holder'>
                     <img
                       className='upload-photo'
-                      src={
-                        (!!this.state.photos[3].photoUrl) ?
-                        (this.state.photos[3].photoUrl) :
-                        ('assets/upload_item_icon.jpg')
-                      }
+                      src={this.state.file4Url}
                       alt=""
                     />
                     <input type="file" onChange={this.handleFile4} />
                   </div>
                 </div>
-              </div> */}
+              </div>
             </div>
-          </fieldset>
+          </fieldset> */}
 
           {/* <div className='errors-div'>
             {this.renderImageRequirements()}

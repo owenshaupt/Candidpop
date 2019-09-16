@@ -4,8 +4,8 @@ class Api::ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
     # debugger
+    @item = Item.new(item_params)
     if @item.save
       render :show
     else
@@ -27,7 +27,8 @@ class Api::ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
+    # debugger
+    @item = Item.find(params[:item][:id])
     if @item.update(item_params)
       render :show
     else
@@ -46,6 +47,7 @@ class Api::ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(
+      :id,
       :seller_id,
       :description,
       :price,

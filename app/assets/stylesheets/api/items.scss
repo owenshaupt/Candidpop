@@ -2,19 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.items-idex-container {
+  max-width: 1280px;
+  // border: 1px solid blue;
+  margin: 0px auto;
+
+  box-sizing: border-box;
+}
 
 .items-list-container {
   max-width: 1280px;
   margin: 0px auto;
-  padding: 0px 1rem 4rem;
+  padding: 0px.75rem 4rem;
+  // border: 1px solid black;
+
 }
 
 .items-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   list-style-type: none;
-  margin: auto;
+  // margin: auto;
+  // border: 1px solid red;
+
 }
 
 .items-index-li {
@@ -23,7 +34,7 @@
   // border: 1px solid black;
   max-width: 195px;
   height: 204px;
-  margin: 0px 4px 16px 4px;
+  margin: 0px 4px 16px;
 }
 
 .items-index-item {
