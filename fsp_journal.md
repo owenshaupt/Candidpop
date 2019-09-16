@@ -88,3 +88,7 @@
 
 note to try tmrw: if index isn't undefined, replace only that one at same index
 also ask vanessa
+
+### Monday 09/13/2019 (W13D1)
+
+- Ask Vanessa about displaying "at least one photo" on item create form
