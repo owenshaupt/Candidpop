@@ -4,7 +4,6 @@ class Api::ItemsController < ApplicationController
   end
 
   def create
-    # debugger
     @item = Item.new(item_params)
     if @item.save
       render :show
@@ -27,7 +26,6 @@ class Api::ItemsController < ApplicationController
   end
 
   def update
-    # debugger
     @item = Item.find(params[:item][:id])
     if @item.update(item_params)
       render :show

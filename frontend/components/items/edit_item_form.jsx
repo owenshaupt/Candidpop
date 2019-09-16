@@ -35,10 +35,10 @@ class EditItemForm extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log('did update!');    
-    console.log(this.state);    
-    console.log('this.props.item!:');    
-    console.log(this.props.item);    
+    // console.log('did update!');    
+    // console.log(this.state);    
+    // console.log('this.props.item!:');    
+    // console.log(this.props.item);    
   }
 
   update(field) {
@@ -74,7 +74,6 @@ class EditItemForm extends React.Component {
     formData.append('item[description]', this.state.description);
     formData.append('item[price]', this.state.price);
     formData.append('item[sold]', this.state.sold);
-    debugger
 
     // // if (file1 !== null) {
     //   formData.append('item[photos][]', file1) // || this.props.item.)

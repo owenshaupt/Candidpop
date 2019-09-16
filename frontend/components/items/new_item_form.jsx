@@ -97,7 +97,7 @@ class NewItemForm extends React.Component {
   }
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <div className='create-item-master'>
         <form className='create-item-form' onSubmit={this.handleSubmit}>

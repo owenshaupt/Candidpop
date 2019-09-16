@@ -8,8 +8,7 @@ class UserShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchUser(this.props.match.params.userId)
-      .then(() => {console.log(this.props.user)});
-      // debugger
+      // .then(() => {console.log(this.props.user)});
   }
 
   render() {
@@ -40,7 +39,7 @@ class UserShow extends React.Component {
         </div>
       )
     });
-// debugger
+
     return (
       <div className='user-show-page-container'>
         <div className='user-show-page'>
