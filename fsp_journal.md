@@ -94,3 +94,5 @@ also ask vanessa
 - __Ask Vanessa about displaying "at least one photo" on item create form
 - Finished CRUD update and delete functionality (except the update photos)
   - Still need to add deletion after purchasing item
+- Potential future dev:
+  - Make media queries specifically for window resizing on index pages (to keep space between index items from getting too large)
