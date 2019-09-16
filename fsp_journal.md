@@ -73,3 +73,7 @@
     - Maybe initiate a lazy load with fade in transition in the future?
   - Warning renders on new form page telling user they must upload at least one photo, then goes away after one photo has been uploaded
   - Might consider making a pop-up "X" appear after upload so user can remove the photo; definitely an extra thing to add on after remaining MVPs
+
+### Sunday 09/15/2019 (W13D0)
+
+- Worked on update item but ran into very difficult bug where rails controller cannot read `:id` of incoming item. Will ask TAs --> very stumped.
