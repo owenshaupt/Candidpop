@@ -102,3 +102,7 @@ also ask vanessa
 
 - Solved image cropping issue using CSS -thanks Helen!
 - Added a custom validation to prevent users from creating an item without any photos uploaded
+- Completed profile photos:
+  - Added a field on sign up form to accept profile photo
+    - Need to seed aws with profile pics!!
+  - Displayed profile pics on user show and item show
