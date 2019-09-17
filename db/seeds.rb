@@ -15,7 +15,6 @@ User.create!(
   last_name: 'guest_info',
   email: 'guest_info',
   location: 'guest_info',
-  bio: 'guest_info'
 )
 
 User.create!(
@@ -25,7 +24,6 @@ User.create!(
   last_name: 'haupt',
   email: 'owen@owen.com',
   location: 'United States',
-  bio: 'creator/ceo candidpop'
 )
 
 User.create!(
@@ -35,7 +33,6 @@ User.create!(
   last_name: 'shin',
   email: 'dolly@dolly.com',
   location: 'United States',
-  bio: 'got her fonts working!!'
 )
 
 i01 = Item.create!(

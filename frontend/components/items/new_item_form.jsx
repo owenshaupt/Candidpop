@@ -8,8 +8,7 @@ class NewItemForm extends React.Component {
       seller_id: null,
       description: "",
       price: "",
-      file1: null, file2: null,
-      file3: null, file4: null,
+      file1: null, file2: null, file3: null, file4: null,
       file1Url: null, file2Url: null,
       file3Url: null, file4Url: null,
       sold: false
@@ -29,7 +28,6 @@ class NewItemForm extends React.Component {
   handleFile1(e) {
     this.setState({file1: e.currentTarget.files});
     this.setState({file1Url: URL.createObjectURL(e.target.files[0])}); // from Egor Egorvov @650egor on Medium
-
   }
 
   handleFile2(e) {
@@ -85,19 +83,7 @@ class NewItemForm extends React.Component {
     );
   }
 
-  renderImageRequirements() {
-    if (this.state.file1 === null &&
-        this.state.file2 === null &&
-        this.state.file3 === null &&
-        this.state.file4 === null) {
-          return (
-            <p>Must upload at least 1 photo</p>
-          )
-        }
-  }
-
   render() {
-    // console.log(this.state);
     return (
       <div className='create-item-master'>
         <form className='create-item-form' onSubmit={this.handleSubmit}>
@@ -165,10 +151,6 @@ class NewItemForm extends React.Component {
               </div>
           </div>
           </fieldset>
-
-          <div className='errors-div'>
-              {this.renderImageRequirements()}
-          </div>
 
           <fieldset className='create-item-item-details'>
             <legend>DESCRIPTION</legend>

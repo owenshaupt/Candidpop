@@ -8,7 +8,6 @@ class UserShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchUser(this.props.match.params.userId)
-      // .then(() => {console.log(this.props.user)});
   }
 
   render() {
@@ -18,7 +17,7 @@ class UserShow extends React.Component {
 
     const items = this.props.user.items.map(item => {
       return (
-        <div className='user-show-index-item-padding'>
+        <div key={item.id} className='user-show-index-item-padding'>
           <li key={item.id} className='items-index-li user-show-index-item'>
             <div className='items-index-item'>
               <Link className='item-card-link' to={`/items/${item.id}`}>
@@ -45,7 +44,13 @@ class UserShow extends React.Component {
         <div className='user-show-page'>
           <div className='user-show-info'>
             <div className='user-show-top'>
-              <div id='user-show-profile-pic'></div>
+              <div className='user-show-profile-pic'>
+                <img
+                  className='profile-photo'
+                  src={this.props.user.profile_pic}
+                  alt=""
+                />
+              </div>
               <div className='user-names'>
                 <div className='user-first-last'>
                   <h1 className='user-first'>{this.props.user.first_name}</h1>
@@ -79,22 +84,6 @@ class UserShow extends React.Component {
           </div>
         </div>
       </div>
-
-
-
-
-
-
-      // <div className='items-list-container'>
-      //   <ul className='items-list'>
-      //     {items}
-      //     <i className='filler-items' aria-hidden="true"></i>
-      //     <i className='filler-items' aria-hidden="true"></i>
-      //     <i className='filler-items' aria-hidden="true"></i>
-      //     <i className='filler-items' aria-hidden="true"></i>
-      //     <i className='filler-items' aria-hidden="true"></i>
-      //   </ul>
-      // </div>
     );
   };
 }

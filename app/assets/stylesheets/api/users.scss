@@ -23,13 +23,15 @@
 .user-show-top {
   display: flex;
   margin: 20px 0px 25px;
+  
 }
 
-#user-show-profile-pic { // danger ----> id
+.user-show-profile-pic {
   border-radius: 50%;
+  overflow: hidden;
   width: 98px;
   height: 98px;
-  background-color: aquamarine;
+  background-color: rgb(153, 153, 153);
 }
 
 .user-names {

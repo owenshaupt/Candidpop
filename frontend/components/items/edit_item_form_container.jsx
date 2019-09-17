@@ -4,6 +4,7 @@ import { fetchItem, updateItem } from '../../actions/item_actions'
 
 const mapStateToProps = (state, ownProps) => ({
   item: state.entities.items[ownProps.match.params.itemId],
+  user: state.session.id,
   errors: state.errors.item.errors,
   formType: "Edit Item"
 });

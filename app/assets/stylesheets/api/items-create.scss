@@ -78,6 +78,10 @@
   position: relative;
 }
 
+img {
+  object-fit: cover;
+}
+
 .item-photo-holder:hover {
   .upload-photo {
     opacity: .65;

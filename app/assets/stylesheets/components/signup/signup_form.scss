@@ -6,6 +6,12 @@
   margin: 0px auto;
 }
 
+.signup-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .signup-h1 {
   font-size: 24px;
   font-family: "gt-america-extended-bold";
@@ -20,10 +26,47 @@
   margin-bottom: 24px;
 }
 
-.signup-form {
-  width: 100%;
+.add-profile-pic {
   display: flex;
-  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.profile-pic-legend-container {
+  height: auto;
+  width: fit-content;
+}
+
+.add-pic-button > input {
+  cursor: pointer;
+  display: block;
+  min-height: 100%;
+  min-width: 100%;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  text-align: right;
+  top: 0;
+}
+
+.add-pic-button {
+  height: 115px;
+  width: 115px;
+  position: relative;
+  overflow: hidden;
+  background-color: black;
+  border-radius: 51%;
+}
+
+.profile-photo {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.add-pic-button:hover {
+  .profile-photo {
+    opacity: .65;
+  }
 }
 
 .signup-form-your-details {

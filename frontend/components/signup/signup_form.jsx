@@ -10,9 +10,11 @@ class SignupForm extends React.Component {
       email: "",
       username: "",
       password: "",
-      country: ""
+      location: "",
+      file: null, fileUrl: null
     }
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleFile = this.handleFile.bind(this)  
   }
 
   update(field) {
@@ -21,10 +23,26 @@ class SignupForm extends React.Component {
     );
   }
 
+  handleFile(e) {
+    this.setState({ file: e.currentTarget.files });
+    this.setState({ fileUrl: URL.createObjectURL(e.target.files[0]) }); // from Egor Egorvov @650egor on Medium
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    this.props.signup(this.state)
-      .then(() => { })
+    const formData = new FormData();
+    formData.append('user[first_name]', this.state.first_name)
+    formData.append('user[last_name]', this.state.last_name)
+    formData.append('user[email]', this.state.email)
+    formData.append('user[username]', this.state.username)
+    formData.append('user[password]', this.state.password)
+    formData.append('user[location]', this.state.location)
+
+    if (this.state.file !== null) {
+      formData.append('user[profile_pic]', this.state.file[0])
+    }
+
+    this.props.signup(formData)
       .then(() => { this.props.history.push('/items/') })
   }
 
@@ -46,6 +64,22 @@ class SignupForm extends React.Component {
         <form className='signup-form' onSubmit={this.handleSubmit}>
           <h1 className='signup-h1'>GET READY</h1>   
           <p className='signup-p'>Enter a few details to join the Candidpop community.</p>
+
+          <fieldset className='add-profile-pic'>
+            <div className='profile-pic-legend-container'>
+              <legend>Profile picture</legend>
+            </div>
+            <div className='add-pic-button'>
+              <img
+                className='profile-photo'
+                src={(!!this.state.file) ? (this.state.fileUrl) : (
+                  'assets/upload_profile_pic_icon.jpg')
+                }
+                alt=""
+              />
+              <input type="file" onChange={this.handleFile} />
+            </div>
+          </fieldset>
 
           <fieldset className='signup-form-your-details'>
             <legend>Your details</legend>
@@ -385,16 +419,16 @@ class SignupForm extends React.Component {
               Policy which sets out how we use your personal data</p>
           </div>
 
-          <div className='signup-form-terms'>
+          {/* <div className='signup-form-terms'>
             <a  className='signup-form-link' href="https://explore.depop.com/en/terms/">Terms of Service</a>
             <a  className='signup-form-link link-2' href="https://explore.depop.com/en/privacy/">Privacy Policy</a>
-          </div>
+          </div> */}
 
           <div className='errors-div'>
             {this.renderErrors()}
           </div>
 
-          <input className='create-account-button' type="submit" value="Create Account"/>
+          <input className='create-account-button' type="submit" value="Sign up"/>
 
           <p className='signup-terms h6'>By continuing you accept Candidpop's Terms of Service</p>
         </form>

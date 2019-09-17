@@ -29,8 +29,7 @@ class Api::UsersController < ApplicationController
       :last_name,
       :email,
       :location,
-      :img_url,
-      :bio
+      :profile_pic
     )
   end
 end

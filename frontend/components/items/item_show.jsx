@@ -8,7 +8,8 @@ class ItemShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchItem(this.props.match.params.itemId);
+    this.props.fetchItem(this.props.match.params.itemId)
+    .then(() => {console.log(this.props)})
   }
   
   componentDidUpdate(prevProps) { // when props or state change this will run
@@ -44,19 +45,23 @@ class ItemShow extends React.Component {
 
           <div className='item-show-item-info'>
             <Link to={`/${this.props.user}`}>
-              <div>
-                <div id='userphoto'></div>
+              <div className='user-profile-photo-container'>
+                <img
+                  className='profile-photo'
+                  src={this.props.item.user_photo}
+                  alt=""
+                />
               </div>
             </Link>
 
             <div className='item-show-seller'>
-              <Link to={`/${this.props.user}`}>
+              <Link to={`/${this.props.item.seller_id}`}>
                   <div className='item-seller-username'>
                     {this.props.item.user.username}
                   </div>
               </Link>
-              
-              <Link to={`/${this.props.user}`}>
+
+              <Link to={`/${this.props.item.seller_id}`}>
                 <div className='item-seller-location'>
                   {this.props.item.user.location}
                 </div>
