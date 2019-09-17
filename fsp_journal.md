@@ -96,3 +96,9 @@ also ask vanessa
   - Still need to add deletion after purchasing item
 - Potential future dev:
   - Make media queries specifically for window resizing on index pages (to keep space between index items from getting too large)
+- Need to add restriction on submit new item until a photo is selected
+
+### Tuesday 09/14/2019 (W13D2)
+
+- Solved image cropping issue using CSS -thanks Helen!
+- Added a custom validation to prevent users from creating an item without any photos uploaded
