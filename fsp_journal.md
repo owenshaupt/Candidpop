@@ -119,3 +119,13 @@ also ask vanessa
     `    json.profile_pic url_for(@user.profile_pic)`  
     `end`
 - Added item age calculator to item show page
+  - Breaks down into seconds, minutes, hours, and days
+    - If the magnitude of these units are (rounded down to) 1, non-pluralized test is used
+- Added footer with github and linkedin links
+- Styled search!
+- Search does not return to previous query string when navigating "back" in browser
+  - Not super essential but a possible future development
+- Fixed coloration problem in Sign Up form:
+  - `.select:invalid {`
+    - `color: #757575;`
+  - `}`
