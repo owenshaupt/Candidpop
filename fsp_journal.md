@@ -126,6 +126,6 @@ also ask vanessa
 - Search does not return to previous query string when navigating "back" in browser
   - Not super essential but a possible future development
 - Fixed coloration problem in Sign Up form:
-  - `.select:invalid {`
-    `color: #757575;`
+  - `.select:invalid {`  
+    `color: #757575;`  
     `}`
