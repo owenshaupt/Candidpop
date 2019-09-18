@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
@@ -10,6 +11,7 @@
     "node-gyp": "^5.0.3",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-live-search": "^1.0.2",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.0.1",
     "rebuild": "^0.1.2",

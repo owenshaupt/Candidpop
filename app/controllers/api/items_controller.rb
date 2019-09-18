@@ -41,6 +41,15 @@ class Api::ItemsController < ApplicationController
     render :index
   end
 
+  def search
+    @items = []
+    Item.all.each do |item|
+      @items << item if item.description.downcase.include?(params[:search_id].downcase)
+    end
+
+    render :index
+  end
+
   private
 
   def item_params
@@ -50,6 +59,7 @@ class Api::ItemsController < ApplicationController
       :description,
       :price,
       :sold,
+      :query,
       photos: []
     )
   end
