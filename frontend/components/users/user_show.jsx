@@ -47,7 +47,8 @@ class UserShow extends React.Component {
               <div className='user-show-profile-pic'>
                 <img
                   className='profile-photo'
-                  src={this.props.user.profile_pic}
+                  src={this.props.user.profile_pic || 
+                    "assets/empty_user_profile_pic.svg"}
                   alt=""
                 />
               </div>

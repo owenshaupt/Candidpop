@@ -1,9 +1,11 @@
 import * as APIUtil from '../util/item_api_util';
+import * as APIUtilSearch from '../util/search_api_util';
 
 export const RECEIVE_ITEMS = 'RECEIVE_ITEMS';
 export const RECEIVE_ITEM = 'RECEIVE_ITEM';
 export const REMOVE_ITEM = 'REMOVE_ITEM';
 export const RECEIVE_ITEM_ERRORS = 'RECEIVE_ITEM_ERRORS';
+export const RECEIVE_FILTERED_ITEMS = 'RECEIVE_FILTERED_ITEMS';
 
 const recieveAllItems = items => ({
   type: RECEIVE_ITEMS,
@@ -18,6 +20,11 @@ const recieveItem = item => ({
 const removeItem = id => ({
   type: REMOVE_ITEM,
   id
+})
+
+const receiveFilteredItems = items => ({
+  type: RECEIVE_FILTERED_ITEMS,
+  items
 })
 
 export const receiveErrors = errors => ({
@@ -45,4 +52,8 @@ export const updateItem = item => dispatch => APIUtil.updateItem(item)
 
 export const deleteItem = id => dispatch => APIUtil.deleteItem(id)
     .then(() => dispatch(removeItem()))
+    .fail(error => dispatch(receiveErrors(error.responseJSON)));
+
+export const searchItems = search_id => dispatch => APIUtilSearch.searchItems(search_id)
+    .then(items => dispatch(receiveFilteredItems(items)))
     .fail(error => dispatch(receiveErrors(error.responseJSON)));

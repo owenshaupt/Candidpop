@@ -8,7 +8,7 @@ import ItemShowContainer from './items/item_show_container';
 import UserShowContainer from './users/user_show_container';
 import NewItemFormContainer from './items/new_item_form_container';
 import EditItemFormContainer from './items/edit_item_form_container';
-import ReactSearchContainer from './search/search_container';
+import SearchContainer from './search/search_container';
 import { AuthRoute } from '../util/route_util';
 
 
@@ -22,10 +22,10 @@ const App = () => (
       <AuthRoute exact path="/login/" component={ LoginFormContainer }/>
       <AuthRoute exact path="/signup/" component={ SignupFormContainer }/>
       <Route exact path="/items/new/" component={ NewItemFormContainer }/>
+      <Route exact path="/items/search" component={ SearchContainer }/>
       <Route exact path="/items/:itemId/edit" component={ EditItemFormContainer }/>
       <Route exact path="/items/:itemId/" component={ ItemShowContainer }/>
       <Route exact path="/items/" component={ ItemIndexContainer }/>
-      <Route exact path="/search/" component={ ReactSearchContainer }/>
       <Route exact path="/:userId/" component={ UserShowContainer }/>
     </Switch>
 

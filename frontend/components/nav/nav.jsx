@@ -45,7 +45,7 @@ class Nav extends React.Component {
               <Link to='/items/new' className='nav-button'>Add Item</Link> :
               <p height='0px'></p>
             }
-            <Link to='/search'>
+            <Link to='/items/search'>
               <button className='nav-button'>Search</button>
             </Link>
 

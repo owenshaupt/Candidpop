@@ -5,11 +5,11 @@ class ItemShow extends React.Component {
   constructor(props) {
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
+    this.calculateAge = this.calculateAge.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchItem(this.props.match.params.itemId)
-    .then(() => {console.log(this.props)})
   }
   
   componentDidUpdate(prevProps) { // when props or state change this will run
@@ -22,6 +22,38 @@ class ItemShow extends React.Component {
     e.preventDefault();
     this.props.deleteItem(this.props.item.id)
       .then(() => { this.props.history.push('/items/') })
+  }
+
+  calculateAge() {
+    const currentTime = Date.now();
+    const createTime = new Date(this.props.item.created_at);
+    const timeDiff = currentTime - createTime;
+
+    if (timeDiff < 60000) {
+      if (Math.floor(timeDiff / 1000) === 1) {
+        return '1 SECOND'
+      } else {
+        return `${Math.floor(timeDiff / 1000)} SECONDS`
+      }
+    } else if (timeDiff < 3600000) {
+      if (Math.floor(timeDiff / 60000) === 1) {
+        return '1 MINUTE'
+      } else {
+        return `${Math.floor(timeDiff / 60000)} MINUTES`
+      }
+    } else if (timeDiff < 8.64e+7) {
+      if (Math.floor(timeDiff / 3600000) === 1) {
+        return '1 HOUR'
+      } else {
+        return `${Math.floor(timeDiff / 3600000)} HOURS`
+      }
+    } else {
+      if (Math.floor(timeDiff / 86400000) === 1) {
+        return '1 DAY'
+      } else {
+      return `${Math.floor(timeDiff / 86400000)} DAYS`
+      }
+    }
   }
 
   render() {
@@ -48,7 +80,8 @@ class ItemShow extends React.Component {
               <div className='user-profile-photo-container'>
                 <img
                   className='profile-photo'
-                  src={this.props.item.user_photo}
+                  src={this.props.item.user_photo ||
+                    "assets/empty_user_profile_pic.svg"}
                   alt=""
                 />
               </div>
@@ -87,7 +120,7 @@ class ItemShow extends React.Component {
               <table className='item-price-table'>
                 <tbody className='item-price-table-body'>
                   <tr className='item-price-table-row item-show-listed-time'>
-                    <th className='item-price-header'>LISTED 1 HOUR AGO -- CHANGE THIS</th>
+                    <th className='item-price-header'>LISTED {this.calculateAge()} AGO</th>
                   </tr>
                 </tbody>
               </table>
