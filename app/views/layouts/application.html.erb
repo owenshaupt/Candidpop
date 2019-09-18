@@ -4,7 +4,21 @@
     <title>Candidpop</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script type="text/javascript">
+      window.uploadProfilePicURL = "<%= image_url('upload_profile_pic_icon.jpg') %>";
+    </script>
+    <script type="text/javascript">
+      window.uploadItemIconURL = "<%= image_url('upload_item_icon.jpg') %>";
+    </script>
+    <script type="text/javascript">
+      window.linkedinLogoURL = "<%= image_url('linkedin_logo.svg') %>";
+    </script>
+    <script type="text/javascript">
+      window.githubLogoURL = "<%= image_url('github_logo.svg') %>";
+    </script>
+    <script type="text/javascript">
+      window.emptyUserProfilePicURL = "<%= image_url('empty_user_profile_pic.svg') %>";
+    </script>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>

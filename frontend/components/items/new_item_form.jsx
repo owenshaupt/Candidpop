@@ -100,7 +100,7 @@ class NewItemForm extends React.Component {
                     <img
                       className='upload-photo'
                       src={(!!this.state.file1) ? (this.state.file1Url) : (
-                        'assets/upload_item_icon.jpg')
+                        window.uploadItemIconURL)
                       }
                       alt=""
                     />
@@ -113,7 +113,7 @@ class NewItemForm extends React.Component {
                     <img
                       className='upload-photo'
                       src={(!!this.state.file2) ? (this.state.file2Url) : (
-                        'assets/upload_item_icon.jpg')
+                        window.uploadItemIconURL)
                       }
                       alt=""
                     />
@@ -128,7 +128,7 @@ class NewItemForm extends React.Component {
                     <img
                       className='upload-photo'
                       src={(!!this.state.file3) ? (this.state.file3Url) : (
-                        'assets/upload_item_icon.jpg')
+                        window.uploadItemIconURL)
                       }
                       alt=""
                     />
@@ -141,7 +141,7 @@ class NewItemForm extends React.Component {
                       <img
                         className='upload-photo'
                       src={(!!this.state.file4) ? (this.state.file4Url) : (
-                        'assets/upload_item_icon.jpg')
+                        window.uploadItemIconURL)
                       }
                       alt=""
                       />

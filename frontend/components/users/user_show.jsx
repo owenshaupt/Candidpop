@@ -48,7 +48,7 @@ class UserShow extends React.Component {
                 <img
                   className='profile-photo'
                   src={this.props.user.profile_pic || 
-                    "assets/empty_user_profile_pic.svg"}
+                    window.emptyUserProfilePicURL}
                   alt=""
                 />
               </div>
@@ -67,12 +67,12 @@ class UserShow extends React.Component {
             </div>
           </div>
 
-          <div className='selling-header'>
-            <h3>Selling</h3>
-          </div>
 
           <div className='user-items-for-sale'>
             <div className='items-list-container user-items-index-container'>
+          <div className='selling-header'>
+            <h3>Selling</h3>
+          </div>
               <ul className='items-list user-show-items-list'>
                 {items}
                 <i className='filler-items' aria-hidden="true"></i>

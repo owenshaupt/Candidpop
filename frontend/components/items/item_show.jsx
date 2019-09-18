@@ -81,7 +81,7 @@ class ItemShow extends React.Component {
                 <img
                   className='profile-photo'
                   src={this.props.item.user_photo ||
-                    "assets/empty_user_profile_pic.svg"}
+                    window.emptyUserProfilePicURL}
                   alt=""
                 />
               </div>
