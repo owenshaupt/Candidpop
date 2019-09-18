@@ -127,5 +127,5 @@ also ask vanessa
   - Not super essential but a possible future development
 - Fixed coloration problem in Sign Up form:
   - `.select:invalid {`
-    - `color: #757575;`
-  - `}`
+    `color: #757575;`
+    `}`
