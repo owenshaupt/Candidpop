@@ -24,6 +24,10 @@ header {
   font-size: 16px;
 }
 
+.nav-right > ul {
+  min-width: 370px;
+}
+
 .nav-button {
   margin-left: 24px;
   cursor: pointer;

@@ -75,17 +75,18 @@ class Search extends React.Component {
 
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            value={this.state.query}
-            placeholder='Search items...'
-            onChange={this.update('query')}
-          />
-        </form>
         <br/>
-        <div className='items-idex-container'>
+        <div className='items-index-container'>
           <div className='items-list-container'>
+            <form className='search-input-form' onSubmit={this.handleSubmit}>
+              <input
+                className='search-input'
+                type="text"
+                value={this.state.query}
+                placeholder='Search'
+                onChange={this.update('query')}
+              />
+            </form>
             <ul className='items-list'>
               {items}
               <i className='filler-items' aria-hidden="true"></i>

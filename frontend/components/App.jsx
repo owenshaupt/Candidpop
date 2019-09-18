@@ -9,6 +9,7 @@ import UserShowContainer from './users/user_show_container';
 import NewItemFormContainer from './items/new_item_form_container';
 import EditItemFormContainer from './items/edit_item_form_container';
 import SearchContainer from './search/search_container';
+import Footer from './footer/footer';
 import { AuthRoute } from '../util/route_util';
 
 
@@ -30,7 +31,7 @@ const App = () => (
     </Switch>
 
     <footer>
-      
+      <Footer />
     </footer>
   </div>
 );

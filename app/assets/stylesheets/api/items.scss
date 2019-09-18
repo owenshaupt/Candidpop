@@ -2,43 +2,66 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.items-idex-container {
-  max-width: 1280px;
+.items-index-container {
+  // max-width: 1280px;
   // border: 1px solid blue;
   margin: 0px auto;
-
   box-sizing: border-box;
 }
 
 .items-list-container {
   max-width: 1280px;
   margin: 0px auto;
-  padding: 0px.75rem 4rem;
+  padding: 0px 0.69rem 4rem;
   // border: 1px solid black;
-
 }
+
+@media (max-width: 1260px) {
+  .items-list-container {
+    max-width: 1076px;
+  }
+}
+
+@media (max-width: 1060px) {
+  .items-list-container {
+    max-width: 855px;
+  }
+}
+
+@media (max-width: 840px) {
+  .items-list-container {
+    max-width: 640px;
+  }
+}
+
+@media (max-width: 635px) {
+  .items-list-container {
+    max-width: 435px;
+  }
+}
+
+// @media (max-width: 550px) {
+//   .items-list-container {
+//     max-width: 425px;
+//   }
+// }
 
 .items-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   list-style-type: none;
-  // margin: auto;
-  // border: 1px solid red;
-
 }
 
 .items-index-li {
   flex: 1 0 20%;
   box-sizing: border-box;
-  // border: 1px solid black;
   max-width: 195px;
   height: 204px;
   margin: 0px 4px 16px;
 }
 
 .items-index-item {
-  // border: 1px solid red;
   width: 195px;
   height: 200px;
 }
@@ -48,14 +71,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // border: 1px solid blue;
 }
 
 .index-item-photo {
   display: inline;
   margin: 0 auto;
-  // height: 195px;
-  // width: 195px;
   align-items: center;
   box-sizing: border-box;
 }
@@ -80,7 +100,6 @@
   font-size: 12px;
   font-family: 'gt-america-extended-bold';
   color: rgb(38, 38, 38);
-  // border: 1px solid palevioletred;
 }
 
 .filler-items {

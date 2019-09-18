@@ -173,6 +173,10 @@ select {
   color: #000000;
 }
 
+.select:invalid {
+  color: #757575;
+}
+
 .signup-form-checkbox {
   width: 100%;
   display: flex;

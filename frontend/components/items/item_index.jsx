@@ -30,7 +30,7 @@ class ItemIndex extends React.Component {
     });
 
     return (
-      <div className='items-idex-container'>
+      <div className='items-index-container'>
         <div className='items-list-container'>
           <ul className='items-list'>
             {items}

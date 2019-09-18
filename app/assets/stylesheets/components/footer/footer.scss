@@ -1,0 +1,57 @@
+.footer {
+  position: fixed;
+  bottom: 0px;
+  box-sizing: border-box;
+  width: 100%;
+  background: rgb(255, 255, 255);
+  padding: 0.5rem 0px;
+  border-top: 1px solid rgb(238, 238, 238);
+}
+
+.links-holder {
+  max-width: 1280px;
+  display: flex;
+  align-items: center;
+  margin: 0px auto;
+  padding: 0px 1rem;
+}
+
+.links-left-link {
+  font-size: 14px;
+  font-family: 'gt-america-regular';
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.links-left-link:hover {
+  text-decoration: underline;
+}
+
+.links-right {
+  display: flex;
+  margin-left: auto;
+}
+
+.links-right-link {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.links-right-link > svg {
+  width: 20px;
+  height: 20px;
+}
+
+a.linkedin:hover {
+  #linkedin > path {
+    fill: #4A66A0;
+  }
+}
+
+a.github:hover {
+  #github > path {
+    fill: red;
+  }
+}

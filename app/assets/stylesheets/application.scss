@@ -16,7 +16,7 @@
 // fonts
 @import 'base/fonts.scss';
 
-// css reset
+// CSS Reset
 @import 'base/reset.scss';
 
 // Session
@@ -25,6 +25,9 @@
 // Nav
 @import 'App.scss';
 @import 'components/nav/nav.scss';
+
+// Footer
+@import 'components/footer/footer.scss';
 
 // Login page
 @import 'components/login/login_form.scss';
@@ -36,5 +39,8 @@
 @import 'api/items-create.scss';
 @import 'api/items-show.scss';
 
-// users
+// Users
 @import 'api/users.scss';
+
+// Search
+@import 'api/search.scss';

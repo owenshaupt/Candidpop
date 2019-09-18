@@ -137,12 +137,24 @@ class SignupForm extends React.Component {
               </div>
             </div>
           </fieldset>
+{/* 
+
+          <div class="form-item">
+            <label class="form-item__label" for="select">Required select with fake placeholder</label>
+            <div class="select-wrap">
+              <select id="select" class="form-item__element form-item__element--select" required>
+                <option disabled selected value="">Country</option>
+                <option value="1">Value 1</option>
+                <option value="2">Value 2</option>
+              </select>
+            </div>
+          </div> */}
 
           <fieldset className='signup-form-location'>
             <legend>Your location</legend>
             <div className='country-select'>
-              <select className='select' name="location" onChange={this.update('location')}>
-                <option disabled="">Country</option>
+              <select required className='select' name="location" onChange={this.update('location')}>
+                <option hidden value="">Country</option>
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Albania">Albania</option>
                 <option value="Algeria">Algeria</option>

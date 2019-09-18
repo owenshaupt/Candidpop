@@ -1,3 +1,27 @@
 // Place all the styles related to the api/search controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.search-input-form {
+  padding: 0px 4px 12px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.search-input {
+  // padding: 12px 0.69rem 12px;
+  margin-bottom: 24px;
+  font-size: 64px;
+  font-family: "gt-america-extended-bold";
+  color: black;
+  border-bottom: 1px solid rgb(215, 215, 215);
+  width: 100%;
+}
+
+.search-input::placeholder {
+  color: #d7d7d7;
+}
+
+.search-input:focus {
+  border-color: black;
+}
