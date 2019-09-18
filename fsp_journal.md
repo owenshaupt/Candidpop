@@ -109,3 +109,12 @@ also ask vanessa
 - Got search up and running with routes help from Vanessa and Jen
   - query strings are not wildcards!!
 - Completed preliminary search functionality with live (but slow, ask Vanessa) updating!
+
+### Wednesday 09/15/2019 (W13D3)
+
+- After some thought and testing, instant search has been ruled out for time being
+  - Might come back to ive updating, but for now a "reguler" type and submit like Depop implements will be the functionality
+- Adjusted the item show and user show views so that profile_pic avatars will only show conditionally:
+  - `if @user.profile_pic.attached? 
+  json.profile_pic url_for(@user.profile_pic)
+  end`
