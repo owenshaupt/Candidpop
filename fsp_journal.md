@@ -108,3 +108,4 @@ also ask vanessa
   - Displayed profile pics on user show and item show
 - Got search up and running with routes help from Vanessa and Jen
   - query strings are not wildcards!!
+- Completed preliminary search functionality with live (but slow, ask Vanessa) updating!
