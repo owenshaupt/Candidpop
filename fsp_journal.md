@@ -106,3 +106,5 @@ also ask vanessa
   - Added a field on sign up form to accept profile photo
     - Need to seed aws with profile pics!!
   - Displayed profile pics on user show and item show
+- Got search up and running with routes help from Vanessa and Jen
+  - query strings are not wildcards!!
