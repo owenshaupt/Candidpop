@@ -139,3 +139,5 @@ also ask vanessa
 - Got spinners working/importing
   - working on implementing on forms
 - Created clearErrors functionality while navigating between `/login` and `/signup`
+- Applied spinners to submit buttons across the site ~~excepting the sign in as guest choice~~
+  - Added to all submission buttons!
