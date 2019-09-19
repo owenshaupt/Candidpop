@@ -76,16 +76,16 @@ class ItemShow extends React.Component {
           </div>
 
           <div className='item-show-item-info'>
-            <Link to={`/${this.props.user}`}>
               <div className='user-profile-photo-container'>
-                <img
-                  className='profile-photo'
-                  src={this.props.item.user_photo ||
-                    window.emptyUserProfilePicURL}
-                  alt=""
-                />
+                <Link to={`/${this.props.user}`}>
+                  <img
+                    className='profile-photo'
+                    src={this.props.item.user_photo ||
+                      window.emptyUserProfilePicURL}
+                    alt=""
+                  />
+                </Link>
               </div>
-            </Link>
 
             <div className='item-show-seller'>
               <Link to={`/${this.props.item.seller_id}`}>
@@ -94,11 +94,11 @@ class ItemShow extends React.Component {
                   </div>
               </Link>
 
-              <Link to={`/${this.props.item.seller_id}`}>
-                <div className='item-seller-location'>
+              <div className='item-seller-location'>
+                <Link to={`/${this.props.item.seller_id}`}>
                   {this.props.item.user.location}
-                </div>
-              </Link>
+                </Link>
+              </div>
             </div>
 
             <div className='item-show-description'>
