@@ -129,3 +129,4 @@ also ask vanessa
   - `.select:invalid {`  
     `color: #757575;`  
     `}`
+- All above comments for today working on Heroku!!
