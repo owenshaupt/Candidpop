@@ -116,7 +116,7 @@ also ask vanessa
   - Might come back to ive updating, but for now a "reguler" type and submit like Depop implements will be the functionality
 - Adjusted the item show and user show views so that profile_pic avatars will only show conditionally:
   - `if @user.profile_pic.attached?`  
-    `    json.profile_pic url_for(@user.profile_pic)`  
+    &nbsp;&nbsp;&nbsp;&nbsp;`json.profile_pic url_for(@user.profile_pic)`  
     `end`
 - Added item age calculator to item show page
   - Breaks down into seconds, minutes, hours, and days
@@ -127,7 +127,7 @@ also ask vanessa
   - Not super essential but a possible future development
 - Fixed coloration problem in Sign Up form:
   - `.select:invalid {`  
-    &nbsp;&nbsp;&nbsp;&nbsp;`color: #757575;
+    &nbsp;&nbsp;&nbsp;&nbsp;`color: #757575;  
     `}`
 - All above comments for today working on Heroku!!
 - Future development idea:
