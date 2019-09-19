@@ -127,7 +127,7 @@ also ask vanessa
   - Not super essential but a possible future development
 - Fixed coloration problem in Sign Up form:
   - `.select:invalid {`  
-    &nbsp;&nbsp;&nbsp;&nbsp;`color: #757575;  
+    &nbsp;&nbsp;&nbsp;&nbsp;`color: #757575;`  
     `}`
 - All above comments for today working on Heroku!!
 - Future development idea:
