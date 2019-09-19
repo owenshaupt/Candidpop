@@ -89,7 +89,7 @@
 note to try tmrw: if index isn't undefined, replace only that one at same index
 also ask vanessa
 
-### Monday 09/13/2019 (W13D1)
+### Monday 09/16/2019 (W13D1)
 
 - __Ask Vanessa about displaying "at least one photo" on item create form
 - Finished CRUD update and delete functionality (except the update photos)
@@ -98,7 +98,7 @@ also ask vanessa
   - Make media queries specifically for window resizing on index pages (to keep space between index items from getting too large)
 - Need to add restriction on submit new item until a photo is selected
 
-### Tuesday 09/14/2019 (W13D2)
+### Tuesday 09/17/2019 (W13D2)
 
 - Solved image cropping issue using CSS -thanks Helen!
 - Added a custom validation to prevent users from creating an item without any photos uploaded
@@ -110,7 +110,7 @@ also ask vanessa
   - query strings are not wildcards!!
 - Completed preliminary search functionality with live (but slow, ask Vanessa) updating!
 
-### Wednesday 09/15/2019 (W13D3)
+### Wednesday 09/18/2019 (W13D3)
 
 - After some thought and testing, instant search has been ruled out for time being
   - Might come back to ive updating, but for now a "reguler" type and submit like Depop implements will be the functionality
@@ -132,3 +132,9 @@ also ask vanessa
 - All above comments for today working on Heroku!!
 - Future development idea:
   - On index page, sold items show an overlay and will persist a set amount of time until finally being deleted from database?
+
+### Thursday 09/19/2019 (W13D4)
+
+- Completed splash page with a custom phone image!
+- Got spinners working/importing
+  - working on implementing on forms
