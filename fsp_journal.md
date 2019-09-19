@@ -138,3 +138,4 @@ also ask vanessa
 - Completed splash page with a custom phone image!
 - Got spinners working/importing
   - working on implementing on forms
+- Created clearErrors functionality while navigating between `/login` and `/signup`
