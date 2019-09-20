@@ -137,7 +137,25 @@ also ask vanessa
 
 - Completed splash page with a custom phone image!
 - Got spinners working/importing
-  - working on implementing on forms
 - Created clearErrors functionality while navigating between `/login` and `/signup`
 - Applied spinners to submit buttons across the site ~~excepting the sign in as guest choice~~
   - Added to all submission buttons!
+  - Added fail-safe to each button to return to icon-less state if AJAX request is not successful
+- Final version (for now) of splash image completed
+- Still need to add profile pics to each user
+- !! Found bug where I am on Dolly's profile page then I try to navigate to Profile link it does not update the page
+  - Due to the wildcard spot not "changing" in terms what the url bar is reading
+- Small behavior persists where buttons on login page shift the items beneath a given button when clicked/spinner activates
+- Can't see spinner loader for pre-index load
+
+### Friday 09/20/2019 (W13D5)
+
+- Login spinner issue is a behavior specific to Chrome and does not appear in Firefox (FF best browser)
+- Fixed userId wildcard issue by adding a user fetch to render specifically a new user:
+  - `handleProfile(e) {`  
+    &nbsp;&nbsp;&nbsp;&nbsp;`e.preventDefault();`  
+    &nbsp;&nbsp;&nbsp;&nbsp;`this.props.fetchUser(this.props.currentUser.id)`  
+    &nbsp;&nbsp;&nbsp;&nbsp;`.then(() => this.props.history.push(`/${this.props.currentUser.id}`));`  
+    `}`
+- Small issue persists on Country <select> where a warning pops up preventing pressing the signup button, i.e. a warning that prevents my own errors from displaying and which looks unpleasant
+- Push to Heroku for final version before presenting!
