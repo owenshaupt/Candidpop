@@ -137,7 +137,8 @@ also ask vanessa
 
 - Completed splash page with a custom phone image!
 - Got spinners working/importing
-  - working on implementing on forms
 - Created clearErrors functionality while navigating between `/login` and `/signup`
 - Applied spinners to submit buttons across the site ~~excepting the sign in as guest choice~~
   - Added to all submission buttons!
+  - Added fail-safe to each button to return to icon-less state if AJAX request is not successful
+- Final version (for now) of splash image completed
