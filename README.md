@@ -85,7 +85,7 @@ handleFile1(e) {
 
 ---
 
-## Future Additions
+### Future Additions
 
 - Some features I would like to implement in the future include:
   - 
