@@ -89,8 +89,55 @@
 note to try tmrw: if index isn't undefined, replace only that one at same index
 also ask vanessa
 
-### Monday 09/13/2019 (W13D1)
+### Monday 09/16/2019 (W13D1)
 
 - __Ask Vanessa about displaying "at least one photo" on item create form
 - Finished CRUD update and delete functionality (except the update photos)
   - Still need to add deletion after purchasing item
+- Potential future dev:
+  - Make media queries specifically for window resizing on index pages (to keep space between index items from getting too large)
+- Need to add restriction on submit new item until a photo is selected
+
+### Tuesday 09/17/2019 (W13D2)
+
+- Solved image cropping issue using CSS -thanks Helen!
+- Added a custom validation to prevent users from creating an item without any photos uploaded
+- Completed profile photos:
+  - Added a field on sign up form to accept profile photo
+    - Need to seed aws with profile pics!!
+  - Displayed profile pics on user show and item show
+- Got search up and running with routes help from Vanessa and Jen
+  - query strings are not wildcards!!
+- Completed preliminary search functionality with live (but slow, ask Vanessa) updating!
+
+### Wednesday 09/18/2019 (W13D3)
+
+- After some thought and testing, instant search has been ruled out for time being
+  - Might come back to ive updating, but for now a "reguler" type and submit like Depop implements will be the functionality
+- Adjusted the item show and user show views so that profile_pic avatars will only show conditionally:
+  - `if @user.profile_pic.attached?`  
+    &nbsp;&nbsp;&nbsp;&nbsp;`json.profile_pic url_for(@user.profile_pic)`  
+    `end`
+- Added item age calculator to item show page
+  - Breaks down into seconds, minutes, hours, and days
+    - If the magnitude of these units are (rounded down to) 1, non-pluralized test is used
+- Added footer with github and linkedin links
+- Styled search!
+- Search does not return to previous query string when navigating "back" in browser
+  - Not super essential but a possible future development
+- Fixed coloration problem in Sign Up form:
+  - `.select:invalid {`  
+    &nbsp;&nbsp;&nbsp;&nbsp;`color: #757575;`  
+    `}`
+- All above comments for today working on Heroku!!
+- Future development idea:
+  - On index page, sold items show an overlay and will persist a set amount of time until finally being deleted from database?
+
+### Thursday 09/19/2019 (W13D4)
+
+- Completed splash page with a custom phone image!
+- Got spinners working/importing
+  - working on implementing on forms
+- Created clearErrors functionality while navigating between `/login` and `/signup`
+- Applied spinners to submit buttons across the site ~~excepting the sign in as guest choice~~
+  - Added to all submission buttons!
