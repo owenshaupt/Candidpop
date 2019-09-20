@@ -14,7 +14,7 @@ User.create!(
   first_name: 'guest_info',
   last_name: 'guest_info',
   email: 'guest_info',
-  location: 'guest_info',
+  location: 'guest_location',
 )
 
 User.create!(

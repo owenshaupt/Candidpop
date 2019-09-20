@@ -7,7 +7,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  signup: (user) => dispatch(signup(user))
+  signup: (user) => dispatch(signup(user)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignupForm);

@@ -1,5 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ClipLoader } from 'react-spinners';
+import { css } from '@emotion/core';
+
+const override = css`
+    display: block;
+    margin: 0 auto;
+`;
 
 class Search extends React.Component {
   constructor(props) {
@@ -49,7 +56,17 @@ class Search extends React.Component {
   }
 
   render() {
-    if (!this.props.items) return null;
+    if (!this.props.items) return (
+      <div className='page-loading'>
+        <ClipLoader
+          css={override}
+          sizeUnit={"px"}
+          size={42}
+          color={'#282828'}
+          loading={true}
+        />
+      </div>
+    );
 
     const items = this.props.items.map(item => {
       return (

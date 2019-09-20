@@ -5,6 +5,7 @@ class Nav extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleRedirect = this.handleRedirect.bind(this)
   }
 
 
@@ -12,6 +13,12 @@ class Nav extends React.Component {
     e.preventDefault();
     this.props.logout()
       .then(() => { this.props.history.push('/') })
+  }
+
+  handleRedirect(e) {
+    e.preventDefault();
+    this.props.clearErrors();
+    this.props.history.push('/login/');
   }
 
 
@@ -24,7 +31,7 @@ class Nav extends React.Component {
           </div>
         
           <div className='nav-right'>
-            <Link to="/login" className='nav-button'>Login</Link>
+            <button onClick={this.handleRedirect} className='nav-button'>Login</button>
           </div>
         </div>
       );

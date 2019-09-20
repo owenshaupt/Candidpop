@@ -1,0 +1,109 @@
+.splash-master {
+  // max-width: 1280px;
+  margin: 0px auto;
+  box-sizing: border-box;
+}
+
+.splash-container {
+  max-width: 1280px;
+  margin: 0px auto;
+  padding: 0px 0.69rem 4rem;
+  display: flex;
+}
+
+.phone-image {
+  height: 504px;
+  width: 400px;
+  flex-shrink: 0;
+  margin: 50px 0px 0px 50px;
+}
+
+.phone-image > img {
+  height: 100%;
+  width: 100%; 
+}
+
+.splash-right-side {
+  margin: 50px auto;
+  padding: 0px 0px 0px 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.splash-greeting {
+}
+
+.splash-h1 {
+  margin-bottom: 20px;
+  font-size: 56px;
+  font-family: 'gt-america-expanded-black'
+}
+
+.splash-p {
+  margin-bottom: 54px;
+  font-size: 24px;
+  font-family: 'gt-america-expanded-bold'
+}
+
+.splash-buttons-container {
+  width: fit-content;
+  display: flex;
+}
+
+.splash-button-holder {
+  width: 120px;
+  height: 40px;
+}
+
+.splash-button {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  border-radius: 8px;
+  display: flex;
+}
+
+.splash-button-github {
+  margin-right: 20px;
+}
+
+.splash-button-icon {
+  width: 25px;
+  height: 25px;
+  margin: auto 8px;
+}
+
+.splash-button-icon-github {
+  margin-top: 5px;
+}
+
+.button-text-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto auto 3px 2px;
+}
+
+.button-text-top {
+  color: white;
+  font-size: 10px;
+  font-family: 'gt-america-regular';
+}
+
+.button-text-bottom {
+  color: white;
+  font-size: 17px;
+  font-family: 'gt-america-regular';
+}
+
+.splash-icon-github {
+  border-radius: 50%;
+  height: 29px;
+  width: 28px;
+}
+
+.splash-icon-linkedin {
+  border-radius: 2px;
+  height: 25px;
+  width: 26px;
+  background-color: white;
+}

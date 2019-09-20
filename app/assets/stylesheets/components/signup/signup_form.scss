@@ -218,7 +218,7 @@ select {
   font-family: "gt-america-standard-regular", Arial, sans-serif;
   font-size: 12px;
   color: rgb(175, 175, 175);
-  margin: 0px auto 32px;
+  margin: 0px auto 64px;
 }
 
 .signup-form-terms {
@@ -240,6 +240,8 @@ select {
 }
 
 .create-account-button {
+  width: 100%;
+
   border-width: 2px;
   border-style: solid;
   border-radius: 2px;
@@ -262,4 +264,14 @@ select {
 .create-account-button:hover {
   background-color: #595959;
   border-color: #595959;
+}
+
+.create-button-container {
+  box-sizing: border-box;
+  position: relative;
+}
+
+.submit-signup {
+  height: auto;
+  left: 47.8%;
 }

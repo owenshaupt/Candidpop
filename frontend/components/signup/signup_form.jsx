@@ -1,5 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ClipLoader } from 'react-spinners';
+import { css } from '@emotion/core';
+
+const override = css`
+    display: block;
+    margin: 0 auto;
+`;
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -11,7 +18,8 @@ class SignupForm extends React.Component {
       username: "",
       password: "",
       location: "",
-      file: null, fileUrl: null
+      file: null, fileUrl: null,
+      loading: false
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleFile = this.handleFile.bind(this)  
@@ -30,7 +38,9 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.setState({ loading: true });
     const formData = new FormData();
+
     formData.append('user[first_name]', this.state.first_name)
     formData.append('user[last_name]', this.state.last_name)
     formData.append('user[email]', this.state.email)
@@ -44,6 +54,7 @@ class SignupForm extends React.Component {
 
     this.props.signup(formData)
       .then(() => { this.props.history.push('/items/') })
+      .fail(() => this.setState({ loading: false }))
   }
 
   renderErrors() {
@@ -428,8 +439,23 @@ class SignupForm extends React.Component {
             {this.renderErrors()}
           </div>
 
-          <input className='create-account-button' type="submit" value="Sign up"/>
-
+          <div className='create-button-container'>
+            <input
+              className='create-account-button'
+              type="submit"
+              value={(this.state.loading) ?
+                ("") :
+                ('Sign up')}/>
+            <div className='submit-loading submit-signup'>
+              <ClipLoader
+                css={override}
+                sizeUnit={"px"}
+                size={16}
+                color={'white'}
+                loading={this.state.loading}
+              />
+            </div>
+          </div>
           <p className='signup-terms h6'>By continuing you accept Candidpop's Terms of Service</p>
         </form>
       </div>

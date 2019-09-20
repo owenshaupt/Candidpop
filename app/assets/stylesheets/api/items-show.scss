@@ -1,10 +1,8 @@
 .item-show-page-body {
-  // border: 1px solid black;
   box-sizing: border-box;  
 } 
 
 .item-show {
-  // border: 1px solid red;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -14,24 +12,19 @@
 }
 
 .item-show-item-photos {
-  // background-color: blue;
-  // background-image: linear-gradient(to bottom right, red, blue);
   height: fit-content;
   max-width: 640px;
   min-width: 300px;
   flex: 1 1 300px;
-  // border: 1px solid black;
   margin-bottom: 32px;
 }
 
 .item-show-item-info {
   position: sticky;
   top: 58px;
-  // background-color: green;
   height: fit-content;
   width: 375px;
   flex: 0 0 auto;
-  // border: 1px solid black;
   margin-left: 2rem;
 }
 
@@ -51,10 +44,6 @@
   top: 0px;
   left: 0px;  
   opacity: 1;
-  // object-fit: cover;
-
-  // transition: opacity 0.5s ease 0s; // ????
-  // position: absolute; // ????
 }
 
 .user-profile-photo-container {
@@ -123,6 +112,7 @@
   width: 100%;
   flex-shrink: 1;
   flex-grow: 1;
+  height: 40px;
 }
 
 .item-purchase-button:hover {
@@ -138,4 +128,23 @@
   color: rgb(0,0,0);
   background-color: #FFFFFF;
   border-color: black;
+  height: 40px;
+}
+
+.delete-button-container .buy-button-container {
+  position: relative;
+  height: 40px;
+}
+
+.delete-loading, .buy-loading {
+  position: absolute;
+  top: 31%;
+  left: 48%;
+  z-index: 5;
+  height: 100%;
+}
+
+.buy-button-container {
+  position: relative;
+  height: 40px;
 }

@@ -1,12 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ClipLoader } from 'react-spinners';
+import { css } from '@emotion/core';
+
+const override = css`
+    display: block;
+    margin: 0 auto;
+`;
 
 class EditItemForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.handleSubmit = this.handleSubmit.bind(this);
-
   }
 
   componentDidMount() {
@@ -17,7 +23,7 @@ class EditItemForm extends React.Component {
           seller_id: this.props.user, 
           description: this.props.item.description, 
           price: this.props.item.price, 
-          sold: false });
+          sold: false, loading: false });
       });
   }
 
@@ -29,6 +35,7 @@ class EditItemForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.setState({ loading: true });
     const formData = new FormData();
 
     formData.append('item[id]', this.props.item.id);
@@ -39,6 +46,7 @@ class EditItemForm extends React.Component {
 
     this.props.updateItem(formData)
       .then(() => { this.props.history.push(`/items/${this.state.id}/`) })
+      .fail(() => this.setState({ loading: false }))
   }
 
   renderErrors() {
@@ -61,9 +69,20 @@ class EditItemForm extends React.Component {
         description: "",
         price: "",
 
-        sold: false
+        sold: false,
+        loading: false
       }
-      return null; // returning react-spinner loader (component)
+      return (
+        <div className='page-loading'>
+          <ClipLoader
+            css={override}
+            sizeUnit={"px"}
+            size={42}
+            color={'#282828'}
+            loading={true}
+          />
+        </div>
+      );
     }
 
     return (
@@ -107,7 +126,21 @@ class EditItemForm extends React.Component {
           </div>
 
           <div className='create-item-button-container'>
-            <input className='create-account-button create-item-button' type="submit" />
+            <input
+              className='create-account-button create-item-button'
+              type="submit"
+              value={(this.state.loading) ?
+                     ("") :
+                     ('Submit')}/>
+            <div className='submit-loading'>
+              <ClipLoader
+                css={override}
+                sizeUnit={"px"}
+                size={16}
+                color={'white'}
+                loading={this.state.loading}
+              />
+            </div>
           </div>
         </form>
       </div>

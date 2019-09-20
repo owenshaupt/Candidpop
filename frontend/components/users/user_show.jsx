@@ -1,5 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ClipLoader } from 'react-spinners';
+import { css } from '@emotion/core';
+
+const override = css`
+    display: block;
+    margin: 0 auto;
+`;
 
 class UserShow extends React.Component {
   constructor(props) {
@@ -12,7 +19,17 @@ class UserShow extends React.Component {
 
   render() {
     if (!this.props.user || !this.props.user.items) {
-      return null; // returning react-spinner loader (component)
+      return (
+        <div className='page-loading'>
+          <ClipLoader
+            css={override}
+            sizeUnit={"px"}
+            size={42}
+            color={'#282828'}
+            loading={true}
+          />
+        </div>
+      );
     }
 
     const items = this.props.user.items.map(item => {

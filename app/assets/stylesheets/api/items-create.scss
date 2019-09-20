@@ -4,15 +4,14 @@
   align-items: center;
   max-width: 366px;
   margin: 0px auto;
-  // border: 1px solid black;
 }
 
 .create-item-form {
   flex: auto;
+  margin-bottom: 64px;
 }
 
 .create-item-h1 {
-
 }
 
 #upload-photos {
@@ -20,32 +19,27 @@
 }
 
 .item-photos-upload-container {
-  // border: 1px solid black;
   display: flex;
   flex-direction: column;
   height: 324.5px;
   width: 324.5px;
   margin-bottom: 8px;
   box-sizing: border-box;
-
 }
 
 .item-photos-top-row {
-  // border: 1px solid red;
   height: 50%;
   display: flex;
   box-sizing: border-box;
 }
 
 .item-photos-bottom-row {
-  // border: 1px solid red;
   height: 50%;
   display: flex;
   box-sizing: border-box;
 }
 
 .item-photo-upload-button {
-  // border: 1px solid blue;
   height: 100%;
   width: 50%;
   padding: 4px;
@@ -144,8 +138,15 @@ img {
   display: flex;
   justify-content: center;
   width: 100%;
+  position: relative;
 }
 
 .create-item-button { // does overwrite
-  flex: auto;         // create-account
+  flex: auto;         // create-account  
+}
+
+.submit-loading {
+  position: absolute;
+  top: 32.5%;
+  z-index: 5;
 }

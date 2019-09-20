@@ -1,12 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ClipLoader } from 'react-spinners';
+import { css } from '@emotion/core';
+
+const override = css`
+    display: block;
+    margin: 0 auto;
+`;
 
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      loading: false,
+      guestLoading: false
     }
 
     this.guest = {
@@ -18,8 +27,9 @@ class LoginForm extends React.Component {
       location: 'guest_info',
     }
 
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleGuest = this.handleGuest.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleGuest = this.handleGuest.bind(this);
+    this.handleRedirect = this.handleRedirect.bind(this);
   }
 
   update(field) {
@@ -30,14 +40,25 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.setState({ loading: true });
     this.props.login(this.state)
       .then(() => {this.props.history.push('/items/')})
+      .fail(() => this.setState({ loading: false }))
   }
 
   handleGuest(e) {
     e.preventDefault();
+    this.setState({ guestLoading: true });
     this.props.login(this.guest)
       .then(() => {this.props.history.push('/items/')})
+      .fail(() => this.setState({ guestLoading: false }))
+
+  }
+
+  handleRedirect(e) {
+    e.preventDefault();
+    this.props.clearErrors();
+    this.props.history.push('/signup/');
   }
 
   renderErrors() {
@@ -80,7 +101,23 @@ class LoginForm extends React.Component {
           <div className='errors-div'>
             {this.renderErrors()}
           </div>
-          <input className='button login-button' type="submit" value='Login'/>
+          <div className='login-button-container'>
+            <input
+              className='button login-button'
+              type="submit"
+              value={(this.state.loading) ?
+                ("") :
+                ('Login')}/>
+            <div className='login-loading'>
+              <ClipLoader
+                css={override}
+                sizeUnit={"px"}
+                size={16}
+                color={'white'}
+                loading={this.state.loading}
+              />
+            </div>
+          </div>
         </form>
 
         <div className='or-box'>
@@ -88,12 +125,30 @@ class LoginForm extends React.Component {
         </div>
 
         <div className="signup-and-guest-section">
-          
-          <Link className='button signup-button' to='/signup/'>Sign up</Link>
-
-          <button className='button login-button signin-guest-button' onClick={this.handleGuest}>
-            Sign in as guest
+          <button
+            className='button signup-button'
+            onClick={this.handleRedirect}>
+            Sign up
           </button>
+
+          <div className='guest-button-container'>
+            <button
+              className='button login-button signin-guest-button'
+              onClick={this.handleGuest}>
+              {(this.state.guestLoading) ?
+                ("") :
+                ('Sign in as guest')}
+            </button>
+            <div className='guest-loading'>
+              <ClipLoader
+                css={override}
+                sizeUnit={"px"}
+                size={16}
+                color={'white'}
+                loading={this.state.guestLoading}
+              />
+            </div>
+          </div>
         </div>
       </div>
     )

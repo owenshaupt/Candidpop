@@ -1,11 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ClipLoader } from 'react-spinners';
+import { css } from '@emotion/core';
+
+const override = css`
+    display: block;
+    margin: 0 auto;
+`;
 
 class ItemShow extends React.Component {
   constructor(props) {
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
     this.calculateAge = this.calculateAge.bind(this);
+    this.state = {
+      loading: false
+    }
   }
 
   componentDidMount() {
@@ -20,8 +30,10 @@ class ItemShow extends React.Component {
 
   handleDelete(e) {
     e.preventDefault();
+    this.setState({ loading: true });
     this.props.deleteItem(this.props.item.id)
       .then(() => { this.props.history.push('/items/') })
+      .fail(() => this.setState({ loading: false }))
   }
 
   calculateAge() {
@@ -58,7 +70,17 @@ class ItemShow extends React.Component {
 
   render() {
     if (!this.props.item || !this.props.item.user || !this.props.item.photos) {
-      return null; // returning react-spinner loader (component)
+      return (
+        <div className='page-loading'>
+          <ClipLoader
+            css={override}
+            sizeUnit={"px"}
+            size={42}
+            color={'#282828'}
+            loading={true}
+          />
+        </div>
+      );
     }
 
     return (
@@ -77,7 +99,7 @@ class ItemShow extends React.Component {
 
           <div className='item-show-item-info'>
               <div className='user-profile-photo-container'>
-                <Link to={`/${this.props.user}`}>
+                <Link to={`/${this.props.item.seller_id}`}>
                   <img
                     className='profile-photo'
                     src={this.props.item.user_photo ||
@@ -136,17 +158,45 @@ class ItemShow extends React.Component {
                     </button>
                   </Link>
 
-                  <button
-                    onClick={this.handleDelete}
-                    id='delete-item-button'
-                    className='button item-purchase-button'
-                  >Delete item</button>
+                  <div className='delete-button-container'>
+                    <button
+                      onClick={this.handleDelete}
+                      id='delete-item-button'
+                      className='button item-purchase-button'>
+                      {(this.state.loading) ?
+                      ("") :
+                      ('Delete item')}
+                    </button>
+                    <div className='delete-loading'>
+                      <ClipLoader
+                        css={override}
+                        sizeUnit={"px"}
+                        size={16}
+                        color={'black'}
+                        loading={this.state.loading}
+                      />
+                    </div>
+                  </div>
                 </div> :
                 
-                <button
-                  className='button item-purchase-button'
-                  onClick={this.handleDelete}
-                >Buy now</button>
+                <div className='buy-button-container'>
+                  <button
+                    className='button item-purchase-button'
+                    onClick={this.handleDelete}>
+                    {(this.state.loading) ?
+                     ("") :
+                     ('Buy now')}
+                  </button>
+                  <div className='buy-loading'>
+                    <ClipLoader
+                      css={override}
+                      sizeUnit={"px"}
+                      size={16}
+                      color={'white'}
+                      loading={this.state.loading}
+                    />
+                  </div>
+                </div>
               }
             </div>
           </div>

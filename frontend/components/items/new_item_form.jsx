@@ -1,5 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ClipLoader } from 'react-spinners';
+import { css } from '@emotion/core';
+
+const override = css`
+    display: block;
+    margin: 0 auto;
+`;
 
 class NewItemForm extends React.Component {
   constructor(props) {
@@ -11,7 +18,8 @@ class NewItemForm extends React.Component {
       file1: null, file2: null, file3: null, file4: null,
       file1Url: null, file2Url: null,
       file3Url: null, file4Url: null,
-      sold: false
+      sold: false,
+      loading: false
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)  
@@ -47,6 +55,8 @@ class NewItemForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.setState({ loading: true });
+
     const formData = new FormData();
     const { file1, file2, file3, file4 } = this.state;
     formData.append('item[seller_id]', this.props.user)
@@ -69,7 +79,10 @@ class NewItemForm extends React.Component {
 
     this.props.createItem(formData)
       .then(() => { this.props.history.push('/items/') })
+      .fail(() => this.setState({ loading: false }))
   }
+
+  // set state for loading to make spinner appear
 
   renderErrors() {
     return (
@@ -187,7 +200,21 @@ class NewItemForm extends React.Component {
           </div>
 
           <div className='create-item-button-container'>
-            <input className='create-account-button create-item-button' type="submit"/>
+            <input
+              className='create-account-button create-item-button'
+              type="submit"
+              value={(this.state.loading) ? 
+                     ("") : 
+                     ('Submit')}/>
+            <div className='submit-loading'>
+              <ClipLoader
+                css={override}
+                sizeUnit={"px"}
+                size={16}
+                color={'white'}
+                loading={this.state.loading}
+              />
+            </div>
           </div>
         </form>
       </div>

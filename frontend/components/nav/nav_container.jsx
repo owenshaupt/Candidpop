@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Nav from './nav';
-import { logout } from '../../actions/session_actions';
+import { logout, clearErrors } from '../../actions/session_actions';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -9,7 +9,8 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   login: () => dispatch(login()),
-  logout: () => dispatch(logout())
+  logout: () => dispatch(logout()),
+  clearErrors: () => dispatch(clearErrors())
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Nav));

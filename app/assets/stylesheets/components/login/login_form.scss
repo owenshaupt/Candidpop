@@ -102,6 +102,7 @@ h1 {
 
 .signin-guest-button {
   width: inherit;
+  height: 40px;
   color: rgb(255, 255, 255);
   background-color: #4A66A0;
   border-color: #4A66A0;
@@ -131,4 +132,23 @@ h1 {
   background: rgb(255, 255, 255);
   padding: 3px 7px;
   z-index: 10;
+}
+
+.login-button-container {
+  position: relative;
+  width: 100%;
+}
+
+.guest-button-container {
+  width: 100%;
+  position: relative;
+  height: 16px;
+}
+
+.guest-loading {
+  position: absolute;
+  top: 73.5%;
+  left: 48%;
+  z-index: 5;
+  height: 100%;
 }
