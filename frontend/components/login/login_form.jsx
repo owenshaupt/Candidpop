@@ -125,11 +125,13 @@ class LoginForm extends React.Component {
         </div>
 
         <div className="signup-and-guest-section">
-          <button
-            className='button signup-button'
-            onClick={this.handleRedirect}>
-            Sign up
-          </button>
+          <div className='signup-button-container'>
+            <button
+              className='button signup-button'
+              onClick={this.handleRedirect}>
+              Sign up
+            </button>
+          </div>
 
           <div className='guest-button-container'>
             <button

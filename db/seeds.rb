@@ -8,7 +8,7 @@
 
 require 'open-uri'
 
-User.create!(
+u01 = User.create!(
   username: 'guest',
   password: 'password',
   first_name: 'guest_info',
@@ -17,21 +17,129 @@ User.create!(
   location: 'guest_location',
 )
 
-User.create!(
+u02 = User.create!(
   username: 'owen',
   password: '123123',
-  first_name: 'owen',
-  last_name: 'haupt',
+  first_name: 'Owen',
+  last_name: 'Haupt',
   email: 'owen@owen.com',
   location: 'United States',
 )
 
-User.create!(
+u03 = User.create!(
   username: 'dolly',
   password: '123456',
-  first_name: 'dolly',
-  last_name: 'shin',
+  first_name: 'Dolly',
+  last_name: 'Shin',
   email: 'dolly@dolly.com',
+  location: 'United States',
+)
+
+u04 = User.create!(
+  username: 'alia',
+  password: '123456',
+  first_name: 'Alia',
+  last_name: 'Shafi',
+  email: 'alia@alia.com',
+  location: 'United States',
+)
+
+u05 = User.create!(
+  username: 'ernie',
+  password: '123456',
+  first_name: 'Ernest',
+  last_name: 'Man',
+  email: 'ernie@ernie.com',
+  location: 'United States',
+)
+
+u06 = User.create!(
+  username: 'jeff',
+  password: '123456',
+  first_name: 'Jeffrey',
+  last_name: 'Bui',
+  email: 'jeffrey@jeffrey.com',
+  location: 'United States',
+)
+
+u07 = User.create!(
+  username: 'lwin',
+  password: '123456',
+  first_name: 'Lwin',
+  last_name: 'Ye',
+  email: 'lwin@lwin.com',
+  location: 'United States',
+)
+
+u08 = User.create!(
+  username: 'ronil',
+  password: '123456',
+  first_name: 'Ronil',
+  last_name: 'Bhatia',
+  email: 'ronil@ronil.com',
+  location: 'United States',
+)
+
+# u09 = User.create!(
+#   username: 'ronil',
+#   password: '123456',
+#   first_name: 'Ronil',
+#   last_name: 'Bhatia',
+#   email: 'ronil@ronil.com',
+#   location: 'United States',
+# )
+
+u10 = User.create!(
+  username: 'kevin',
+  password: '123456',
+  first_name: 'Kevin',
+  last_name: 'Kaminski',
+  email: 'kevin@kevin.com',
+  location: 'United States',
+)
+
+# u11 = User.create!(
+#   username: 'lina',
+#   password: '123456',
+#   first_name: 'Lina',
+#   last_name: 'Kherchi',
+#   email: 'kevin@kevin.com',
+#   location: 'United States',
+# )
+
+u11 = User.create!(
+  username: 'taehoon',
+  password: '123456',
+  first_name: 'Taehoon',
+  last_name: 'Song',
+  email: 'taetae@taetae.com',
+  location: 'United States',
+)
+
+u12 = User.create!(
+  username: 'vanessa',
+  password: '123456',
+  first_name: 'Vanessa',
+  last_name: 'Chen',
+  email: 'vanessa@vanessa.com',
+  location: 'United States',
+)
+
+u13 = User.create!(
+  username: 'drew',
+  password: 'hamlover9',
+  first_name: 'Eric',
+  last_name: 'Dew',
+  email: 'eric@r.dew',
+  location: 'United States',
+)
+
+u14 = User.create!(
+  username: 'elir237',
+  password: '123456',
+  first_name: 'Eli',
+  last_name: 'Ramirez',
+  email: 'eli@aim.com',
   location: 'United States',
 )
 
@@ -342,205 +450,232 @@ i21.photos.attach(io: file2, filename: 'T01.jpg')
 i21.photos.attach(io: file3, filename: 'T02.jpg')
 i21.photos.attach(io: file4, filename: 'T03.jpg')
 
-# Item.create!(
-#   seller_id: '2',
-#   description: 'canon sureshot 80 tele vintage 35mm film camera + bag 8/10 condition, film-tested (see last photo) this is one of my favorite camera models out right now! i have had 7 or 8 of the 80 tele & they all have been amazing & this one was no different! incredibly durable, insanely sharp & everything works flawlessly including the flash & the zoom!! huge come up!! also comes with a cool bag! **batteries included $50 or best offer ships in 1-2 business days w/ tracking *if you message me before purchasing, i can throw in an entire box of film for only $10 extra(normally $15-20) or 2 boxes for $20!! please message me with any questions or offers you might have!',
-#   price: '50.00',
-#   sold: 'false'
-# )
+i22 = Item.create!(
+  seller_id: '2',
+  description: 'Chinon cm-5 film camera TESTED AND WORKING EXCELLENT! Lens- 50mm 1.4 Takes any 35mm film',
+  price: '100.00',
+  sold: 'false'
+)
+file1 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/U00.jpg')
+file2 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/U01.jpg')
+file3 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/U02.jpg')
+file4 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/U03.jpg')
+i22.photos.attach(io: file1, filename: 'U00.jpg')
+i22.photos.attach(io: file2, filename: 'U01.jpg')
+i22.photos.attach(io: file3, filename: 'U02.jpg')
+i22.photos.attach(io: file4, filename: 'U03.jpg')
 
-# Item.create!(
-#   seller_id: '2',
-#   description: 'Olympus Infinity Stylus Zoom 140 Deluxe 35mm Film Camera Camera is in EXCELLENT working condition ❕❕❕❕❕❕ Has quartzdate and great zoom ability',
-#   price: '35.00',
-#   sold: 'false'
-# )
+i23 = Item.create!(
+  seller_id: '2',
+  description: 'Olympus Stylus Epic DLX film camera TESTED AND WORKING EXCELLENT! Lens: 35mm 2.8 Takes 35mm film',
+  price: '300.00',
+  sold: 'false'
+)
+file1 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/V00.jpg')
+file2 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/V01.jpg')
+file3 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/V02.jpg')
+file4 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/V03.jpg')
+i23.photos.attach(io: file1, filename: 'V00.jpg')
+i23.photos.attach(io: file2, filename: 'V01.jpg')
+i23.photos.attach(io: file3, filename: 'V02.jpg')
+i23.photos.attach(io: file4, filename: 'V03.jpg')
 
-# Item.create!(
-#   seller_id: '2',
-#   description: 'Ultronic 35mm Film Camera 📷📷📷 Super cute and small camera -great for travel ❕❕❕ Comes with strap and case seen in photos !!! Camera doesn’t require batteries !! Great simple and easy to used film camera !! Film advance and shutter release work great ❕❕❕',
-#   price: '13.00',
-#   sold: 'false'
-# )
+i24 = Item.create!(
+  seller_id: '2',
+  description: 'Olympus Stylus epic zoom 80 film camera Tested and working excellent Takes 35mm film',
+  price: '100.00',
+  sold: 'false'
+)
+file1 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/W00.jpg')
+file2 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/W01.jpg')
+file3 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/W02.jpg')
+file4 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/W03.jpg')
+i24.photos.attach(io: file1, filename: 'W00.jpg')
+i24.photos.attach(io: file2, filename: 'W01.jpg')
+i24.photos.attach(io: file3, filename: 'W02.jpg')
+i24.photos.attach(io: file4, filename: 'W03.jpg')
 
-# Item.create!(
-#   seller_id: '2',
-#   description: '📦only $12 for 2-day shipping!📦 Beautiful vintage Canon T70 35mm SLR film camera with authentic standard lens, strap and fresh batteries! This one is perfect for beginners and advanced shooters in a pinch in that the “Program” mode sets all of the important settings for you! Light meter also functioning.',
-#   price: '66.00',
-#   sold: 'false'
-# )
+i25 = Item.create!(
+  seller_id: '2',
+  description: 'Polaroid 600 instax film camera TESTED AND WORKING EXCELLENT! Takes 600 film',
+  price: '40.00',
+  sold: 'false'
+)
+file1 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/X00.jpg')
+file2 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/X01.jpg')
+file3 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/X02.jpg')
+file4 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/X03.jpg')
+i25.photos.attach(io: file1, filename: 'X00.jpg')
+i25.photos.attach(io: file2, filename: 'X01.jpg')
+i25.photos.attach(io: file3, filename: 'X02.jpg')
+i25.photos.attach(io: file4, filename: 'X03.jpg')
 
-# Item.create!(
-#   seller_id: '2',
-#   description: '📦only $12 for 3-day shipping!📦 A classic vintage Canon TLb 35mm SLR film camera with a standard lens, strap, and battery! Shutter tested on all speeds as well as the light meter, this is a much less expensive way to dive into film photography with one of the best brands available. the body is in amazing condition.',
-#   price: '90.00',
-#   sold: 'false'
-# )
+i26 = Item.create!(
+  seller_id: '2',
+  description: 'Minolta supreme freedom zoom film camera Tested and working excellent Takes 35mm film',
+  price: '35.00',
+  sold: 'false'
+)
+file1 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/Y00.jpg')
+file2 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/Y01.jpg')
+file3 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/Y02.jpg')
+file4 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/Y03.jpg')
+i26.photos.attach(io: file1, filename: 'Y00.jpg')
+i26.photos.attach(io: file2, filename: 'Y01.jpg')
+i26.photos.attach(io: file3, filename: 'Y02.jpg')
+i26.photos.attach(io: file4, filename: 'Y03.jpg')
 
-# Item.create!(
-#   seller_id: '2',
-#   description: 'CANON SURE SHOT Super mint canon af35mii with box and polaroid side bag! Previous owner stored it for 19 years This is hard to let go. I love this camera but im going full digital Takes 35mm film Looks good as new! Shutter works perfectly, no battery corrosion Battery works perfectly Comes with a 40mm 1.8 lens Great point and shoot camera overall 10/10 supreme vintage condition ACCEPTING REASONABLE OFFERS',
-#   price: '150.00',
-#   sold: 'false'
-# )
+i27 = Item.create!(
+  seller_id: '2',
+  description: 'Olympus infinity zoom 105 film camera Tested and working excellent Takes 35mm film',
+  price: '40.00',
+  sold: 'false'
+)
+file1 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/Z00.jpg')
+file2 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/Z01.jpg')
+file3 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/Z02.jpg')
+file4 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/Z03.jpg')
+i27.photos.attach(io: file1, filename: 'Z00.jpg')
+i27.photos.attach(io: file2, filename: 'Z01.jpg')
+i27.photos.attach(io: file3, filename: 'Z02.jpg')
+i27.photos.attach(io: file4, filename: 'Z03.jpg')
 
-# Item.create!(
-#   seller_id: '2',
-#   description: '#PRICEDROP Selling my Cannon EOS Rebel t5 📸 Set includes: - EF-S 18-55mm IS II standard zoom lens - 75-300mm telephoto zoom lens - Battery and charger - Manual book - Bag NOTE: I\'ve been getting dark spots on my photos lately i think it’s sensor dust.. It appears when photos are taken at a higher aperture.. needs to be checked/ cleaned Other than that it\'s in good working condition. No swaps!',
-#   price: '300.00',
-#   sold: 'false'
-# )
+i28 = Item.create!(
+  seller_id: '2',
+  description: 'Sears KS Super II (SR2000) SLR film camera. Circa 1981. Takes 35mm film. Has a 50mm, f/2.0 AUTO Sears lens and a 70-210mm zoom lens. Has a vertically moving electronically-controlled, metal focal plane shutter with speeds from 1 to 1/500 sec, self-timer, split-image focusing, TTL full open exposure meter, and an ISO range of 12-3200. Cleaned and checked by me to be in excellent working condition. Zoom lens has fungus, but shouldn’t affect the images too much. Can be professionally cleaned. Photo example in slide 4 by Jim Grey. Tags / / iso wishlist looking for camera vintage antique tech Polaroid film cameras old cute instant swap in search of wanted photography photo trendy',
+  price: '85.00',
+  sold: 'false'
+)
+file1 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AA00.jpg')
+file2 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AA01.jpg')
+file3 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AA02.jpg')
+file4 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AA03.jpg')
+i28.photos.attach(io: file1, filename: 'AA00.jpg')
+i28.photos.attach(io: file2, filename: 'AA01.jpg')
+i28.photos.attach(io: file3, filename: 'AA02.jpg')
+i28.photos.attach(io: file4, filename: 'AA03.jpg')
 
-# Item.create!(
-#   seller_id: '2',
-#   description: 'Sony Alpha A7ii 24 megapixel full-frame digital camera body Has IBIS (in-body image stabilization) Great condition Clean sensor Comes with body cap, charger Firmware version 4.0.1 ',
-#   price: '800.00',
-#   sold: 'false'
-# )
+i29 = Item.create!(
+  seller_id: '2',
+  description: 'Kodak Stereo rangefinder stereo film camera. Circa 1954. Takes 35mm film. Takes a pair of 23x24mm format pictures at each exposure with dual Kodak Anaston 35mm, f/3.5 lenses. Has an aperture speed range from 1/25 to 1/200 plus B. The viewfinder is between the two lenses with a spirit level visible through it. This is Kodak’s last stereo camera. Comes with case, strap, and lens cap. Makes AWESOME 3D pictures. Check lomography for a tutorial. Cleaned and checked by me to be in excellent working condition. Photo example in slide 4 by paulmaccca. Tags / / iso wishlist looking for camera vintage antique tech Polaroid film cameras old cute instant swap in search of wanted photography photo trendy',
+  price: '200.00',
+  sold: 'false'
+)
+file1 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AB00.jpg')
+file2 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AB01.jpg')
+file3 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AB02.jpg')
+file4 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AB03.jpg')
+i29.photos.attach(io: file1, filename: 'AB00.jpg')
+i29.photos.attach(io: file2, filename: 'AB01.jpg')
+i29.photos.attach(io: file3, filename: 'AB02.jpg')
+i29.photos.attach(io: file4, filename: 'AB03.jpg')
 
-# Item.create!(
-#   seller_id: '2',
-#   description: 'Canon EOS 10s 35mm Film SLR Film Camera (Body Only) Perfect for anyone with a digital SLR (with Canon EF lenses). You can swap your lenses over to this camera body. -Auto and Manual Exposure Modes -Easy-to-use single-lens reflex camera -Pop-up flash GUARANTEED WORKING!! NEW BATTERY AND BODY CAP INCLUDED!!',
-#   price: '85.00',
-#   sold: 'false'
-# )
+i30 = Item.create!(
+  seller_id: '2',
+  description: 'Nikon Nikomat (Nikkormat) EL w/ 28mm Nikkor lens, 35mm SLR film camera w/ UV filter, lens hood, shutter release cable, and free shipping. Features: -SLR camera -28mm f3.5 Nikkor lens -working battery -neck strap -UV haze filter -lens hood -shutter release cable -free shipping Let’s clear this up, the Nikomat is the same as the Nikkormat but was only sold in Japan, which makes this one more rare. Back in the early 70’s Nikon’s line of SLR’s only included their pro F series, the Nikomat were their consumer cameras, imagine that this camera is a Nikon FE with a different name. The EL used an electronic shutter which includes an Aperture priority mode. This camera is in excellent shape and everything is fully functional.',
+  price: '180.00',
+  sold: 'false'
+)
+file1 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AC00.jpg')
+file2 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AC01.jpg')
+file3 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AC02.jpg')
+file4 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AC04.jpg')
+i30.photos.attach(io: file1, filename: 'AC00.jpg')
+i30.photos.attach(io: file2, filename: 'AC01.jpg')
+i30.photos.attach(io: file3, filename: 'AC02.jpg')
+i30.photos.attach(io: file4, filename: 'AC04.jpg')
 
-# Item.create!(
-#   seller_id: '2',
-#   description: 'Yashica Lynx 500F Rangefinder Film Camera Has some wear to it as shown in photos, but has been used and works perfectly Comes with one roll of 35mm colored Fujifilm open to offers',
-#   price: '40.00',
-#   sold: 'false'
-# )
+i31 = Item.create!(
+  seller_id: '2',
+  description: 'Olympus Stylus Zoom DLX. Extremely good condition. • Zooms from 35-70mm • Has Data stamp which works • Come with original Olympus Strap • Comes with brand new Panasonic battery 🔋 NOT: Nikon Pentax Film Camera Yashica T4 Olympus FujiFilm 35mm Holga Polaroid Sigma Sony Minolta Leica Contax T2 Foulplay Stray Rats Supreme Palace Fucking Awesome Bianca Chandon Fuct Utmost Burma Stussy Dertbag FTP Photography Range Finder Portra 400 Lomography Mamiya Carl Zeiss Ektar 100 Ektachrome Ricoh Hasselblad',
+  price: '113.00',
+  sold: 'false'
+)
+file1 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AD00.jpg')
+file3 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AD02.jpg')
+i31.photos.attach(io: file1, filename: 'AD00.jpg')
+i31.photos.attach(io: file3, filename: 'AD02.jpg')
 
-# Item.create!(
-#   seller_id: '2',
-#   description: 'canon sureshot 80 tele vintage 35mm film camera + bag 8/10 condition, film-tested (see last photo) this is one of my favorite camera models out right now! i have had 7 or 8 of the 80 tele & they all have been amazing & this one was no different! incredibly durable, insanely sharp & everything works flawlessly including the flash & the zoom!! huge come up!! also comes with a cool bag! **batteries included $50 or best offer ships in 1-2 business days w/ tracking *if you message me before purchasing, i can throw in an entire box of film for only $10 extra(normally $15-20) or 2 boxes for $20!! please message me with any questions or offers you might have!',
-#   price: '50.00',
-#   sold: 'false'
-# )
+i32 = Item.create!(
+  seller_id: '2',
+  description: 'Canon Sure Shot 35mm Camera!! • Comes with batteries & strap • All functions of the camera work • Comes with Samsonite Camera side bag NOT: Nikon Pentax Film Camera Yashica T4 Olympus FujiFilm 35mm Holga Polaroid Sigma Sony Minolta Leica Contax T2 Foulplay Stray Rats Supreme Palace Fucking Awesome Bianca Chandon Fuct Utmost Burma Stussy Dertbag FTP Photography Range Finder Portra 400 Lomography Mamiya Carl Zeiss Ektar 100 Ektachrome Ricoh Hasselblad',
+  price: '135.00',
+  sold: 'false'
+)
+file1 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AE00.jpg')
+i32.photos.attach(io: file1, filename: 'AE00.jpg')
 
-# Item.create!(
-#   seller_id: '2',
-#   description: 'Olympus Infinity Stylus Zoom 140 Deluxe 35mm Film Camera Camera is in EXCELLENT working condition ❕❕❕❕❕❕ Has quartzdate and great zoom ability',
-#   price: '35.00',
-#   sold: 'false'
-# )
+i33 = Item.create!(
+  seller_id: '2',
+  description: 'RARE Vintage / antique 1940’s Voigtlander Vito II 35mm analog folding bellows Film Camera ! Shutter still works great and is accurate as well as the Aperture is smooth ! World renown Voigtlander German Brand Camera, Sharp Color-Skopar 50mm f3.5 lens (allows for proper colors when color film is used), Fully manual, Super clean copy (practically looks new), And Comes with a snazzy genuine leather case ! Technician tested and working great ! Please see photos ! Please view my other listings for bundle discounts or combined shipping ! Enjoy!',
+  price: '89.99',
+  sold: 'false'
+)
+file1 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AF00.jpg')
+file2 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AF01.jpg')
+file3 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AF02.jpg')
+file4 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AF03.jpg')
+i33.photos.attach(io: file1, filename: 'AF00.jpg')
+i33.photos.attach(io: file2, filename: 'AF01.jpg')
+i33.photos.attach(io: file3, filename: 'AF02.jpg')
+i33.photos.attach(io: file4, filename: 'AF03.jpg')
 
-# Item.create!(
-#   seller_id: '2',
-#   description: 'Ultronic 35mm Film Camera 📷📷📷 Super cute and small camera -great for travel ❕❕❕ Comes with strap and case seen in photos !!! Camera doesn’t require batteries !! Great simple and easy to used film camera !! Film advance and shutter release work great ❕❕❕',
-#   price: '13.00',
-#   sold: 'false'
-# )
+i34 = Item.create!(
+  seller_id: '2',
+  description: 'Canon Sure Shot 105 zoom date 35mm point and shoot camera 🌶 Spice up what’s last of your summer by getting a 35mm cam! What do you got to lose?! 38-105mm zoom lens! Autofocus, so you never get a blurry shot! Straight from the 90s to your door! Message us for any details. Free shipping Tested and guaranteed working! Takes 35mm film Takes one 3.0 volt CR2 123 battery',
+  price: '44.00',
+  sold: 'false'
+)
+file1 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AG00.jpg')
+file2 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AG01.jpg')
+file3 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AG02.jpg')
+file4 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AG03.jpg')
+i34.photos.attach(io: file1, filename: 'AG00.jpg')
+i34.photos.attach(io: file2, filename: 'AG01.jpg')
+i34.photos.attach(io: file3, filename: 'AG02.jpg')
+i34.photos.attach(io: file4, filename: 'AG03.jpg')
 
-# Item.create!(
-#   seller_id: '2',
-#   description: '📦only $12 for 2-day shipping!📦 Beautiful vintage Canon T70 35mm SLR film camera with authentic standard lens, strap and fresh batteries! This one is perfect for beginners and advanced shooters in a pinch in that the “Program” mode sets all of the important settings for you! Light meter also functioning.',
-#   price: '66.00',
-#   sold: 'false'
-# )
+i35 = Item.create!(
+  seller_id: '2',
+  description: 'Canon Rebel EOS K2 35mm Film SLR Film Camera (Body Only) Perfect for someone who has been shooting Canon DSLRs but wanted to get into shooting film (will not work with EF-S Lenses) -Automatic or manual focus for new and skilled photographers alike -Autoexposure plus 5 preset exposure modes -Easy-to-use single-lens reflex camera -Automatic pop-up flash GUARANTEED WORKING!!',
+  price: '75.00',
+  sold: 'false'
+)
+file1 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AH00.jpg')
+file2 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AH01.jpg')
+file3 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AH02.jpg')
+file4 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AH03.jpg')
+i35.photos.attach(io: file1, filename: 'AH00.jpg')
+i35.photos.attach(io: file2, filename: 'AH01.jpg')
+i35.photos.attach(io: file3, filename: 'AH02.jpg')
+i35.photos.attach(io: file4, filename: 'AH03.jpg')
 
-# Item.create!(
-#   seller_id: '2',
-#   description: '📦only $12 for 3-day shipping!📦 A classic vintage Canon TLb 35mm SLR film camera with a standard lens, strap, and battery! Shutter tested on all speeds as well as the light meter, this is a much less expensive way to dive into film photography with one of the best brands available. the body is in amazing condition.',
-#   price: '90.00',
-#   sold: 'false'
-# )
+i36 = Item.create!(
+  seller_id: '2',
+  description: 'Mamiya 500TL DTL 35mm Film SLR w/ 50mm F/2 Lens All functions except light meter are working properly on this camera. However the glass is the prism is a bit dusty and scratched, but this wont effect the photo at all. Guaranteed Working!',
+  price: '125.00',
+  sold: 'false'
+)
+file1 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AI00.jpg')
+file2 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AI01.jpg')
+file3 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AI02.jpg')
+file4 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AI03.jpg')
+i36.photos.attach(io: file1, filename: 'AI00.jpg')
+i36.photos.attach(io: file2, filename: 'AI01.jpg')
+i36.photos.attach(io: file3, filename: 'AI02.jpg')
+i36.photos.attach(io: file4, filename: 'AI03.jpg')
 
-# Item.create!(
-#   seller_id: '2',
-#   description: 'CANON SURE SHOT Super mint canon af35mii with box and polaroid side bag! Previous owner stored it for 19 years This is hard to let go. I love this camera but im going full digital Takes 35mm film Looks good as new! Shutter works perfectly, no battery corrosion Battery works perfectly Comes with a 40mm 1.8 lens Great point and shoot camera overall 10/10 supreme vintage condition ACCEPTING REASONABLE OFFERS',
-#   price: '150.00',
-#   sold: 'false'
-# )
-
-# Item.create!(
-#   seller_id: '2',
-#   description: '#PRICEDROP Selling my Cannon EOS Rebel t5 📸 Set includes: - EF-S 18-55mm IS II standard zoom lens - 75-300mm telephoto zoom lens - Battery and charger - Manual book - Bag NOTE: I\'ve been getting dark spots on my photos lately i think it’s sensor dust.. It appears when photos are taken at a higher aperture.. needs to be checked/ cleaned Other than that it\'s in good working condition. No swaps!',
-#   price: '300.00',
-#   sold: 'false'
-# )
-
-# Item.create!(
-#   seller_id: '2',
-#   description: 'Sony Alpha A7ii 24 megapixel full-frame digital camera body Has IBIS (in-body image stabilization) Great condition Clean sensor Comes with body cap, charger Firmware version 4.0.1 ',
-#   price: '800.00',
-#   sold: 'false'
-# )
-
-# Item.create!(
-#   seller_id: '2',
-#   description: 'Canon EOS 10s 35mm Film SLR Film Camera (Body Only) Perfect for anyone with a digital SLR (with Canon EF lenses). You can swap your lenses over to this camera body. -Auto and Manual Exposure Modes -Easy-to-use single-lens reflex camera -Pop-up flash GUARANTEED WORKING!! NEW BATTERY AND BODY CAP INCLUDED!!',
-#   price: '85.00',
-#   sold: 'false'
-# )
-
-# Item.create!(
-#   seller_id: '2',
-#   description: 'Yashica Lynx 500F Rangefinder Film Camera Has some wear to it as shown in photos, but has been used and works perfectly Comes with one roll of 35mm colored Fujifilm open to offers',
-#   price: '40.00',
-#   sold: 'false'
-# )
-
-# Item.create!(
-#   seller_id: '2',
-#   description: 'canon sureshot 80 tele vintage 35mm film camera + bag 8/10 condition, film-tested (see last photo) this is one of my favorite camera models out right now! i have had 7 or 8 of the 80 tele & they all have been amazing & this one was no different! incredibly durable, insanely sharp & everything works flawlessly including the flash & the zoom!! huge come up!! also comes with a cool bag! **batteries included $50 or best offer ships in 1-2 business days w/ tracking *if you message me before purchasing, i can throw in an entire box of film for only $10 extra(normally $15-20) or 2 boxes for $20!! please message me with any questions or offers you might have!',
-#   price: '50.00',
-#   sold: 'false'
-# )
-
-# Item.create!(
-#   seller_id: '2',
-#   description: 'Olympus Infinity Stylus Zoom 140 Deluxe 35mm Film Camera Camera is in EXCELLENT working condition ❕❕❕❕❕❕ Has quartzdate and great zoom ability',
-#   price: '35.00',
-#   sold: 'false'
-# )
-
-# Item.create!(
-#   seller_id: '2',
-#   description: 'Ultronic 35mm Film Camera 📷📷📷 Super cute and small camera -great for travel ❕❕❕ Comes with strap and case seen in photos !!! Camera doesn’t require batteries !! Great simple and easy to used film camera !! Film advance and shutter release work great ❕❕❕',
-#   price: '13.00',
-#   sold: 'false'
-# )
-
-# Item.create!(
-#   seller_id: '2',
-#   description: '📦only $12 for 2-day shipping!📦 Beautiful vintage Canon T70 35mm SLR film camera with authentic standard lens, strap and fresh batteries! This one is perfect for beginners and advanced shooters in a pinch in that the “Program” mode sets all of the important settings for you! Light meter also functioning.',
-#   price: '66.00',
-#   sold: 'false'
-# )
-
-# Item.create!(
-#   seller_id: '2',
-#   description: '📦only $12 for 3-day shipping!📦 A classic vintage Canon TLb 35mm SLR film camera with a standard lens, strap, and battery! Shutter tested on all speeds as well as the light meter, this is a much less expensive way to dive into film photography with one of the best brands available. the body is in amazing condition.',
-#   price: '90.00',
-#   sold: 'false'
-# )
-
-# Item.create!(
-#   seller_id: '2',
-#   description: 'CANON SURE SHOT Super mint canon af35mii with box and polaroid side bag! Previous owner stored it for 19 years This is hard to let go. I love this camera but im going full digital Takes 35mm film Looks good as new! Shutter works perfectly, no battery corrosion Battery works perfectly Comes with a 40mm 1.8 lens Great point and shoot camera overall 10/10 supreme vintage condition ACCEPTING REASONABLE OFFERS',
-#   price: '150.00',
-#   sold: 'false'
-# )
-
-# Item.create!(
-#   seller_id: '2',
-#   description: '#PRICEDROP Selling my Cannon EOS Rebel t5 📸 Set includes: - EF-S 18-55mm IS II standard zoom lens - 75-300mm telephoto zoom lens - Battery and charger - Manual book - Bag NOTE: I\'ve been getting dark spots on my photos lately i think it’s sensor dust.. It appears when photos are taken at a higher aperture.. needs to be checked/ cleaned Other than that it\'s in good working condition. No swaps!',
-#   price: '300.00',
-#   sold: 'false'
-# )
-
-# Item.create!(
-#   seller_id: '2',
-#   description: 'Sony Alpha A7ii 24 megapixel full-frame digital camera body Has IBIS (in-body image stabilization) Great condition Clean sensor Comes with body cap, charger Firmware version 4.0.1 ',
-#   price: '800.00',
-#   sold: 'false'
-# )
-
-# Item.create!(
-#   seller_id: '2',
-#   description: 'Canon EOS 10s 35mm Film SLR Film Camera (Body Only) Perfect for anyone with a digital SLR (with Canon EF lenses). You can swap your lenses over to this camera body. -Auto and Manual Exposure Modes -Easy-to-use single-lens reflex camera -Pop-up flash GUARANTEED WORKING!! NEW BATTERY AND BODY CAP INCLUDED!!',
-#   price: '85.00',
-#   sold: 'false'
-# )
+i37 = Item.create!(
+  seller_id: '2',
+  description: 'Pentax K1000 35mm Film SLR w/ 50mm f/2 lens This is a great first camera for a student, or for a seasoned photographer! Body is a little scratched up but nothing major. All camera functions are working properly and glass is clean and scratch/fungus free Includes: -Pentax K-1000 Camera Body -50mm f2 Lens(no lens cap, sorry) -Fresh Battery',
+  price: '178.00',
+  sold: 'false'
+)
+file1 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AJ00.jpg')
+file2 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AJ01.jpg')
+file3 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AJ02.jpg')
+file4 = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/item-images/AJ03.jpg')
+i37.photos.attach(io: file1, filename: 'AJ00.jpg')
+i37.photos.attach(io: file2, filename: 'AJ01.jpg')
+i37.photos.attach(io: file3, filename: 'AJ02.jpg')
+i37.photos.attach(io: file4, filename: 'AJ03.jpg')
