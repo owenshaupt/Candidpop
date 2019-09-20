@@ -6,8 +6,12 @@ class Nav extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleRedirect = this.handleRedirect.bind(this)
+    this.handleProfile = this.handleProfile.bind(this)
   }
 
+  // componentDidMount() {
+  //   this.props.fetchUser(this.props.match.params.userId);
+  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -19,6 +23,12 @@ class Nav extends React.Component {
     e.preventDefault();
     this.props.clearErrors();
     this.props.history.push('/login/');
+  }
+
+  handleProfile(e) {
+    e.preventDefault();
+    this.props.fetchUser(this.props.currentUser.id)
+    .then(() => this.props.history.push(`/${this.props.currentUser.id}`));
   }
 
 
@@ -56,8 +66,8 @@ class Nav extends React.Component {
               <button className='nav-button'>Search</button>
             </Link>
 
-            <Link to={`/${this.props.currentUser.id}`}>
-              <button className='nav-button'>Profile</button>
+            <Link to='#'>
+              <button className='nav-button' onClick={this.handleProfile}>Profile</button>
             </Link>
 
             <button className='nav-button' onClick={this.handleSubmit}>Log Out</button>
