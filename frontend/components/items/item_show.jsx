@@ -22,7 +22,7 @@ class ItemShow extends React.Component {
     this.props.fetchItem(this.props.match.params.itemId)
   }
   
-  componentDidUpdate(prevProps) { // when props or state change this will run
+  componentDidUpdate(prevProps) {
     if (prevProps.match.params.itemId !== this.props.match.params.itemId) {
       this.props.fetchItem(this.props.match.params.itemId);
     }
@@ -177,7 +177,7 @@ class ItemShow extends React.Component {
                       />
                     </div>
                   </div>
-                </div> :
+                </div> : // this is important for ternary
                 
                 <div className='buy-button-container'>
                   <button

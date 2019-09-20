@@ -145,6 +145,14 @@ h1 {
   height: 16px;
 }
 
+.login-loading {
+  position: absolute;
+  top: 27.5%;
+  left: 48%;
+  z-index: 5;
+  height: 100%;
+}
+
 .guest-loading {
   position: absolute;
   top: 73.5%;
