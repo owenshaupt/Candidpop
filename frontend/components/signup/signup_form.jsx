@@ -72,7 +72,7 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className='signup-master'>
-        <form className='signup-form' onSubmit={this.handleSubmit}>
+        <form novalidate='novalidate' className='signup-form' onSubmit={this.handleSubmit}>
           <h1 className='signup-h1'>GET READY</h1>   
           <p className='signup-p'>Enter a few details to join the Candidpop community.</p>
 
