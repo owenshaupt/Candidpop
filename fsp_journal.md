@@ -157,3 +157,5 @@ also ask vanessa
     &nbsp;&nbsp;&nbsp;&nbsp;`this.props.fetchUser(this.props.currentUser.id)`  
     &nbsp;&nbsp;&nbsp;&nbsp;`.then(() => this.props.history.push(`/${this.props.currentUser.id}`));`  
     `}`
+- Small issue persists on Country <select> where a warning pops up preventing pressing the signup button, i.e. a warning that prevents my own errors from displaying and which looks unpleasant
+- Push to Heroku for final version before presenting!
