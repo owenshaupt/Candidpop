@@ -14,7 +14,6 @@ class ItemIndex extends React.Component {
   }
 
   render() {
-    // debugger
     if (!this.props.items) {
       return (
         <div className='page-loading'>
