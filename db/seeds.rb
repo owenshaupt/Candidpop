@@ -157,6 +157,7 @@ i01.photos.attach(io: file1, filename: 'A00.jpg')
 i01.photos.attach(io: file2, filename: 'A01.jpg')
 i01.photos.attach(io: file3, filename: 'A02.jpg')
 i01.photos.attach(io: file4, filename: 'A03.jpg')
+# upload files then add photos key in item, then have variable names in an array
 
 i02 = Item.create!(
   seller_id: '2',

@@ -9,10 +9,6 @@ class Nav extends React.Component {
     this.handleProfile = this.handleProfile.bind(this)
   }
 
-  // componentDidMount() {
-  //   this.props.fetchUser(this.props.match.params.userId);
-  // }
-
   handleSubmit(e) {
     e.preventDefault();
     this.props.logout()

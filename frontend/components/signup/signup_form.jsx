@@ -33,7 +33,7 @@ class SignupForm extends React.Component {
 
   handleFile(e) {
     this.setState({ file: e.currentTarget.files });
-    this.setState({ fileUrl: URL.createObjectURL(e.target.files[0]) }); // from Egor Egorvov @650egor on Medium
+    this.setState({ fileUrl: URL.createObjectURL(e.target.files[0]) }); // from Egor Egorov @650egor on Medium
   }
 
   handleSubmit(e) {

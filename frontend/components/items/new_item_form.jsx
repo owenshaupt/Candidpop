@@ -35,22 +35,22 @@ class NewItemForm extends React.Component {
 
   handleFile1(e) {
     this.setState({file1: e.currentTarget.files});
-    this.setState({file1Url: URL.createObjectURL(e.target.files[0])}); // from Egor Egorvov @650egor on Medium
+    this.setState({file1Url: URL.createObjectURL(e.target.files[0])}); // from Egor Egorov @650egor on Medium
   }
 
   handleFile2(e) {
     this.setState({file2: e.currentTarget.files});
-    this.setState({file2Url: URL.createObjectURL(e.target.files[0])}); // from Egor Egorvov @650egor on Medium
+    this.setState({file2Url: URL.createObjectURL(e.target.files[0])}); // from Egor Egorov @650egor on Medium
   }
 
   handleFile3(e) {
     this.setState({file3: e.currentTarget.files});
-    this.setState({file3Url: URL.createObjectURL(e.target.files[0])}); // from Egor Egorvov @650egor on Medium
+    this.setState({file3Url: URL.createObjectURL(e.target.files[0])}); // from Egor Egorov @650egor on Medium
   }
 
   handleFile4(e) {
     this.setState({file4: e.currentTarget.files});
-    this.setState({file4Url: URL.createObjectURL(e.target.files[0])}); // from Egor Egorvov @650egor on Medium
+    this.setState({file4Url: URL.createObjectURL(e.target.files[0])}); // from Egor Egorov @650egor on Medium
   }
 
   handleSubmit(e) {
@@ -81,8 +81,6 @@ class NewItemForm extends React.Component {
       .then(() => { this.props.history.push('/items/') })
       .fail(() => this.setState({ loading: false }))
   }
-
-  // set state for loading to make spinner appear
 
   renderErrors() {
     return (
