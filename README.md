@@ -2,7 +2,7 @@
 # Candidpop
 ---
 
-[Visit Candidpop](https://candidpop.herokuapp.com)
+[Visit Candidpop Now!](https://candidpop.herokuapp.com)
 
 Candidpop is an upcoming reslling app designed to help photographers buy and sell gear, easily. Post items to sell and browse items being sold by others!
 
