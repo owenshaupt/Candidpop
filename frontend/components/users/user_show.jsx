@@ -1,11 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ClipLoader } from 'react-spinners';
-import { css } from '@emotion/core';
+import React from "react";
+import { Link } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
+import { css } from "@emotion/core";
 
 const override = css`
-    display: block;
-    margin: 0 auto;
+  display: block;
+  margin: 0 auto;
 `;
 
 class UserShow extends React.Component {
@@ -14,7 +14,7 @@ class UserShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUser(this.props.match.params.userId)
+    this.props.fetchUser(this.props.match.params.userId);
   }
 
   render() {
@@ -25,7 +25,7 @@ class UserShow extends React.Component {
             css={override}
             sizeUnit={"px"}
             size={42}
-            color={'#282828'}
+            color={"#282828"}
             loading={true}
           />
         </div>
@@ -40,11 +40,12 @@ class UserShow extends React.Component {
               <Link className='item-card-link' to={`/items/${item.id}`}>
                 <div className='image-grey-out'>
                   <div className='index-item-photo'>
-                    <img width="100%"
-                      height="100%"
+                    <img
+                      width='100%'
+                      height='100%'
                       className='photo'
                       src={item.photos[0].photoUrl}
-                      alt=""
+                      alt=''
                     />
                   </div>
                 </div>
@@ -53,7 +54,7 @@ class UserShow extends React.Component {
             </div>
           </li>
         </div>
-      )
+      );
     });
 
     return (
@@ -64,9 +65,10 @@ class UserShow extends React.Component {
               <div className='user-show-profile-pic'>
                 <img
                   className='profile-photo'
-                  src={this.props.user.profile_pic || 
-                    window.emptyUserProfilePicURL}
-                  alt=""
+                  src={
+                    this.props.user.profile_pic || window.emptyUserProfilePicURL
+                  }
+                  alt=''
                 />
               </div>
               <div className='user-names'>
@@ -84,26 +86,29 @@ class UserShow extends React.Component {
             </div>
           </div>
 
-
           <div className='user-items-for-sale'>
             <div className='items-list-container user-items-index-container'>
-          <div className='selling-header'>
-            <h3>Selling</h3>
-          </div>
-              <ul className='items-list user-show-items-list'>
-                {items}
-                <i className='filler-items' aria-hidden="true"></i>
-                <i className='filler-items' aria-hidden="true"></i>
-                <i className='filler-items' aria-hidden="true"></i>
-                <i className='filler-items' aria-hidden="true"></i>
-                <i className='filler-items' aria-hidden="true"></i>
-              </ul>
+              <div className='selling-header'>
+                <h3>Selling</h3>
+              </div>
+              {items.length !== 0 ? (
+                <ul className='items-list user-show-items-list'>
+                  {items}
+                  <i className='filler-items' aria-hidden='true'></i>
+                  <i className='filler-items' aria-hidden='true'></i>
+                  <i className='filler-items' aria-hidden='true'></i>
+                  <i className='filler-items' aria-hidden='true'></i>
+                  <i className='filler-items' aria-hidden='true'></i>
+                </ul>
+              ) : (
+                <h4 className='empty-store-note'>Nothing for sale!</h4>
+              )}
             </div>
           </div>
         </div>
       </div>
     );
-  };
+  }
 }
 
 export default UserShow;

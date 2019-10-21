@@ -11,7 +11,7 @@
 
 .user-show-page {
   margin: 0px auto;
-  padding: 0px .75rem 4rem;
+  padding: 0px 0.75rem 4rem;
   // border: 1px solid black;
 }
 
@@ -23,7 +23,6 @@
 .user-show-top {
   display: flex;
   margin: 20px 0px 25px;
-  
 }
 
 .user-show-profile-pic {
@@ -44,7 +43,7 @@
 
 .user-first-last > h1 {
   font-size: 24px;
-  font-family: 'gt-america-extended-bold';
+  font-family: "gt-america-extended-bold";
 }
 
 .user-last {
@@ -60,9 +59,16 @@
 
 .selling-header > h3 {
   font-size: 16px;
-  font-family: 'gt-america-extended-bold';
+  font-family: "gt-america-extended-bold";
   padding: 10px 0px 10px 4px;
   // border: 1px solid green;
+}
+
+.empty-store-note {
+  font-size: 20px;
+  font-family: "gt-america-extended-bold";
+  padding: 10px 0px 10px 4px;
+  text-align: start;
 }
 
 .user-items-for-sale {
