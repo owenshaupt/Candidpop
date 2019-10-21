@@ -163,4 +163,5 @@ also ask vanessa
 ### Monday 10/21/2019
 
 - Back to work on the final MVP after a month of other projects
-- 
+- Added a note on the user show page to denote an empty store (no items for sale)
+- Created follows model, table, view, controller, routes

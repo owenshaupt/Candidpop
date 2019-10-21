@@ -11,10 +11,16 @@ const override = css`
 class UserShow extends React.Component {
   constructor(props) {
     super(props);
+
+    this.handleFollow = this.handleFollow.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchUser(this.props.match.params.userId);
+  }
+
+  handleFollow() {
+    console.log('hit handle follow')
   }
 
   render() {
@@ -81,9 +87,31 @@ class UserShow extends React.Component {
                 </div>
               </div>
             </div>
-            <div className='user-show-bottom'>
-              {/* <div></div> !!for bio if implemented */}
+            <div className='follow-info'>
+              <div className='follow-links'>
+                <div className='follow-link followers-link'>
+                  <button className='follow-link-button'>
+                    <span className='follower-count follow-count'>100</span>
+                    <span>Followers</span>
+                  </button>
+                </div>
+                <div className='follow-link following-link'>
+                  <button className='follow-link-button'>
+                    <span className='following-count follow-count'>100</span>
+                    <span>Following</span>
+                  </button>
+                </div>
+              </div>
+              <div className='follow-button-div'>
+                <button className='follow-button' onClick={this.handleFollow}>
+                  {/* ternary to decide if follow or unfollow */}
+                  Follow
+                </button>
+              </div>
             </div>
+            {/* <div className='user-show-bottom'>
+              <div></div> !!for bio if implemented
+            </div> */}
           </div>
 
           <div className='user-items-for-sale'>

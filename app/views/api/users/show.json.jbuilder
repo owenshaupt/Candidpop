@@ -11,3 +11,11 @@ json.items(@user.items_for_sale) do |item|
     json.photoUrl url_for(photo)
   end
 end
+
+json.followers(@user.followers) do |follow|
+  json.extract! follow, :id, :username
+end
+
+json.following(@user.followed_accounts) do |follow|
+  json.extract! follow, :id, :username
+end

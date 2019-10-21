@@ -89,3 +89,76 @@
 .user-show-items-list {
   justify-content: space-between;
 }
+
+.follow-info {
+  // border: solid red 1px;
+  height: 30px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.follow-links {
+  // border: solid black 1px;
+  display: flex;
+  align-items: center;
+
+  height: 30px;
+}
+
+.follow-link {
+  // border: solid green 1px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.following-link {
+  margin-left: 32px;
+}
+
+.follow-link-button {
+  cursor: pointer;
+}
+
+.follow-link-button > span {
+  font-size: 14px;
+  font-family: "gt-america-extended-regular";
+}
+
+.follow-link-button:hover {
+  border-bottom: solid black 1px;
+}
+
+.follow-link-button > .follow-count {
+  font-size: 14px;
+  font-family: "gt-america-extended-bold";
+}
+
+.follow-count {
+  margin-right: 6px;
+}
+
+.follow-button-div {
+  // border: solid yellow 1px;
+  margin-left: 32px;
+}
+
+.follow-button {
+  font-size: 13px;
+  font-family: "gt-america-expanded-bold";
+  color: white;
+  cursor: pointer;
+  background-color: #3d37bd;
+  transition: background-color 0.2s ease-in-out 0s;
+  padding: 8px 30px 6px;
+  outline: none;
+  border-radius: 0.125rem;
+  text-align: center;
+  line-height: 1.125;
+}
+
+.follow-button:hover {
+  background-color: #22621a;
+  transition: background-color 0.2s ease-in-out 0s;
+}
