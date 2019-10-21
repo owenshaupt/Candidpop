@@ -159,3 +159,8 @@ also ask vanessa
     `}`
 - Small issue persists on Country <select> where a warning pops up preventing pressing the signup button, i.e. a warning that prevents my own errors from displaying and which looks unpleasant
 - Push to Heroku for final version before presenting!
+
+### Monday 10/21/2019
+
+- Back to work on the final MVP after a month of other projects
+- 

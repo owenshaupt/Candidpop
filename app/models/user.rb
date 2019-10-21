@@ -58,6 +58,16 @@ class User < ApplicationRecord
     primary_key: :id,
     foreign_key: :seller_id,
     class_name: :Item
+  
+  has_many :followers,
+    primary_key: :id,
+    foreign_key: :followee,
+    class_name: :Follow
+  
+  has_many :followed_accounts,
+    primary_key: :id,
+    foreign_key: :follower,
+    class_name: :Follow
 
   has_one_attached :profile_pic
 end

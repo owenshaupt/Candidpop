@@ -13,6 +13,7 @@ Rails.application.routes.draw do
         # { :controller => “photos”, :action => “show”, :id => “1”, :user_id => “2” }.
       end
     end
+    resources :follows, only: [:create, :destroy, :show, :index]
   end
 
   
