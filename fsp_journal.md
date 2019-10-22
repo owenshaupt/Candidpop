@@ -28,7 +28,7 @@
 ### Thrusday 09/12/2019 (W12D4)
 
 - Implemented flex and dealt with an issue where the bottom row of items would be spaced as per space-between
-  - added five (n - 1, where n is max number of columns) i tags with the property [aria-hidden="true"]
+  - added five (n - 1, where n is max number of columns) i tags with the property `aria-hidden="true"`
   - these filled any spaces leftover in a given row but if five was too many, the leftovers would be pushed to the very bottom but did not have any height so it did not add any clickable elements to the page
 - Decided to not use ItemIndexItem components and instead use linked images
 - Completed item creation, still need to make update/delete options
@@ -43,13 +43,37 @@
   - weird refresh behavior
   - full items state comes through on /items/1 after navigating there from /feed/ but not on refresh -- have to do with the times being loaded on the feed? if so, then why does feed get global items state when it mounts when coming from, say, the homepage??
 - The fix was mapping in ownProps along with item to the itemShow component:
-  - `const mapStateToProps = (state, ownProps) => ({ ownProps: ownProps, item: state.entities.items[ownProps.match.params.itemId] });`
+  - ```js
+    const mapStateToProps = (state, ownProps) => ({
+      ownProps: ownProps,
+      item: state.entities.items[ownProps.match.params.itemId]
+    });
+    ```
 - Then mounting accordingly:
-  - `componentDidMount() {this.props.fetchItem(this.props.ownProps.match.params.itemId);}`
+  - ```js
+    componentDidMount() {
+      this.props.fetchItem(this.props.ownProps.match.params.itemId);
+    }
+    ```
 - Then adjusting the render method:
-  - `render()`
-  - `{if (!this.props.item) {return null;}`
-  - `return (<div>show!!{this.props.item.description}{this.props.item.price}{this.props.item.sold}</div>);};`
+  - ```js
+    render() {
+      if (!this.props.item) return null;
+
+      return (
+        <div>
+          {this.props.item.description}
+        </div>
+
+        <div>
+          {this.props.item.price}
+        </div>
+
+        <div>
+          {this.props.item.sold}
+        </div>
+      );
+    };
 - I'm still not sure why, but the state being passed from mapStateToProps did not contain the glocal items object at the time I wanted it to. Here, the fix is almost creating a delay in when the itemShow component receives the items object (in this case, just a single item).
 
 - Decided to not allow wrapping on item show page, i.e. when window is shrunk past a certain point, the info (right) column will not jump to below the item photos. This might be a future addition I can make with media queries:
@@ -78,12 +102,18 @@
 
 - Worked on update item but ran into very difficult bug where rails controller cannot read `:id` of incoming item. Will ask TAs --> very stumped.
 - Fixed this issue, when finding the params in (update) item controller (using id), the id was nested under item params:
-  - `edit_item_form.jsx`
-    - `formData.append('item[id]', this.props.item.id);`
-  - __INCORRECT CODE__ in `items_controller.rb`
-    - `@item = Item.find(params[:id])`
-  - __UPDATED TO__
-    - `@item = Item.find(params[:item][:id])`
+  - `edit_item_form.jsx` :
+    - ```js
+      formData.append('item[id]', this.props.item.id);
+      ```
+  - __INCORRECT CODE__ in `items_controller.rb` :
+    - ```ruby
+      @item = Item.find(params[:id])
+      ```
+  - __UPDATED TO__ :
+    - ```ruby
+      @item = Item.find(params[:item][:id])
+      ```
 
 
 note to try tmrw: if index isn't undefined, replace only that one at same index
@@ -115,9 +145,11 @@ also ask vanessa
 - After some thought and testing, instant search has been ruled out for time being
   - Might come back to ive updating, but for now a "reguler" type and submit like Depop implements will be the functionality
 - Adjusted the item show and user show views so that profile_pic avatars will only show conditionally:
-  - `if @user.profile_pic.attached?`  
-    &nbsp;&nbsp;&nbsp;&nbsp;`json.profile_pic url_for(@user.profile_pic)`  
-    `end`
+  - ```ruby
+    if @user.profile_pic.attached?
+      json.profile_pic url_for(@user.profile_pic)
+    end
+    ```
 - Added item age calculator to item show page
   - Breaks down into seconds, minutes, hours, and days
     - If the magnitude of these units are (rounded down to) 1, non-pluralized test is used
@@ -126,9 +158,11 @@ also ask vanessa
 - Search does not return to previous query string when navigating "back" in browser
   - Not super essential but a possible future development
 - Fixed coloration problem in Sign Up form:
-  - `.select:invalid {`  
-    &nbsp;&nbsp;&nbsp;&nbsp;`color: #757575;`  
-    `}`
+  - ```ruby
+    .select:invalid {
+      color: #757575;
+    }
+    ```
 - All above comments for today working on Heroku!!
 - Future development idea:
   - On index page, sold items show an overlay and will persist a set amount of time until finally being deleted from database?
@@ -152,12 +186,15 @@ also ask vanessa
 
 - Login spinner issue is a behavior specific to Chrome and does not appear in Firefox (FF best browser)
 - Fixed userId wildcard issue by adding a user fetch to render specifically a new user:
-  - `handleProfile(e) {`  
-    &nbsp;&nbsp;&nbsp;&nbsp;`e.preventDefault();`  
-    &nbsp;&nbsp;&nbsp;&nbsp;`this.props.fetchUser(this.props.currentUser.id)`  
-    &nbsp;&nbsp;&nbsp;&nbsp;`.then(() => this.props.history.push(`/${this.props.currentUser.id}`));`  
-    `}`
-- Small issue persists on Country <select> where a warning pops up preventing pressing the signup button, i.e. a warning that prevents my own errors from displaying and which looks unpleasant
+  - ```js
+    handleProfile(e) { 
+      e.preventDefault();
+      this.props.fetchUser(this.props.currentUser.id)  
+      .then(() => this.props.history
+        .push(`/${this.props.currentUser.id}`)); 
+    }
+    ```
+- Small issue persists on Country select element where a warning pops up preventing pressing the signup button, i.e. a warning that prevents my own errors from displaying and which looks unpleasant
 - Push to Heroku for final version before presenting!
 
 ### Monday 10/21/2019
@@ -176,3 +213,29 @@ also ask vanessa
 
 - Implemented sliding bar on follows panel, bolding/sliding now complete
 - Utilized classList to switch which attributes the hr element would have
+- Solved issue where navigating from user (1) to user (2) didn't refresh page
+  - ```js
+    componentDidUpdate(prevProps) {
+      if (this.props.match.params.userId !== prevProps.match.params.userId) {
+        this.props.closeModal();
+        this.props.fetchUser(this.props.match.params.userId);
+      }
+    }
+    ```
+- Follows modal/panel is complete except for the follow button itself doesn't have a function
+- Had to change Rails association semantics to avoid AssociationTypeMismatch
+  - Instead of: 
+    ```ruby
+    has_many :follows_as_follower,
+      primary_key: :id,
+      foreign_key: :follower,
+      class_name: :Follow
+    ```
+  - Had to use:
+    ```ruby
+      has_many :follows_as_follower,
+        primary_key: :id,
+        foreign_key: :follower_id,
+        class_name: :Follow
+    ```
+  - Even though `follower` was in fact an integer

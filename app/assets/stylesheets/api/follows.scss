@@ -126,16 +126,7 @@
   transition: left 0.25s ease 0s;
 }
 
-.tab-panel {
-  border: solid red 1px;
-}
-
-.current-panel {
-  border: solid green 1px;
-}
-
 .user-items {
-  border: solid blue 1px;
   max-height: 60vh;
   overflow: auto;
   padding: 0px 16px;

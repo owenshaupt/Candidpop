@@ -5,27 +5,24 @@ class Api::FollowsController < ApplicationController
   end
 
   def create
+    debugger
+
     @follow = Follow.new(follow_params)
     if @follow.save
-      render :show
+
     else
-      render json: @user.errors.full_messages, status: 422
+      render json: @follow.errors.full_messages, status: 422
     end
   end
 
-  def index
-    @follows = Follow.all
-    render :index
-  end
-
-  def show
-    @follow = Follow.find(params[:id])
-    render :show
-  end
+  # def destroy
+  #   @follow = Follow.find_by(follow_params)
+  #   @follow.destroy
+  # end
   
   private
 
   def follow_params
-    params.require(:follow).permit(:follower, :followee)
+    params.permit(:follower_id, :followee_id)
   end
 end

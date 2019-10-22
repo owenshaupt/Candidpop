@@ -1,4 +1,9 @@
-import { RECEIVE_ITEMS, RECEIVE_ITEM, REMOVE_ITEM, RECEIVE_FILTERED_ITEMS} from '../actions/item_actions';
+import {
+  RECEIVE_ITEMS,
+  RECEIVE_ITEM,
+  REMOVE_ITEM,
+  RECEIVE_FILTERED_ITEMS
+} from "../actions/item_actions";
 
 const itemsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -6,7 +11,7 @@ const itemsReducer = (oldState = {}, action) => {
     case RECEIVE_ITEMS:
       return action.items;
     case RECEIVE_ITEM:
-      return Object.assign({}, {[action.item.id]: action.item})
+      return Object.assign({}, { [action.item.id]: action.item });
     case RECEIVE_FILTERED_ITEMS:
       return action.items;
     case REMOVE_ITEM:

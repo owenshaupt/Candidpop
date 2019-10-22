@@ -8,7 +8,6 @@
 #  last_name       :string           not null
 #  email           :string           not null
 #  location        :string           not null
-#  img_url         :string
 #  bio             :text
 #  password_digest :string           not null
 #  session_token   :string           not null

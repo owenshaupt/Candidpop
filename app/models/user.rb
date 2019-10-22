@@ -8,7 +8,6 @@
 #  last_name       :string           not null
 #  email           :string           not null
 #  location        :string           not null
-#  img_url         :string
 #  bio             :text
 #  password_digest :string           not null
 #  session_token   :string           not null
@@ -59,22 +58,22 @@ class User < ApplicationRecord
     foreign_key: :seller_id,
     class_name: :Item
 
-  has_many :follow_as_follower,
+  has_many :follows_as_follower,
     primary_key: :id,
-    foreign_key: :follower,
+    foreign_key: :follower_id,
     class_name: :Follow
 
-  has_many :follow_as_followee,
+  has_many :follows_as_followee,
     primary_key: :id,
-    foreign_key: :followee,
+    foreign_key: :followee_id,
     class_name: :Follow
   
   has_many :followers,
-    through: :follow_as_followee,
+    through: :follows_as_followee,
     source: :follower
   
   has_many :followed_accounts,
-    through: :follow_as_follower,
+    through: :follows_as_follower,
     source: :followee
 
   has_one_attached :profile_pic

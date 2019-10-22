@@ -33,7 +33,7 @@ class FollowersListItem extends React.Component {
           <Link className='user-name' to={`/${this.props.follower.id}`}>
             {this.props.follower.first_name} {this.props.follower.last_name}
           </Link>
-          <p className='user-handle'>{this.props.follower.username}</p>
+          <p className='user-handle'>@{this.props.follower.username}</p>
         </div>
         <button
           className='follow-button user-follow-button'

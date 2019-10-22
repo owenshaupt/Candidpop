@@ -20,8 +20,20 @@ class UserShow extends React.Component {
     this.props.fetchUser(this.props.match.params.userId);
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.userId !== prevProps.match.params.userId) {
+      this.props.closeModal();
+      this.props.fetchUser(this.props.match.params.userId);
+    }
+  }
+
   handleFollow() {
-    console.log("hit handle follow");
+    const follow = {
+      follower_id: this.props.currentUser.id,
+      followee_id: this.props.user.id
+    }
+
+    this.props.createFollow(follow)
   }
 
   render() {

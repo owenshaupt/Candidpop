@@ -13,8 +13,8 @@ class FollowingList extends React.Component {
 
     const following = this.props.following.map(followedAccount => {
       return (
-        <div>
-          <FollowingListItem key={followedAccount.id} followedAccount={followedAccount} />
+        <div key={followedAccount.id}>
+          <FollowingListItem followedAccount={followedAccount} />
         </div>
       );
     });

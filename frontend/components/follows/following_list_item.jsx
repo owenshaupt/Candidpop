@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 class FollowingListItem extends React.Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class FollowingListItem extends React.Component {
     return (
       <div className='user-item'>
         <div className='user-photo'>
-          <a href=''>
+          <Link to={`/${this.props.followedAccount.id}`}>
             <img
               className='profile-photo'
               src={
@@ -28,14 +28,14 @@ class FollowingListItem extends React.Component {
               }
               alt=''
             />
-          </a>
+          </Link>
         </div>
         <div className='user-name-handle'>
-          <a className='user-name' href=''>
+          <Link className='user-name' to={`/${this.props.followedAccount.id}`}>
             {this.props.followedAccount.first_name}{" "}
             {this.props.followedAccount.last_name}
-          </a>
-          <p className='user-handle'>{this.props.followedAccount.username}</p>
+          </Link>
+          <p className='user-handle'>@{this.props.followedAccount.username}</p>
         </div>
         <button
           className='follow-button user-follow-button'

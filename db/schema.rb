@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_21_172422) do
+ActiveRecord::Schema.define(version: 2019_10_22_202519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,12 +37,12 @@ ActiveRecord::Schema.define(version: 2019_10_21_172422) do
   end
 
   create_table "follows", force: :cascade do |t|
-    t.integer "follower", null: false
-    t.integer "followee", null: false
+    t.integer "follower_id", null: false
+    t.integer "followee_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["followee"], name: "index_follows_on_followee"
-    t.index ["follower"], name: "index_follows_on_follower"
+    t.index ["followee_id"], name: "index_follows_on_followee_id"
+    t.index ["follower_id"], name: "index_follows_on_follower_id"
   end
 
   create_table "items", force: :cascade do |t|

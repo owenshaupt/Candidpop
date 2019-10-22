@@ -34,8 +34,7 @@ class Follows extends React.Component {
 
   toggleTab(tab) {
     const currentTab = document.querySelector(".selected-tab");
-    const currentTabText = currentTab.innerHTML; // 'followers' or 'following'
-    const hr = document.getElementById("hr"); // 'followers' = left
+    const hr = document.getElementById("hr");
     let newTab;
 
     if (currentTab.getAttribute(".class") !== tab) {
@@ -56,9 +55,6 @@ class Follows extends React.Component {
   }
 
   render() {
-    console.log("followers", this.props.user.followers);
-    console.log("following", this.props.user.following);
-
     return (
       <div className='follows-div'>
         <aside className='follows-ui'>
