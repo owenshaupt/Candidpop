@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
 import { css } from "@emotion/core";
+import FollowsModal from "../modal/follows_modal";
 
 const override = css`
   display: block;
@@ -20,7 +21,7 @@ class UserShow extends React.Component {
   }
 
   handleFollow() {
-    console.log('hit handle follow')
+    console.log("hit handle follow");
   }
 
   render() {
@@ -63,8 +64,11 @@ class UserShow extends React.Component {
       );
     });
 
+    console.log(this.props);
+
     return (
       <div className='user-show-page-container'>
+        <FollowsModal />
         <div className='user-show-page'>
           <div className='user-show-info'>
             <div className='user-show-top'>
@@ -90,13 +94,19 @@ class UserShow extends React.Component {
             <div className='follow-info'>
               <div className='follow-links'>
                 <div className='follow-link followers-link'>
-                  <button className='follow-link-button'>
+                  <button
+                    className='follow-link-button'
+                    onClick={() => this.props.openModal('followers')}
+                  >
                     <span className='follower-count follow-count'>100</span>
                     <span>Followers</span>
                   </button>
                 </div>
                 <div className='follow-link following-link'>
-                  <button className='follow-link-button'>
+                  <button
+                    className='follow-link-button'
+                    onClick={() => this.props.openModal('following')}
+                  >
                     <span className='following-count follow-count'>100</span>
                     <span>Following</span>
                   </button>

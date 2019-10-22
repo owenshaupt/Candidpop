@@ -13,9 +13,17 @@ json.items(@user.items_for_sale) do |item|
 end
 
 json.followers(@user.followers) do |follow|
-  json.extract! follow, :id, :username
+  json.extract! follow, :id, :username, :first_name, :last_name
+
+  if follow.profile_pic.attached?
+    json.profile_pic url_for(follow.profile_pic)
+  end
 end
 
 json.following(@user.followed_accounts) do |follow|
-  json.extract! follow, :id, :username
+  json.extract! follow, :id, :username, :first_name, :last_name
+
+  if follow.profile_pic.attached?
+    json.profile_pic url_for(follow.profile_pic)
+  end
 end

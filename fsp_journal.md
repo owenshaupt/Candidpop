@@ -165,3 +165,9 @@ also ask vanessa
 - Back to work on the final MVP after a month of other projects
 - Added a note on the user show page to denote an empty store (no items for sale)
 - Created follows model, table, view, controller, routes
+- Integrated follow buttons
+- Built modal for opening followers/following info
+  - Passed types through follows (modal) container to decided which section to show first when modal opens
+- Modal fades in but doesn't fade out
+  - psuedo-selector :active allowed for click-out of modal to initiate fade-out
+    - but this also activated a fade-out-fade-in when I clicked on the modal itself (not background)

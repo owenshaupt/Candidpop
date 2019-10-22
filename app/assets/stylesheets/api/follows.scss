@@ -1,3 +1,127 @@
 // Place all the styles related to the api/Follows controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.modal-background {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 23;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: 0.2s ease 0s 1 normal forwards running open-modal;
+}
+
+.modal-background:active {
+  // animation: 0.2s ease 0s 1 normal forwards running close-modal;
+}
+
+.modal-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+}
+
+@keyframes open-modal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes close-modal {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.follows-div {
+  margin: auto;
+  position: absolute;
+  z-index: 24;
+}
+
+.follows-ui {
+  z-index: 25;
+  width: 800px;
+  height: 700px;
+  background-color: white;
+  margin: 0px auto;
+}
+
+.modal-header {
+  padding: 16px;
+  position: relative;
+  border-bottom: solid rgb(175, 175, 175) 1px;
+}
+
+.header-close-button {
+  position: absolute;
+  right: 16px;
+  cursor: pointer;
+}
+
+.header-username {
+  font-size: 16px;
+  font-family: "gt-america-regular";
+}
+
+.tabs-container {
+  height: 38px;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.modal-tab {
+  width: 50%;
+  font-size: 16px;
+  padding: 8px 0px 6px;
+  font-family: "gt-america-extended-regular";
+  text-align: center;
+  cursor: pointer;
+}
+
+.selected-tab {
+  width: 50%;
+  font-size: 16px;
+  padding: 8px 0px 6px;
+  font-family: "gt-america-extended-bold";
+  text-align: center;
+  cursor: pointer;
+}
+
+.tab-highlight-left {
+  position: absolute;
+  bottom: 0px;
+  left: 0%;
+  width: 50%;
+  height: 2px;
+  background-color: black;
+  border-width: 0px;
+  margin: 0px;
+  transition: left 0.25s ease 0s;
+}
+
+.tab-highlight-right {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  width: 50%;
+  height: 2px;
+  background-color: black;
+  border-width: 0px;
+  margin: 0px;
+  transition: left 0.25s ease 0s;
+}
