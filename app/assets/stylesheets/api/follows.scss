@@ -125,3 +125,65 @@
   margin: 0px;
   transition: left 0.25s ease 0s;
 }
+
+.tab-panel {
+  border: solid red 1px;
+}
+
+.current-panel {
+  border: solid green 1px;
+}
+
+.user-items {
+  border: solid blue 1px;
+  max-height: 60vh;
+  overflow: auto;
+  padding: 0px 16px;
+}
+
+.user-item {
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
+  -webkit-box-align: center;
+  align-items: center;
+  gap: 1rem 1rem;
+  margin: 0.625rem 0px 1rem;
+}
+
+.user-photo {
+  width: 68px;
+  height: 68px;
+  cursor: pointer;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #999999;
+}
+
+.user-name-handle {
+  display: inline-block;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.user-name {
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  text-overflow: ellipsis;
+  font-family: "gt-america-extended-bold";
+  line-height: 1.2;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.user-handle {
+  color: rgb(153, 153, 153);
+  font-size: 14px;
+  text-overflow: ellipsis;
+  font-family: "gt-america-extended-regular";
+  line-height: 1.2;
+  overflow: hidden;
+}
+
+.user-follow-button {
+}

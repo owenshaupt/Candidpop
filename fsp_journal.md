@@ -171,3 +171,8 @@ also ask vanessa
 - Modal fades in but doesn't fade out
   - psuedo-selector :active allowed for click-out of modal to initiate fade-out
     - but this also activated a fade-out-fade-in when I clicked on the modal itself (not background)
+
+### Tuesday 10/22/2019
+
+- Implemented sliding bar on follows panel, bolding/sliding now complete
+- Utilized classList to switch which attributes the hr element would have
