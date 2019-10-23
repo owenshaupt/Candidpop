@@ -108,6 +108,10 @@ class Follows extends React.Component {
                     followed={this.state.followed}
                     followers={this.props.user.followers}
                     fetchUser={this.props.fetchUser}
+                    fetchFollow={this.props.fetchFollow}
+                    fetchListItemFollow={this.props.fetchListItemFollow}
+                    listItemFollow={this.props.listItemFollow}
+                    currentUserId={this.props.currentUser.id}
                   />
                 ) : (
                   <FollowingList
@@ -115,6 +119,10 @@ class Follows extends React.Component {
                     followed={this.state.followed}
                     following={this.props.user.following}
                     fetchUser={this.props.fetchUser}
+                    fetchFollow={this.props.fetchFollow}
+                    fetchListItemFollow={this.props.fetchListItemFollow}
+                    listItemFollow={this.props.listItemFollow}
+                    currentUserId={this.props.currentUser.id}
                   />
                 )}
               </div>

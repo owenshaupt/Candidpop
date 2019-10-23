@@ -24,7 +24,14 @@ class FollowersList extends React.Component {
     const followers = this.props.followers.map(follower => {
       return (
         <div key={follower.id}>
-          <FollowersListItem follower={follower} />
+          <FollowersListItem
+            follower={follower}
+            fetchUser={this.props.fetchUser}
+            fetchFollow={this.props.fetchFollow}
+            fetchListItemFollow={this.props.fetchListItemFollow}
+            listItemFollow={this.props.listItemFollow}
+            currentUserId={this.props.currentUserId}
+          />
         </div>
       );
     });

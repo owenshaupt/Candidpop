@@ -65,11 +65,16 @@ class UserShow extends React.Component {
     };
 
     this.props.createFollow(follow).then(() => {
-      this.props.fetchFollow(follow).then(() => {
-        Object.keys(this.props.follow).length
-          ? (this.state.followed = true)
-          : (this.state.followed = false);
-      });
+      this.props
+        .fetchFollow(follow)
+        .then(() => {
+          Object.keys(this.props.follow).length
+            ? (this.state.followed = true)
+            : (this.state.followed = false);
+        })
+        .then(() => {
+          this.props.fetchUser(this.props.match.params.userId);
+        });
     });
     this.setState({ followed: true });
   }
@@ -82,11 +87,16 @@ class UserShow extends React.Component {
     };
 
     this.props.deleteFollow(follow).then(() => {
-      this.props.fetchFollow(follow).then(() => {
-        Object.keys(this.props.follow).length
-          ? (this.state.followed = true)
-          : (this.state.followed = false);
-      });
+      this.props
+        .fetchFollow(follow)
+        .then(() => {
+          Object.keys(this.props.follow).length
+            ? (this.state.followed = true)
+            : (this.state.followed = false);
+        })
+        .then(() => {
+          this.props.fetchUser(this.props.match.params.userId);
+        });
     });
     this.setState({ followed: false });
   }
@@ -131,10 +141,8 @@ class UserShow extends React.Component {
       );
     });
 
-    // console.log("user show render state", this.state.followed);
     const following =
       this.props.follow && Object.keys(this.props.follow).length;
-    // console.log("this.props.follow", this.props.follow);
 
     return (
       <div className='user-show-page-container'>
@@ -170,7 +178,9 @@ class UserShow extends React.Component {
                       this.props.openModal("followers", this.state.followed)
                     }
                   >
-                    <span className='follower-count follow-count'>100</span>
+                    <span className='follower-count follow-count'>
+                      {this.props.user.followers.length}
+                    </span>
                     <span>Followers</span>
                   </button>
                 </div>
@@ -181,7 +191,9 @@ class UserShow extends React.Component {
                       this.props.openModal("following", this.state.followed)
                     }
                   >
-                    <span className='following-count follow-count'>100</span>
+                    <span className='following-count follow-count'>
+                      {this.props.user.following.length}
+                    </span>
                     <span>Following</span>
                   </button>
                 </div>
@@ -191,7 +203,7 @@ class UserShow extends React.Component {
                   className='follow-button'
                   onClick={following ? this.handleUnfollow : this.handleFollow}
                 >
-                  {following ? "Unfollow" : "Follow"}
+                  <span>{following ? "Unfollow" : "Follow"}</span>
                 </button>
               </div>
             </div>

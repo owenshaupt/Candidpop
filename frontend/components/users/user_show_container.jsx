@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import UserShow from "./user_show";
 import { fetchUser } from "../../actions/user_actions";
 import { closeModal, openModal } from "../../actions/modal";
-import { createFollow, deleteFollow, fetchFollow } from "../../actions/follow_actions";
+import { createFollow, deleteFollow, fetchFollow, fetchListItemFollow } from "../../actions/follow_actions";
 
 const mapStateToProps = (state, ownProps) => ({
   user: state.entities.userShow,
@@ -17,6 +17,7 @@ const mapDispatchToProps = dispatch => ({
   closeModal: () => dispatch(closeModal()),
   openModal: (modal, followed) => dispatch(openModal(modal, followed)),
   fetchFollow: follow => dispatch(fetchFollow(follow)),
+  fetchListItemFollow: follow => dispatch(fetchListItemFollow(follow)),
   createFollow: follow => dispatch(createFollow(follow)),
   deleteFollow: follow => dispatch(deleteFollow(follow))
 });

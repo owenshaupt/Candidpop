@@ -12,6 +12,7 @@
 class Follow < ApplicationRecord
   validates :follower_id, presence: true
   validates :followee_id, presence: true
+  validate :not_self_follow
 
   belongs_to :follower,
     primary_key: :id,
@@ -22,4 +23,10 @@ class Follow < ApplicationRecord
     primary_key: :id,
     foreign_key: :followee_id,
     class_name: :User
+  
+  private
+
+  def not_self_follow
+    errors.add :Cannot, "follow yourself" if (follower_id == followee_id)
+  end
 end

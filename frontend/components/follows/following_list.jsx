@@ -6,17 +6,23 @@ class FollowingList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      followers: []
+      following: []
     };
   }
 
   componentDidMount() {
+    this._isMounted = true;
+
     this.props.fetchUser(this.props.user.id).then(() => {
-      this.setState({ followers: this.props.followers });
+      if (this._isMounted) this.setState({ following: this.props.following });
     });
   }
 
   componentDidUpdate() {}
+
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
 
   render() {
     if (!this.props.following) return null;

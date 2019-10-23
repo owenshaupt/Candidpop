@@ -176,5 +176,20 @@
   overflow: hidden;
 }
 
+.user-follow-button, .follow-button {
+  display: flex;
+  justify-content: center;
+}
+
+.follow-button {
+  width: 116px;
+}
+
 .user-follow-button {
+  width: 56px;
+}
+
+
+.follow-button > span {
+  
 }

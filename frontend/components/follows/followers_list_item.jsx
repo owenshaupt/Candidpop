@@ -4,9 +4,31 @@ import { Link, withRouter } from "react-router-dom";
 class FollowersListItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      listItemFollow: null,
+      listItemFollowed: null
+    };
 
     this.handleFollow = this.handleFollow.bind(this);
+  }
+
+  componentDidMount() {
+    const follow = {
+      follower_id: this.props.currentUserId,
+      followee_id: this.props.follower.id
+    };
+
+    
+    this.props.fetchListItemFollow(follow).then(() => {
+      console.log('this.props.listItemFollow', this.props.listItemFollow)
+      if (Object.keys(this.props.listItemFollow).length !== 0 ) {
+        this.setState({ listItemFollow: this.props.listItemFollow });
+        this.setState({ listItemFollowed: true });
+      } else {
+        this.setState({ listItemFollow: {} });
+        this.setState({ listItemFollowed: false });
+      }
+    });
   }
 
   handleFollow() {
@@ -14,7 +36,7 @@ class FollowersListItem extends React.Component {
   }
 
   render() {
-    if (!this.props.follower) return null;
+    if (this.state.listItemFollowed === null) return null;
 
     return (
       <div className='user-item'>
@@ -39,7 +61,13 @@ class FollowersListItem extends React.Component {
           className='follow-button user-follow-button'
           onClick={this.handleFollow}
         >
-          Follow
+          <span>
+            {this.state.listItemFollowed === true
+              ? "Unfollow"
+              : this.state.listItemFollowed === false
+              ? "Follow"
+              : ""}
+          </span>
         </button>
       </div>
     );
