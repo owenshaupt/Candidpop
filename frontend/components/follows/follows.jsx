@@ -15,8 +15,6 @@ class Follows extends React.Component {
   }
 
   componentDidMount() {
-    console.log("follows mounting");
-
     this.setState({ followed: this.props.followed });
 
     const selectedTab = document.getElementById(this.props.start);
@@ -32,14 +30,9 @@ class Follows extends React.Component {
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log("follows trying to update");
-    console.log("this.props", this.props);
-    console.log("prevProps", prevProps);
-    if (this.props !== prevProps) {
+  componentDidUpdate() {
+    if (this.state.followed !== this.props.followed) {
       this.setState({ followed: this.props.followed });
-    } else {
-      console.log("didUpdate had same props");
     }
   }
 
@@ -70,8 +63,6 @@ class Follows extends React.Component {
   }
 
   render() {
-    console.log("in Follows this.state.followed:", this.state.followed);
-
     return (
       <div className='follows-div'>
         <aside className='follows-ui'>
@@ -113,13 +104,17 @@ class Follows extends React.Component {
               <div className='current-panel'>
                 {this.state.hr === "followers" ? (
                   <FollowersList
+                    user={this.props.user}
                     followed={this.state.followed}
                     followers={this.props.user.followers}
+                    fetchUser={this.props.fetchUser}
                   />
                 ) : (
                   <FollowingList
+                    user={this.props.user}
                     followed={this.state.followed}
                     following={this.props.user.following}
+                    fetchUser={this.props.fetchUser}
                   />
                 )}
               </div>

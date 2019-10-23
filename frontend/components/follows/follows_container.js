@@ -1,6 +1,7 @@
-import { connect } from 'react-redux';
-import Follows from './follows';
-import { openModal, closeModal } from '../../actions/modal';
+import { connect } from "react-redux";
+import Follows from "./follows";
+import { openModal, closeModal } from "../../actions/modal";
+import { fetchUser } from "../../actions/user_actions";
 
 const mapStateToProps = (state, ownProps) => ({
   user: state.entities.userShow,
@@ -12,7 +13,11 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   openModal: (modal, followed) => dispatch(openModal(modal, followed)),
-  closeModal: () => dispatch(closeModal())
+  closeModal: () => dispatch(closeModal()),
+  fetchUser: id => dispatch(fetchUser(id))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Follows);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Follows);

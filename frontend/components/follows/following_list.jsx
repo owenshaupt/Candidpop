@@ -5,8 +5,18 @@ import FollowingListItem from "./following_list_item";
 class FollowingList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      followers: []
+    };
   }
+
+  componentDidMount() {
+    this.props.fetchUser(this.props.user.id).then(() => {
+      this.setState({ followers: this.props.followers });
+    });
+  }
+
+  componentDidUpdate() {}
 
   render() {
     if (!this.props.following) return null;

@@ -5,23 +5,25 @@ import FollowersListItem from "./followers_list_item";
 class FollowersList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      followers: []
+    };
   }
 
   componentDidMount() {
-    console.log('followers_list mounting')
+    this.props.fetchUser(this.props.user.id).then(() => {
+      this.setState({ followers: this.props.followers });
+    });
   }
 
-  componentDidUpdate() {
-    console.log('followers_list updating')
-  }
+  componentDidUpdate() {}
 
   render() {
     if (!this.props.followers) return null;
 
     const followers = this.props.followers.map(follower => {
       return (
-        <div key={follower.id} >
+        <div key={follower.id}>
           <FollowersListItem follower={follower} />
         </div>
       );

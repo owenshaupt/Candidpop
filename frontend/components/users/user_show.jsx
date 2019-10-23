@@ -29,12 +29,12 @@ class UserShow extends React.Component {
     this.props.fetchUser(this.props.match.params.userId);
     this.props.fetchFollow(follow).then(() => {
       Object.keys(this.props.follow).length
-        ? (this.state.followed = true)
-        : (this.state.followed = false);
-      console.log(
-        "user show mounted, this.state.followed",
-        this.state.followed
-      );
+        ? this.setState({ followed: true })
+        : this.setState({ followed: false });
+      // console.log(
+      //   "user show mounted, this.state.followed",
+      //   this.state.followed
+      // );
     });
   }
 
@@ -49,8 +49,8 @@ class UserShow extends React.Component {
       this.props.fetchUser(this.props.match.params.userId);
       this.props.fetchFollow(follow).then(() => {
         Object.keys(this.props.follow).length
-          ? (this.state.followed = true)
-          : (this.state.followed = false);
+          ? this.setState({ followed: true })
+          : this.setState({ followed: false });
       });
     }
 
@@ -58,7 +58,7 @@ class UserShow extends React.Component {
   }
 
   handleFollow() {
-    console.log('hitting follow')
+    // console.log("hitting follow");
     const follow = {
       follower_id: this.props.currentUser.id,
       followee_id: this.props.user.id
@@ -69,13 +69,13 @@ class UserShow extends React.Component {
         Object.keys(this.props.follow).length
           ? (this.state.followed = true)
           : (this.state.followed = false);
-      });;
+      });
     });
     this.setState({ followed: true });
   }
 
   handleUnfollow() {
-    console.log('hitting unfollow')
+    // console.log("hitting unfollow");
     const follow = {
       follower_id: this.props.currentUser.id,
       followee_id: this.props.user.id
@@ -86,7 +86,7 @@ class UserShow extends React.Component {
         Object.keys(this.props.follow).length
           ? (this.state.followed = true)
           : (this.state.followed = false);
-      });;
+      });
     });
     this.setState({ followed: false });
   }
@@ -131,10 +131,10 @@ class UserShow extends React.Component {
       );
     });
 
-    console.log("user show render state", this.state.followed);
+    // console.log("user show render state", this.state.followed);
     const following =
       this.props.follow && Object.keys(this.props.follow).length;
-    console.log('this.props.follow', this.props.follow)
+    // console.log("this.props.follow", this.props.follow);
 
     return (
       <div className='user-show-page-container'>
@@ -189,11 +189,7 @@ class UserShow extends React.Component {
               <div className='follow-button-div'>
                 <button
                   className='follow-button'
-                  onClick={
-                    following
-                      ? this.handleUnfollow
-                      : this.handleFollow
-                  }
+                  onClick={following ? this.handleUnfollow : this.handleFollow}
                 >
                   {following ? "Unfollow" : "Follow"}
                 </button>
