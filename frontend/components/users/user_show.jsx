@@ -12,28 +12,83 @@ const override = css`
 class UserShow extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      followed: null
+    };
 
     this.handleFollow = this.handleFollow.bind(this);
+    this.handleUnfollow = this.handleUnfollow.bind(this);
   }
 
   componentDidMount() {
+    const follow = {
+      follower_id: this.props.currentUser.id,
+      followee_id: this.props.match.params.userId
+    };
+
     this.props.fetchUser(this.props.match.params.userId);
+    this.props.fetchFollow(follow).then(() => {
+      Object.keys(this.props.follow).length
+        ? (this.state.followed = true)
+        : (this.state.followed = false);
+      console.log(
+        "user show mounted, this.state.followed",
+        this.state.followed
+      );
+    });
   }
 
   componentDidUpdate(prevProps) {
+    const follow = {
+      follower_id: this.props.currentUser.id,
+      followee_id: this.props.match.params.userId
+    };
+
     if (this.props.match.params.userId !== prevProps.match.params.userId) {
       this.props.closeModal();
       this.props.fetchUser(this.props.match.params.userId);
+      this.props.fetchFollow(follow).then(() => {
+        Object.keys(this.props.follow).length
+          ? (this.state.followed = true)
+          : (this.state.followed = false);
+      });
     }
+
+    // console.log('user show end of update, this.props.follow', this.props.follow)
   }
 
   handleFollow() {
+    console.log('hitting follow')
     const follow = {
       follower_id: this.props.currentUser.id,
       followee_id: this.props.user.id
-    }
+    };
 
-    this.props.createFollow(follow)
+    this.props.createFollow(follow).then(() => {
+      this.props.fetchFollow(follow).then(() => {
+        Object.keys(this.props.follow).length
+          ? (this.state.followed = true)
+          : (this.state.followed = false);
+      });;
+    });
+    this.setState({ followed: true });
+  }
+
+  handleUnfollow() {
+    console.log('hitting unfollow')
+    const follow = {
+      follower_id: this.props.currentUser.id,
+      followee_id: this.props.user.id
+    };
+
+    this.props.deleteFollow(follow).then(() => {
+      this.props.fetchFollow(follow).then(() => {
+        Object.keys(this.props.follow).length
+          ? (this.state.followed = true)
+          : (this.state.followed = false);
+      });;
+    });
+    this.setState({ followed: false });
   }
 
   render() {
@@ -76,11 +131,14 @@ class UserShow extends React.Component {
       );
     });
 
-    console.log(this.props);
+    console.log("user show render state", this.state.followed);
+    const following =
+      this.props.follow && Object.keys(this.props.follow).length;
+    console.log('this.props.follow', this.props.follow)
 
     return (
       <div className='user-show-page-container'>
-        <FollowsModal />
+        <FollowsModal followed={this.state.followed} />
         <div className='user-show-page'>
           <div className='user-show-info'>
             <div className='user-show-top'>
@@ -108,7 +166,9 @@ class UserShow extends React.Component {
                 <div className='follow-link followers-link'>
                   <button
                     className='follow-link-button'
-                    onClick={() => this.props.openModal('followers')}
+                    onClick={() =>
+                      this.props.openModal("followers", this.state.followed)
+                    }
                   >
                     <span className='follower-count follow-count'>100</span>
                     <span>Followers</span>
@@ -117,7 +177,9 @@ class UserShow extends React.Component {
                 <div className='follow-link following-link'>
                   <button
                     className='follow-link-button'
-                    onClick={() => this.props.openModal('following')}
+                    onClick={() =>
+                      this.props.openModal("following", this.state.followed)
+                    }
                   >
                     <span className='following-count follow-count'>100</span>
                     <span>Following</span>
@@ -125,9 +187,15 @@ class UserShow extends React.Component {
                 </div>
               </div>
               <div className='follow-button-div'>
-                <button className='follow-button' onClick={this.handleFollow}>
-                  {/* ternary to decide if follow or unfollow */}
-                  Follow
+                <button
+                  className='follow-button'
+                  onClick={
+                    following
+                      ? this.handleUnfollow
+                      : this.handleFollow
+                  }
+                >
+                  {following ? "Unfollow" : "Follow"}
                 </button>
               </div>
             </div>

@@ -8,6 +8,14 @@ class FollowersList extends React.Component {
     this.state = {};
   }
 
+  componentDidMount() {
+    console.log('followers_list mounting')
+  }
+
+  componentDidUpdate() {
+    console.log('followers_list updating')
+  }
+
   render() {
     if (!this.props.followers) return null;
 

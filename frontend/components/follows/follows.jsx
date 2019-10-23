@@ -7,7 +7,7 @@ class Follows extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hr: null
+      followed: null
     };
 
     this.toggleTab = this.toggleTab.bind(this);
@@ -15,6 +15,10 @@ class Follows extends React.Component {
   }
 
   componentDidMount() {
+    console.log("follows mounting");
+
+    this.setState({ followed: this.props.followed });
+
     const selectedTab = document.getElementById(this.props.start);
     selectedTab.classList.add("selected-tab");
 
@@ -25,6 +29,17 @@ class Follows extends React.Component {
     } else {
       hr.classList.add("tab-highlight-right");
       this.setState({ hr: "following" });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("follows trying to update");
+    console.log("this.props", this.props);
+    console.log("prevProps", prevProps);
+    if (this.props !== prevProps) {
+      this.setState({ followed: this.props.followed });
+    } else {
+      console.log("didUpdate had same props");
     }
   }
 
@@ -55,6 +70,8 @@ class Follows extends React.Component {
   }
 
   render() {
+    console.log("in Follows this.state.followed:", this.state.followed);
+
     return (
       <div className='follows-div'>
         <aside className='follows-ui'>
@@ -95,9 +112,15 @@ class Follows extends React.Component {
             <div className='tab-panel'>
               <div className='current-panel'>
                 {this.state.hr === "followers" ? (
-                  <FollowersList followers={this.props.user.followers} />
+                  <FollowersList
+                    followed={this.state.followed}
+                    followers={this.props.user.followers}
+                  />
                 ) : (
-                  <FollowingList following={this.props.user.following} />
+                  <FollowingList
+                    followed={this.state.followed}
+                    following={this.props.user.following}
+                  />
                 )}
               </div>
             </div>

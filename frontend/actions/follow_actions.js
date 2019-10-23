@@ -19,10 +19,14 @@ export const receiveErrors = errors => ({
   errors
 });
 
+export const fetchFollow = follow => dispatch => APIUtil.fetchFollow(follow)
+  .then(follow => dispatch(recieveFollow(follow)))
+  .fail(error => dispatch(receiveErrors(error.responseJSON)));
+
 export const createFollow = follow => dispatch => APIUtil.createFollow(follow)
-  .then(item => dispatch(recieveFollow(follow)))
+  .then(follow => dispatch(recieveFollow(follow)))
   .fail(error => dispatch(receiveErrors(error.responseJSON)));
 
 export const deleteFollow = follow => dispatch => APIUtil.deleteFollow(follow)
-  .then(() => dispatch(removeFollow(follow)))
+  .then(follow => dispatch(removeFollow(follow)))
   .fail(error => dispatch(receiveErrors(error.responseJSON)));

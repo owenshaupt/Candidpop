@@ -5,11 +5,13 @@ import { openModal, closeModal } from '../../actions/modal';
 const mapStateToProps = (state, ownProps) => ({
   user: state.entities.userShow,
   errors: state.errors.user.errors,
-  start: ownProps.start
+  follow: state.entities.follows,
+  start: ownProps.start,
+  followed: ownProps.followed
 });
 
 const mapDispatchToProps = dispatch => ({
-  openModal: modal => dispatch(openModal(modal)),
+  openModal: (modal, followed) => dispatch(openModal(modal, followed)),
   closeModal: () => dispatch(closeModal())
 });
 

@@ -1,1 +1,1 @@
-json.extract! @follow, :id, :follower, :followee
+json.extract! @follow, :id, :follower_id, :followee_id

@@ -239,3 +239,31 @@ also ask vanessa
         class_name: :Follow
     ```
   - Even though `follower` was in fact an integer
+- Used object to direct `destroy` action in `follows_controller` instead of an `id`
+  - `user_show.jsx` :
+    ```js
+      /// add about unfollow
+    ```
+  - `follow_util.js` :
+    ```js
+      export const deleteFollow = follow => {
+        return $.ajax({
+          type: "DELETE",
+          url: `/api/follows/${follow}`,
+          data: follow,
+          error: err => console.log(err)
+        });
+      };
+    ```
+    - Note the URL does nothing with `${follow}` but without it a custom route would be needed; this way we can keep the RESTful route
+  - `follows_controller.rb` :
+    ```ruby
+      def destroy
+        @follow = Follow.find_by(follow_params)
+        @follow.destroy
+      end
+
+      def follow_params
+        params.permit(:follower_id, :followee_id)
+      end
+    ```

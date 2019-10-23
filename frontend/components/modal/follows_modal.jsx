@@ -3,18 +3,20 @@ import { openModal, closeModal } from "../../actions/modal";
 import { connect } from "react-redux";
 import FollowsContainer from "../follows/follows_container";
 
-const FollowsModal = ({ modal, closeModal }) => {
+const FollowsModal = ({ modal, followed, closeModal }) => {
   if (!modal) {
     return null;
   }
 
+  console.log('in FollowsModal followed:', followed)
+
   let component;
   switch (modal) {
     case "followers":
-      component = <FollowsContainer start='followers' />;
+      component = <FollowsContainer followed={followed} start='followers' />;
       break;
     case "following":
-      component = <FollowsContainer start='following' />;
+      component = <FollowsContainer followed={followed} start='following' />;
       break;
     default:
       return null;
@@ -29,16 +31,17 @@ const FollowsModal = ({ modal, closeModal }) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    modal: state.ui.modal
+    modal: state.ui.modal,
+    followed: ownProps.followed
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     closeModal: () => dispatch(closeModal()),
-    openModal: modal => dispatch(openModal(modal))
+    openModal: (modal, followed) => dispatch(openModal(modal, followed))
   };
 };
 
