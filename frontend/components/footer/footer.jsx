@@ -7,14 +7,8 @@ class Footer extends React.Component {
       <div className='footer'>
         <div className='links-holder'>
           <div className='links-left'>
-            <a href='https://github.com/owenshaupt/candidpop' target="_blank" className='links-left-link'>About</a>
-            <a className='links-left-link'>Jobs</a>
-            <a className='links-left-link'>Events</a>
-            <a className='links-left-link'>Spaces</a>
-            <a className='links-left-link'>Press</a>
-            <a className='links-left-link'>Support</a>
-            <a className='links-left-link'>Terms</a>
-            <a className='links-left-link'>Privacy</a>
+            <a href='https://github.com/owenshaupt/candidpop' target="_blank" className='links-left-link'>Visit GitHub Repo</a>
+            <a href='https://owenhaupt.io' target="_blank" className='links-left-link'>Visit My Portfolio</a>
           </div>
           <div className='links-right'>
             <a href='https://github.com/owenshaupt' target="_blank" className='links-right-link github'>
