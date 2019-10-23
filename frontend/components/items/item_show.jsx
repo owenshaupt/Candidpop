@@ -1,11 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ClipLoader } from 'react-spinners';
-import { css } from '@emotion/core';
+import React from "react";
+import { Link } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
+import { css } from "@emotion/core";
+import { clearItems } from "../../actions/item_actions";
 
 const override = css`
-    display: block;
-    margin: 0 auto;
+  display: block;
+  margin: 0 auto;
 `;
 
 class ItemShow extends React.Component {
@@ -15,25 +16,32 @@ class ItemShow extends React.Component {
     this.calculateAge = this.calculateAge.bind(this);
     this.state = {
       loading: false
-    }
+    };
   }
 
   componentDidMount() {
-    this.props.fetchItem(this.props.match.params.itemId)
+    this.props.fetchItem(this.props.match.params.itemId);
   }
-  
+
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.itemId !== this.props.match.params.itemId) {
       this.props.fetchItem(this.props.match.params.itemId);
     }
   }
 
+  componentWillUnmount() {
+    this.props.clearItems();
+  }
+
   handleDelete(e) {
     e.preventDefault();
     this.setState({ loading: true });
-    this.props.deleteItem(this.props.item.id)
-      .then(() => { this.props.history.push('/items/') })
-      .fail(() => this.setState({ loading: false }))
+    this.props
+      .deleteItem(this.props.item.id)
+      .then(() => {
+        this.props.history.push("/items/");
+      })
+      .fail(() => this.setState({ loading: false }));
   }
 
   calculateAge() {
@@ -43,27 +51,27 @@ class ItemShow extends React.Component {
 
     if (timeDiff < 60000) {
       if (Math.floor(timeDiff / 1000) === 1) {
-        return '1 SECOND'
+        return "1 SECOND";
       } else {
-        return `${Math.floor(timeDiff / 1000)} SECONDS`
+        return `${Math.floor(timeDiff / 1000)} SECONDS`;
       }
     } else if (timeDiff < 3600000) {
       if (Math.floor(timeDiff / 60000) === 1) {
-        return '1 MINUTE'
+        return "1 MINUTE";
       } else {
-        return `${Math.floor(timeDiff / 60000)} MINUTES`
+        return `${Math.floor(timeDiff / 60000)} MINUTES`;
       }
-    } else if (timeDiff < 8.64e+7) {
+    } else if (timeDiff < 8.64e7) {
       if (Math.floor(timeDiff / 3600000) === 1) {
-        return '1 HOUR'
+        return "1 HOUR";
       } else {
-        return `${Math.floor(timeDiff / 3600000)} HOURS`
+        return `${Math.floor(timeDiff / 3600000)} HOURS`;
       }
     } else {
       if (Math.floor(timeDiff / 86400000) === 1) {
-        return '1 DAY'
+        return "1 DAY";
       } else {
-      return `${Math.floor(timeDiff / 86400000)} DAYS`
+        return `${Math.floor(timeDiff / 86400000)} DAYS`;
       }
     }
   }
@@ -76,7 +84,7 @@ class ItemShow extends React.Component {
             css={override}
             sizeUnit={"px"}
             size={42}
-            color={'#282828'}
+            color={"#282828"}
             loading={true}
           />
         </div>
@@ -86,34 +94,36 @@ class ItemShow extends React.Component {
     return (
       <div className='item-show-page-body'>
         <div className='item-show'>
-
           <div className='item-show-item-photos'>
             <ul>
               {this.props.item.photos.map(photo => {
-                return (<li key={photo.photoUrl} className='item-image-container'>
-                  <img className='item-image' src={photo.photoUrl}/>
-                </li>)
+                return (
+                  <li key={photo.photoUrl} className='item-image-container'>
+                    <img className='item-image' src={photo.photoUrl} />
+                  </li>
+                );
               })}
             </ul>
           </div>
 
           <div className='item-show-item-info'>
-              <div className='user-profile-photo-container'>
-                <Link to={`/${this.props.item.seller_id}`}>
-                  <img
-                    className='profile-photo'
-                    src={this.props.item.user_photo ||
-                      window.emptyUserProfilePicURL}
-                    alt=""
-                  />
-                </Link>
-              </div>
+            <div className='user-profile-photo-container'>
+              <Link to={`/${this.props.item.seller_id}`}>
+                <img
+                  className='profile-photo'
+                  src={
+                    this.props.item.user_photo || window.emptyUserProfilePicURL
+                  }
+                  alt=''
+                />
+              </Link>
+            </div>
 
             <div className='item-show-seller'>
               <Link to={`/${this.props.item.seller_id}`}>
-                  <div className='item-seller-username'>
-                    {this.props.item.user.username}
-                  </div>
+                <div className='item-seller-username'>
+                  {this.props.item.user.username}
+                </div>
               </Link>
 
               <div className='item-seller-location'>
@@ -132,7 +142,9 @@ class ItemShow extends React.Component {
                 <tbody className='item-price-table-body'>
                   <tr className='item-price-table-row'>
                     <th className='item-price-header'>Price</th>
-                    <td className='item-price-data'>${this.props.item.price}</td>
+                    <td className='item-price-data'>
+                      ${this.props.item.price}
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -142,19 +154,23 @@ class ItemShow extends React.Component {
               <table className='item-price-table'>
                 <tbody className='item-price-table-body'>
                   <tr className='item-price-table-row item-show-listed-time'>
-                    <th className='item-price-header'>LISTED {this.calculateAge()} AGO</th>
+                    <th className='item-price-header'>
+                      LISTED {this.calculateAge()} AGO
+                    </th>
                   </tr>
                 </tbody>
               </table>
             </div>
 
             <div className='item-purchase'>
-              {(this.props.user === this.props.item.seller_id) ? 
+              {this.props.user === this.props.item.seller_id ? (
                 <div>
                   <Link to={`/items/${this.props.item.id}/edit/`}>
                     <button
                       id='update-item-button'
-                      className='button item-purchase-button'>Update item
+                      className='button item-purchase-button'
+                    >
+                      Update item
                     </button>
                   </Link>
 
@@ -162,48 +178,46 @@ class ItemShow extends React.Component {
                     <button
                       onClick={this.handleDelete}
                       id='delete-item-button'
-                      className='button item-purchase-button'>
-                      {(this.state.loading) ?
-                      ("") :
-                      ('Delete item')}
+                      className='button item-purchase-button'
+                    >
+                      {this.state.loading ? "" : "Delete item"}
                     </button>
                     <div className='delete-loading'>
                       <ClipLoader
                         css={override}
                         sizeUnit={"px"}
                         size={16}
-                        color={'black'}
+                        color={"black"}
                         loading={this.state.loading}
                       />
                     </div>
                   </div>
-                </div> : // this is important for ternary
-                
+                </div> // this is important for ternary
+              ) : (
                 <div className='buy-button-container'>
                   <button
                     className='button item-purchase-button'
-                    onClick={this.handleDelete}>
-                    {(this.state.loading) ?
-                     ("") :
-                     ('Buy now')}
+                    onClick={this.handleDelete}
+                  >
+                    {this.state.loading ? "" : "Buy now"}
                   </button>
                   <div className='buy-loading'>
                     <ClipLoader
                       css={override}
                       sizeUnit={"px"}
                       size={16}
-                      color={'white'}
+                      color={"white"}
                       loading={this.state.loading}
                     />
                   </div>
                 </div>
-              }
+              )}
             </div>
           </div>
         </div>
       </div>
     );
-  };
+  }
 }
 
 export default ItemShow;

@@ -19,9 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore();
   }
 
-  window.createFollow = APIUtil.createFollow;
-  window.deleteFollow = APIUtil.deleteFollow;
-
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store} />, root);
 });

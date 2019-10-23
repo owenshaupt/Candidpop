@@ -2,6 +2,7 @@ import {
   RECEIVE_ITEMS,
   RECEIVE_ITEM,
   REMOVE_ITEM,
+  CLEAR_ITEMS,
   RECEIVE_FILTERED_ITEMS
 } from "../actions/item_actions";
 
@@ -18,6 +19,8 @@ const itemsReducer = (oldState = {}, action) => {
       let newState = Object.assign({}, oldState);
       delete newState[action.id];
       return newState;
+    case CLEAR_ITEMS:
+      return {};
     default:
       return oldState;
   }
