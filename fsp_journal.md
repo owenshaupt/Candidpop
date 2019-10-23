@@ -267,3 +267,9 @@ also ask vanessa
         params.permit(:follower_id, :followee_id)
       end
     ```
+
+### Wednesday 10/23/2019
+
+- Finished follow functionality
+- Had to make a separate action/reducer/slice of state for fetching follows for viweing users in the follows modal
+  - Because fetchFollow would interfere with the underlying userShow component, in effect altering the "native" userShow follow button

@@ -31,10 +31,6 @@ class UserShow extends React.Component {
       Object.keys(this.props.follow).length
         ? this.setState({ followed: true })
         : this.setState({ followed: false });
-      // console.log(
-      //   "user show mounted, this.state.followed",
-      //   this.state.followed
-      // );
     });
   }
 
@@ -46,6 +42,7 @@ class UserShow extends React.Component {
 
     if (this.props.match.params.userId !== prevProps.match.params.userId) {
       this.props.closeModal();
+      this.props.clearErrors();
       this.props.fetchUser(this.props.match.params.userId);
       this.props.fetchFollow(follow).then(() => {
         Object.keys(this.props.follow).length
@@ -85,6 +82,16 @@ class UserShow extends React.Component {
       .then(() => {
         this.props.fetchUser(this.props.match.params.userId);
       });
+  }
+
+  renderErrors() {
+    return (
+      <ul>
+        {this.props.followErrors.map((error, i) => (
+          <li key={`error-${i}`}>{error}</li>
+        ))}
+      </ul>
+    );
   }
 
   render() {
@@ -191,6 +198,7 @@ class UserShow extends React.Component {
                   <span>{following ? "Unfollow" : "Follow"}</span>
                 </button>
               </div>
+              <div className='errors-div'>{this.renderErrors()}</div>
             </div>
             {/* <div className='user-show-bottom'>
               <div></div> !!for bio if implemented

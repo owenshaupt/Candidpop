@@ -1,11 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ClipLoader } from 'react-spinners';
-import { css } from '@emotion/core';
+import React from "react";
+import { Link } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
+import { css } from "@emotion/core";
 
 const override = css`
-    display: block;
-    margin: 0 auto;
+  display: block;
+  margin: 0 auto;
 `;
 
 class LoginForm extends React.Component {
@@ -16,16 +16,16 @@ class LoginForm extends React.Component {
       password: "",
       loading: false,
       guestLoading: false
-    }
+    };
 
     this.guest = {
-      username: 'guest',
-      password: 'password',
-      first_name: 'guest_info',
-      last_name: 'guest_info',
-      email: 'guest_info',
-      location: 'guest_info',
-    }
+      username: "guest",
+      password: "password",
+      first_name: "guest_info",
+      last_name: "guest_info",
+      email: "guest_info",
+      location: "guest_info"
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleGuest = this.handleGuest.bind(this);
@@ -33,41 +33,42 @@ class LoginForm extends React.Component {
   }
 
   update(field) {
-    return (e) => (
-      this.setState({[field]: e.target.value})
-    );
+    return e => this.setState({ [field]: e.target.value });
   }
 
   handleSubmit(e) {
     e.preventDefault();
     this.setState({ loading: true });
-    this.props.login(this.state)
-      .then(() => {this.props.history.push('/items/')})
-      .fail(() => this.setState({ loading: false }))
+    this.props
+      .login(this.state)
+      .then(() => {
+        this.props.history.push("/items/");
+      })
+      .fail(() => this.setState({ loading: false }));
   }
 
   handleGuest(e) {
     e.preventDefault();
     this.setState({ guestLoading: true });
-    this.props.login(this.guest)
-      .then(() => {this.props.history.push('/items/')})
-      .fail(() => this.setState({ guestLoading: false }))
-
+    this.props
+      .login(this.guest)
+      .then(() => {
+        this.props.history.push("/items/");
+      })
+      .fail(() => this.setState({ guestLoading: false }));
   }
 
   handleRedirect(e) {
     e.preventDefault();
     this.props.clearErrors();
-    this.props.history.push('/signup/');
+    this.props.history.push("/signup/");
   }
 
   renderErrors() {
     return (
       <ul>
         {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
+          <li key={`error-${i}`}>{error}</li>
         ))}
       </ul>
     );
@@ -81,39 +82,36 @@ class LoginForm extends React.Component {
           <div className='login-display-block'>
             <div className='login-form-data'>
               <input
-                type="text"
+                type='text'
                 value={this.state.username}
                 placeholder='Username*'
-                onChange={this.update('username')}
+                onChange={this.update("username")}
               />
             </div>
           </div>
           <div className='login-display-block'>
             <div className='login-form-data'>
               <input
-                type="password"
+                type='password'
                 value={this.state.password}
                 placeholder='Password*'
-                onChange={this.update('password')}
+                onChange={this.update("password")}
               />
             </div>
           </div>
-          <div className='errors-div'>
-            {this.renderErrors()}
-          </div>
+          <div className='errors-div'>{this.renderErrors()}</div>
           <div className='login-button-container'>
             <input
               className='button login-button'
-              type="submit"
-              value={(this.state.loading) ?
-                ("") :
-                ('Login')}/>
+              type='submit'
+              value={this.state.loading ? "" : "Login"}
+            />
             <div className='login-loading'>
               <ClipLoader
                 css={override}
                 sizeUnit={"px"}
                 size={16}
-                color={'white'}
+                color={"white"}
                 loading={this.state.loading}
               />
             </div>
@@ -124,11 +122,12 @@ class LoginForm extends React.Component {
           <p className='or'>or</p>
         </div>
 
-        <div className="signup-and-guest-section">
+        <div className='signup-and-guest-section'>
           <div className='signup-button-container'>
             <button
               className='button signup-button'
-              onClick={this.handleRedirect}>
+              onClick={this.handleRedirect}
+            >
               Sign up
             </button>
           </div>
@@ -136,24 +135,23 @@ class LoginForm extends React.Component {
           <div className='guest-button-container'>
             <button
               className='button login-button signin-guest-button'
-              onClick={this.handleGuest}>
-              {(this.state.guestLoading) ?
-                ("") :
-                ('Sign in as guest')}
+              onClick={this.handleGuest}
+            >
+              {this.state.guestLoading ? "" : "Sign in as guest"}
             </button>
             <div className='guest-loading'>
               <ClipLoader
                 css={override}
                 sizeUnit={"px"}
                 size={16}
-                color={'white'}
+                color={"white"}
                 loading={this.state.guestLoading}
               />
             </div>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
