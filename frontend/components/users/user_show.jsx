@@ -53,8 +53,6 @@ class UserShow extends React.Component {
           : this.setState({ followed: false });
       });
     }
-
-    // console.log('user show end of update, this.props.follow', this.props.follow)
   }
 
   handleFollow() {
@@ -63,19 +61,14 @@ class UserShow extends React.Component {
       followee_id: this.props.user.id
     };
 
-    this.props.createFollow(follow).then(() => {
-      this.props
-        .fetchFollow(follow)
-        .then(() => {
-          Object.keys(this.props.follow).length
-            ? this.setState({ followed: true })
-            : this.setState({ followed: false });
-        })
-        .then(() => {
-          this.props.fetchUser(this.props.match.params.userId);
-        });
-    });
-    this.setState({ followed: true });
+    this.props
+      .createFollow(follow)
+      .then(() => {
+        this.setState({ followed: true });
+      })
+      .then(() => {
+        this.props.fetchUser(this.props.match.params.userId);
+      });
   }
 
   handleUnfollow() {
@@ -84,19 +77,14 @@ class UserShow extends React.Component {
       followee_id: this.props.user.id
     };
 
-    this.props.deleteFollow(follow).then(() => {
-      this.props
-        .fetchFollow(follow)
-        .then(() => {
-          Object.keys(this.props.follow).length
-            ? this.setState({ followed: true })
-            : this.setState({ followed: false });
-        })
-        .then(() => {
-          this.props.fetchUser(this.props.match.params.userId);
-        });
-    });
-    this.setState({ followed: false });
+    this.props
+      .deleteFollow(follow)
+      .then(() => {
+        this.setState({ followed: false });
+      })
+      .then(() => {
+        this.props.fetchUser(this.props.match.params.userId);
+      });
   }
 
   render() {
@@ -139,8 +127,7 @@ class UserShow extends React.Component {
       );
     });
 
-    const following =
-      this.props.follow && Object.keys(this.props.follow).length;
+    const following = this.state.followed;
 
     return (
       <div className='user-show-page-container'>

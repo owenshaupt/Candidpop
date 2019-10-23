@@ -11,12 +11,18 @@ class FollowersList extends React.Component {
   }
 
   componentDidMount() {
+    this._isMounted = true;
+
     this.props.fetchUser(this.props.user.id).then(() => {
       this.setState({ followers: this.props.followers });
     });
   }
 
   componentDidUpdate() {}
+
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
 
   render() {
     if (!this.props.followers) return null;

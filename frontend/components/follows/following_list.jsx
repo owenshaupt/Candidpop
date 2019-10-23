@@ -30,7 +30,16 @@ class FollowingList extends React.Component {
     const following = this.props.following.map(followedAccount => {
       return (
         <div key={followedAccount.id}>
-          <FollowingListItem followedAccount={followedAccount} />
+          <FollowingListItem
+            followedAccount={followedAccount}
+            fetchUser={this.props.fetchUser}
+            fetchFollow={this.props.fetchFollow}
+            createFollow={this.props.createFollow}
+            deleteFollow={this.props.deleteFollow}
+            fetchListItemFollow={this.props.fetchListItemFollow}
+            listItemFollow={this.props.listItemFollow}
+            currentUserId={this.props.currentUserId}
+          />
         </div>
       );
     });

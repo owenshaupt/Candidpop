@@ -32,29 +32,22 @@ class FollowersListItem extends React.Component {
   }
 
   handleFollow() {
-    console.log("hitting handleFollow");
     const follow = {
       follower_id: this.props.currentUserId,
       followee_id: this.props.follower.id
     };
-    console.log("follow", follow);
 
-    this.props.createFollow(follow).then(() => {
-      this.props
-        .fetchFollow(follow)
-        .then(() => {
-          Object.keys(this.props.listItemFollow).length
-            ? this.setState({ listItemFollowed: true })
-            : this.setState({ listItemFollowed: false });
-        })
-        .then(() => {
-          this.props.fetchUser(this.props.match.params.userId);
-        });
-    });
+    this.props
+      .createFollow(follow)
+      .then(() => {
+        this.setState({ listItemFollowed: true });
+      })
+      .then(() => {
+        this.props.fetchUser(this.props.match.params.userId);
+      });
   }
 
   handleUnfollow() {
-    console.log("hitting handleUnfollow");
     const follow = {
       follower_id: this.props.currentUserId,
       followee_id: this.props.follower.id
