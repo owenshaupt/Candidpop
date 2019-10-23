@@ -28,6 +28,8 @@ class FollowersList extends React.Component {
             follower={follower}
             fetchUser={this.props.fetchUser}
             fetchFollow={this.props.fetchFollow}
+            createFollow={this.props.createFollow}
+            deleteFollow={this.props.deleteFollow}
             fetchListItemFollow={this.props.fetchListItemFollow}
             listItemFollow={this.props.listItemFollow}
             currentUserId={this.props.currentUserId}

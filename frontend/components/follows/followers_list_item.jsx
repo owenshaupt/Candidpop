@@ -10,6 +10,7 @@ class FollowersListItem extends React.Component {
     };
 
     this.handleFollow = this.handleFollow.bind(this);
+    this.handleUnfollow = this.handleUnfollow.bind(this);
   }
 
   componentDidMount() {
@@ -18,10 +19,9 @@ class FollowersListItem extends React.Component {
       followee_id: this.props.follower.id
     };
 
-    
     this.props.fetchListItemFollow(follow).then(() => {
-      console.log('this.props.listItemFollow', this.props.listItemFollow)
-      if (Object.keys(this.props.listItemFollow).length !== 0 ) {
+      console.log("this.props.listItemFollow", this.props.listItemFollow);
+      if (Object.keys(this.props.listItemFollow).length !== 0) {
         this.setState({ listItemFollow: this.props.listItemFollow });
         this.setState({ listItemFollowed: true });
       } else {
@@ -32,7 +32,42 @@ class FollowersListItem extends React.Component {
   }
 
   handleFollow() {
-    console.log("hit handle follow");
+    console.log("hitting handleFollow");
+    const follow = {
+      follower_id: this.props.currentUserId,
+      followee_id: this.props.follower.id
+    };
+    console.log("follow", follow);
+
+    this.props.createFollow(follow).then(() => {
+      this.props
+        .fetchFollow(follow)
+        .then(() => {
+          Object.keys(this.props.listItemFollow).length
+            ? this.setState({ listItemFollowed: true })
+            : this.setState({ listItemFollowed: false });
+        })
+        .then(() => {
+          this.props.fetchUser(this.props.match.params.userId);
+        });
+    });
+  }
+
+  handleUnfollow() {
+    console.log("hitting handleUnfollow");
+    const follow = {
+      follower_id: this.props.currentUserId,
+      followee_id: this.props.follower.id
+    };
+
+    this.props
+      .deleteFollow(follow)
+      .then(() => {
+        this.setState({ listItemFollowed: false });
+      })
+      .then(() => {
+        this.props.fetchUser(this.props.match.params.userId);
+      });
   }
 
   render() {
@@ -59,7 +94,13 @@ class FollowersListItem extends React.Component {
         </div>
         <button
           className='follow-button user-follow-button'
-          onClick={this.handleFollow}
+          onClick={
+            this.state.listItemFollowed === true
+              ? this.handleUnfollow
+              : this.state.listItemFollowed === false
+              ? this.handleFollow
+              : ""
+          }
         >
           <span>
             {this.state.listItemFollowed === true
