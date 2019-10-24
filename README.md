@@ -51,6 +51,10 @@ handleFile1(e) {
 }
 ```
 
+<p width="700" align="center">
+  <img src="./app/assets/images/readme_gifs/item_form.gif" width="700">
+</p>
+
 ---
 
 ### Sign Up Form

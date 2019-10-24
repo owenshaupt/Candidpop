@@ -212,7 +212,7 @@ also ask vanessa
 ### Tuesday 10/22/2019
 
 - Implemented sliding bar on follows panel, bolding/sliding now complete
-- Utilized classList to switch which attributes the hr element would have
+- Utilized classList to switch which attributes the `hr` element would have
 - Solved issue where navigating from user (1) to user (2) didn't refresh page
   - ```js
     componentDidUpdate(prevProps) {
@@ -242,7 +242,21 @@ also ask vanessa
 - Used object to direct `destroy` action in `follows_controller` instead of an `id`
   - `user_show.jsx` :
     ```js
-      /// add about unfollow
+      handleUnfollow() {
+        const follow = {
+          follower_id: this.props.currentUser.id,
+          followee_id: this.props.user.id
+        };
+
+        this.props
+          .deleteFollow(follow)
+          .then(() => {
+            this.setState({ followed: false });
+          })
+          .then(() => {
+            this.props.fetchUser(this.props.match.params.userId);
+          });
+      }
     ```
   - `follow_util.js` :
     ```js
