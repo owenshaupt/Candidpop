@@ -1,4 +1,3 @@
-
 # Candidpop
 
 screenshot of item index
@@ -11,7 +10,7 @@ Candidpop is an upcoming reselling app designed to help photographers buy and se
 
 The project was built in 10 days, and a list of additions will be used for future development.
 
-----
+---
 
 ## Technologies
 
@@ -35,7 +34,7 @@ Candidpop is built on a Ruby on Rails backend and utilizes a PostgreSQL database
 - The Add Item form is accessible to a logged-in user. Here, a user can upload (up to four) images and provide some information for the item they are selling. As users select photo files from their device, thumbnails will render dynamically, even if a different photo is selected after the fact.
 
 ```javascript
-// render HTML
+// render JSX
 <div className='item-photo-holder'>
   <img
     className='upload-photo'
@@ -65,18 +64,20 @@ handleFile1(e) {
 - Similar to the Add Item form, profile pictures uploaded dynamically show a preview inside a circular frame with the option for reselecting a different file from the user's device.
 
 ```javascript
-// render HTML
+// render JSX
 <div className='add-pic-button'>
   <img
     className='profile-photo'
-    src={(!!this.state.file) ? (this.state.fileUrl) : (
-      window.uploadProfilePicURL)
-    }
-    alt=""
+    src={!!this.state.file ? this.state.fileUrl : window.uploadProfilePicURL}
+    alt=''
   />
-  <input type="file" onChange={this.handleFile} />
+  <input type='file' onChange={this.handleFile} />
 </div>
 ```
+
+<p width="200" align="center">
+  <img src="./app/assets/images/readme_gifs/signup_form.gif" width="200">
+</p>
 
 ---
 
@@ -94,5 +95,4 @@ handleFile1(e) {
 
 ### Future Additions
 
-- Some features I would like to implement in the future include:
-  - 
+- ## Some features I would like to implement in the future include:
