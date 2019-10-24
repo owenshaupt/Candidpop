@@ -1,5 +1,8 @@
 
 # Candidpop
+
+screenshot of item index
+
 ---
 
 [Visit Candidpop Now!](https://candidpop.herokuapp.com)
@@ -18,7 +21,7 @@ Candidpop is built on a Ruby on Rails backend and utilizes a PostgreSQL database
 
 ## Features
 
-- Users can browse a feed of items for sale
+- Users can browse a feed of items for sale (pictured above)
 - Users can add their own items to sell on the marketplace
   - Users can upload images for their for-sale items which are displayed on the marketplace feed
 - Users can search the marketplace against item descriptions provied by sellers
