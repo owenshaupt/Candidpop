@@ -75,8 +75,8 @@ handleFile1(e) {
 </div>
 ```
 
-<p width="200" align="center">
-  <img src="./app/assets/images/readme_gifs/signup_form.gif" width="200">
+<p width="600" align="center">
+  <img src="./app/assets/images/readme_gifs/signup_form.gif" width="600">
 </p>
 
 ---
