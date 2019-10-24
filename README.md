@@ -106,8 +106,8 @@ handleFile1(e) {
 - The user and their followers/following can be followed and unfollowed from this page
 
 
-<p width="600" align="center">
-  <img src="./app/assets/images/readme_gifs/follows.gif" width="600">
+<p width="100%" align="center">
+  <img src="./app/assets/images/readme_gifs/follows.gif" width="100%">
 </p>
 
 ---
