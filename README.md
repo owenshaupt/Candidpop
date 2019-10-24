@@ -1,6 +1,6 @@
 # Candidpop
 
-screenshot of item index
+*screenshot of item index*
 
 ---
 
@@ -26,6 +26,7 @@ Candidpop is built on a Ruby on Rails backend and utilizes a PostgreSQL database
 - Users can search the marketplace against item descriptions provied by sellers
 - Users can update their listings and delete an existing item from the marketplace
 - Users can purchase other items, thus removing them from the marketplace
+- Users can follow one another as well as view each user's followers/following
 
 ---
 
@@ -90,6 +91,11 @@ handleFile1(e) {
     - When viewing one's own item an option to update is visible which prompts a form to appear containing the item info
     - When viewing one's own item an option to delete the item completely is also visible
     - Any logged in user will have access to a create item link where they can add information for an item they'd like to sell
+
+
+<p width="600" align="center">
+  <img src="./app/assets/images/readme_gifs/update_item.gif" width="600">
+</p>
 
 ---
 
