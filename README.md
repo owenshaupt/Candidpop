@@ -118,3 +118,8 @@ Some features I would like to implement in the future include:
 - Access history of items you have purchased
 - Access history of items you have sold
 - Reviews/ratings which average into a score out of 5 for each user
+
+---
+
+### Made By
+Owen Haupt - [Github](https://github.com/owenshaupt) | [LinkedIn](https://www.linkedin.com/in/owenshaupt/) | [Portfolio](https://owenhaupt.io/)
