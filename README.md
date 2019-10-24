@@ -1,6 +1,8 @@
 # Candidpop
 
-*screenshot of item index*
+<p width="100%" align="center">
+  <img src="./app/assets/images/readme_gifs/items.png" width="100%">
+</p>
 
 ---
 
