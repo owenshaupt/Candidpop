@@ -99,6 +99,22 @@ handleFile1(e) {
 
 ---
 
+### Follows
+
+- A user's show page lists their follower/following count
+  - Clicking these reveal a list of their followers/following
+- The user and their followers/following can be followed and unfollowed from this page
+
+
+<p width="600" align="center">
+  <img src="./app/assets/images/readme_gifs/follows.gif" width="600">
+</p>
+
+---
+
 ### Future Additions
 
-- ## Some features I would like to implement in the future include:
+Some features I would like to implement in the future include:
+- Access history of items you have purchased
+- Access history of items you have sold
+- Reviews/ratings which average into a score out of 5 for each user
