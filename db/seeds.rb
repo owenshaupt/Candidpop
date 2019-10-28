@@ -10,6 +10,7 @@ require 'open-uri'
 
 User.destroy_all
 Item.destroy_all
+
 ActiveRecord::Base.connection.reset_pk_sequence!("users")
 ActiveRecord::Base.connection.reset_pk_sequence!("items")
 
