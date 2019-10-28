@@ -25,6 +25,8 @@ u02 = User.create!(
   email: 'owen@owen.com',
   location: 'United States',
 )
+file = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/profile-pics/02.jpg')
+u02.profile_pic.attach(io: file, filename: '02.jpg')
 
 u03 = User.create!(
   username: 'dolly',
@@ -34,6 +36,8 @@ u03 = User.create!(
   email: 'dolly@dolly.com',
   location: 'United States',
 )
+file = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/profile-pics/01.jpg')
+u03.profile_pic.attach(io: file, filename: '01.jpg')
 
 u04 = User.create!(
   username: 'alia',
@@ -43,6 +47,8 @@ u04 = User.create!(
   email: 'alia@alia.com',
   location: 'United States',
 )
+file = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/profile-pics/03.jpg')
+u04.profile_pic.attach(io: file, filename: '03.jpg')
 
 u05 = User.create!(
   username: 'ernie',
@@ -52,6 +58,8 @@ u05 = User.create!(
   email: 'ernie@ernie.com',
   location: 'United States',
 )
+file = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/profile-pics/04.jpg')
+u05.profile_pic.attach(io: file, filename: '04.jpg')
 
 u06 = User.create!(
   username: 'jeff',
@@ -61,6 +69,8 @@ u06 = User.create!(
   email: 'jeffrey@jeffrey.com',
   location: 'United States',
 )
+file = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/profile-pics/05.jpg')
+u06.profile_pic.attach(io: file, filename: '05.jpg')
 
 u07 = User.create!(
   username: 'lwin',
@@ -70,6 +80,8 @@ u07 = User.create!(
   email: 'lwin@lwin.com',
   location: 'United States',
 )
+file = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/profile-pics/06.jpg')
+u07.profile_pic.attach(io: file, filename: '06.jpg')
 
 u08 = User.create!(
   username: 'ronil',
@@ -79,6 +91,8 @@ u08 = User.create!(
   email: 'ronil@ronil.com',
   location: 'United States',
 )
+file = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/profile-pics/07.jpg')
+u08.profile_pic.attach(io: file, filename: '07.jpg')
 
 u09 = User.create!(
   username: 'mineru',
@@ -88,6 +102,8 @@ u09 = User.create!(
   email: 'mineru@mineru.com',
   location: 'United States',
 )
+file = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/profile-pics/08.jpg')
+u09.profile_pic.attach(io: file, filename: '08.jpg')
 
 u10 = User.create!(
   username: 'kevin',
@@ -97,6 +113,8 @@ u10 = User.create!(
   email: 'kevin@kevin.com',
   location: 'United States',
 )
+file = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/profile-pics/09.jpg')
+u10.profile_pic.attach(io: file, filename: '09.jpg')
 
 u11 = User.create!(
   username: 'lina',
@@ -106,8 +124,10 @@ u11 = User.create!(
   email: 'lina@lina.com',
   location: 'United States',
 )
+file = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/profile-pics/10.jpg')
+u11.profile_pic.attach(io: file, filename: '10.jpg')
 
-u11 = User.create!(
+u15 = User.create!(
   username: 'taehoon',
   password: '123456',
   first_name: 'Taehoon',
@@ -115,6 +135,8 @@ u11 = User.create!(
   email: 'taetae@taetae.com',
   location: 'United States',
 )
+file = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/profile-pics/11.jpg')
+u15.profile_pic.attach(io: file, filename: '11.jpg')
 
 u12 = User.create!(
   username: 'vanessa',
@@ -124,6 +146,8 @@ u12 = User.create!(
   email: 'vanessa@vanessa.com',
   location: 'United States',
 )
+file = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/profile-pics/12.jpg')
+u12.profile_pic.attach(io: file, filename: '12.jpg')
 
 u13 = User.create!(
   username: 'drew',
@@ -133,6 +157,8 @@ u13 = User.create!(
   email: 'eric@r.dew',
   location: 'United States',
 )
+file = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/profile-pics/13.jpg')
+u13.profile_pic.attach(io: file, filename: '13.jpg')
 
 u14 = User.create!(
   username: 'elir237',
@@ -142,6 +168,8 @@ u14 = User.create!(
   email: 'eli@aim.com',
   location: 'United States',
 )
+file = open('https://candidpop-seeds.s3-us-west-1.amazonaws.com/profile-pics/14.jpg')
+u14.profile_pic.attach(io: file, filename: '14.jpg')
 
 i01 = Item.create!(
   seller_id: '6',
