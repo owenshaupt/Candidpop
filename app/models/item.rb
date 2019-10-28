@@ -13,7 +13,7 @@
 
 class Item < ApplicationRecord
   validates :seller_id, presence: true
-  # validate :image_presence
+  validate :image_presence
   validates :description, presence: true
   validates :price, presence: true
   validates :sold, inclusion: { in: [true, false] }
