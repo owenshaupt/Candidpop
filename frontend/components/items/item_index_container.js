@@ -8,7 +8,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchItems: () => dispatch(fetchItems()),
-  deleteItem: id => dispatch(deleteItem(id))
+  deleteItem: id => dispatch(deleteItem(id)),
+  clearItems: () => dispatch(clearItems())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemIndex);

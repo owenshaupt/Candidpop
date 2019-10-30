@@ -3,7 +3,7 @@ export const fetchFollow = follow => {
     url: `/api/follows/${follow}`,
     method: "GET",
     data: follow,
-    error: err => console.log(err)
+    // error: err => console.log(err)
   })
 }
 
@@ -12,7 +12,7 @@ export const createFollow = follow => {
     url: "/api/follows",
     method: "POST",
     data: follow,
-    error: err => console.log(err)
+    // error: err => console.log(err)
   });
 };
 
@@ -21,6 +21,6 @@ export const deleteFollow = follow => {
     type: "DELETE",
     url: `/api/follows/${follow}`,
     data: follow,
-    error: err => console.log(err)
+    // error: err => console.log(err)
   });
 };

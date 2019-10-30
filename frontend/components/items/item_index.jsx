@@ -13,6 +13,11 @@ class ItemIndex extends React.Component {
     this.props.fetchItems();
   }
 
+  componentWillUnmount() {
+    console.log('unmounting')
+    this.props.clearItems();
+  }
+
   render() {
     if (!this.props.items) {
       return (
