@@ -52,6 +52,10 @@ class UserShow extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.clearUser();
+  }
+
   handleFollow() {
     const follow = {
       follower_id: this.props.currentUser.id,
