@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
 import { css } from "@emotion/core";
-// import { clearItems } from "../../actions/item_actions";
 
 const override = css`
   display: block;
@@ -11,7 +10,6 @@ const override = css`
 
 class ItemIndex extends React.Component {
   componentDidMount() {
-    // clearItems();
     this.props.fetchItems();
   }
 

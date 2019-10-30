@@ -82,6 +82,10 @@ class NewItemForm extends React.Component {
       .fail(() => this.setState({ loading: false }))
   }
 
+  componentWillUnmount() {
+    this.props.clearItems();
+  }
+
   renderErrors() {
     return (
       <ul>
