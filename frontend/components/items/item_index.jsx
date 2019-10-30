@@ -14,7 +14,6 @@ class ItemIndex extends React.Component {
   }
 
   componentWillUnmount() {
-    console.log('unmounting')
     this.props.clearItems();
   }
 
