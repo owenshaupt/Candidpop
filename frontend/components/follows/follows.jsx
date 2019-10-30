@@ -11,7 +11,6 @@ class Follows extends React.Component {
     };
 
     this.toggleTab = this.toggleTab.bind(this);
-    this.handleFollow = this.handleFollow.bind(this);
   }
 
   componentDidMount() {
@@ -34,10 +33,6 @@ class Follows extends React.Component {
     if (this.state.followed !== this.props.followed) {
       this.setState({ followed: this.props.followed });
     }
-  }
-
-  handleFollow() {
-    console.log("hit handle follow");
   }
 
   toggleTab(tab) {

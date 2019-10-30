@@ -20,7 +20,6 @@ class FollowingListItem extends React.Component {
     };
 
     this.props.fetchListItemFollow(follow).then(() => {
-      console.log("this.props.listItemFollow", this.props.listItemFollow);
       if (Object.keys(this.props.listItemFollow).length !== 0) {
         this.setState({ listItemFollow: this.props.listItemFollow });
         this.setState({ listItemFollowed: true });
