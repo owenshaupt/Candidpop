@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
 import { css } from "@emotion/core";
+import LazyLoad from "react-lazy-load";
 
 const override = css`
   display: block;
@@ -39,13 +40,17 @@ class ItemIndex extends React.Component {
             <Link className='item-card-link' to={`/items/${item.id}`}>
               <div className='image-grey-out'>
                 <div className='index-item-photo'>
-                  <img
-                    width='100%'
-                    height='100%'
-                    className='photo'
-                    src={item.photos[0].photoUrl}
-                    alt=''
-                  />
+                  <LazyLoad>
+                    <div className="hover-black">
+                      <img
+                        width='100%'
+                        height='100%'
+                        className='photo'
+                        src={item.photos[0].photoUrl}
+                        alt=''
+                      />
+                    </div>
+                  </LazyLoad>
                 </div>
               </div>
               <p className='index-item-price'>${item.price}</p>
