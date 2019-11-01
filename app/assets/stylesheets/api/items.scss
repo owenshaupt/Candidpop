@@ -92,16 +92,20 @@
 .hover-black {
   height: 195px;
   width: 195px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.hover-black:hover {
   background-color: black;
 }
 
 .photo:hover {
-  opacity: .65;
+  opacity: 0.65;
 }
 
 .index-item-price {
   font-size: 12px;
-  font-family: 'gt-america-extended-bold';
+  font-family: "gt-america-extended-bold";
   color: rgb(38, 38, 38);
 }
 
