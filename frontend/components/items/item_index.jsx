@@ -32,7 +32,7 @@ class ItemIndex extends React.Component {
       );
     }
 
-    const items = this.props.items.map(item => {
+    const items = this.props.items.reverse().map(item => {
       return (
         <li key={item.id} className='items-index-li'>
           <div className='items-index-item'>
