@@ -85,7 +85,6 @@
 }
 
 .photo {
-  // background-color: #eeeeee;
   position: absolute;
 }
 
@@ -116,7 +115,7 @@
 
 .LazyLoad {
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease 0.5s;
 
   &.is-visible {
     opacity: 1;

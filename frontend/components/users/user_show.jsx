@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
 import { css } from "@emotion/core";
 import FollowsModal from "../modal/follows_modal";
+import LazyLoad from "react-lazy-load";
 
 const override = css`
   display: block;
@@ -113,7 +114,7 @@ class UserShow extends React.Component {
       );
     }
 
-    const items = this.props.user.items.map(item => {
+    const items = this.props.user.items.reverse().map(item => {
       return (
         <div key={item.id} className='user-show-index-item-padding'>
           <li key={item.id} className='items-index-li user-show-index-item'>
@@ -121,13 +122,17 @@ class UserShow extends React.Component {
               <Link className='item-card-link' to={`/items/${item.id}`}>
                 <div className='image-grey-out'>
                   <div className='index-item-photo'>
-                    <img
-                      width='100%'
-                      height='100%'
-                      className='photo'
-                      src={item.photos[0].photoUrl}
-                      alt=''
-                    />
+                    <LazyLoad>
+                      <div className='hover-black'>
+                        <img
+                          width='100%'
+                          height='100%'
+                          className='photo'
+                          src={item.photos[0].photoUrl}
+                          alt=''
+                        />
+                      </div>
+                    </LazyLoad>
                   </div>
                 </div>
                 <p className='index-item-price'>${item.price}</p>

@@ -41,7 +41,7 @@ class ItemIndex extends React.Component {
               <div className='image-grey-out'>
                 <div className='index-item-photo'>
                   <LazyLoad>
-                    <div className="hover-black">
+                    <div className='hover-black'>
                       <img
                         width='100%'
                         height='100%'
