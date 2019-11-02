@@ -33,7 +33,7 @@ class ItemIndex extends React.Component {
       );
     }
 
-    const items = this.props.items.reverse().map(item => {
+    const items = this.props.items.map(item => {
       return (
         <li key={item.id} className='items-index-li'>
           <div className='items-index-item'>
@@ -45,6 +45,7 @@ class ItemIndex extends React.Component {
                       <img
                         width='100%'
                         height='100%'
+                        id='photo'
                         className='photo'
                         src={item.photos[0].photoUrl}
                         alt=''
