@@ -43,7 +43,17 @@
   position: absolute;
   top: 0px;
   left: 0px;  
-  opacity: 1;
+  opacity: 0;
+  animation: 0.5s ease 0.25s 1 normal forwards running item-show-fade;
+}
+
+@keyframes item-show-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .user-profile-photo-container {
