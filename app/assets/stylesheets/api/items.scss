@@ -121,3 +121,17 @@
     opacity: 1;
   }
 }
+
+.css-fade-test {
+  opacity: 0;
+  animation: 0.5s ease 1s 1 normal forwards running item-index-fade;
+}
+
+@keyframes item-index-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
