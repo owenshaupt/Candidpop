@@ -1,37 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-class ItemIndexItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isReady: false
-    };
-  }
+export default function ItemIndexItem(props) {
+  const [imageIsReady, setImageIsReady] = useState(false);
 
-  componentDidMount() {
+  useEffect(() => {
     const img = new Image();
-    img.src = this.props.src;
+    img.src = props.src;
 
     img.onload = () => {
-      this.setState({ imageIsReady: true });
+      setImageIsReady(true);
     };
-  }
+  });
 
-  render() {
-    console.log('this.props', this.props)
-    if (!this.state.imageIsReady) {
-      return null;
-    } else {
-      return <img
-        width='100%'
-        height='100%'
-        className='photo'
-        src={this.props.src}
-        alt=''
-      />;
-    }
-  }
+  if (!imageIsReady) return null;
+
+  return (
+    <img
+      width='100%'
+      height='100%'
+      className='photo'
+      src={props.src}
+      alt=''
+    />
+  );
 }
-
-export default ItemIndexItem;
