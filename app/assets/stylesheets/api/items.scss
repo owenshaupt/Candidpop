@@ -113,25 +113,25 @@
   margin: 0px 4px 24px 4px;
 }
 
-.LazyLoad {
-  opacity: 0;
-  transition: opacity 0.5s ease 1s;
-
-  &.is-visible {
-    opacity: 1;
-  }
-}
-
-// .css-fade-test {
+// .LazyLoad {
 //   opacity: 0;
-//   animation: 0.5s ease 1s 1 normal forwards running item-index-fade;
-// }
+//   transition: opacity 0.5s ease 1s;
 
-// @keyframes item-index-fade {
-//   0% {
-//     opacity: 0;
-//   }
-//   100% {
+//   &.is-visible {
 //     opacity: 1;
 //   }
 // }
+
+.css-fade-test {
+  opacity: 0;
+  animation: 0.5s ease 1s 1 normal forwards running item-index-fade;
+}
+
+@keyframes item-index-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

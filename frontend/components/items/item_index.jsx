@@ -41,13 +41,9 @@ class ItemIndex extends React.Component {
             <Link className='item-card-link' to={`/items/${item.id}`}>
               <div className='image-grey-out'>
                 <div className='index-item-photo'>
-                  {/* <div className='css-fade-test'> */}
                   <LazyLoad>
-                    <div className='hover-black'>
-                      <ItemIndexItem src={item.photos[0].photoUrl} />
-                    </div>
+                        <ItemIndexItem src={item.photos[0].photoUrl} />
                   </LazyLoad>
-                  {/* </div> */}
                 </div>
               </div>
               <p className='index-item-price'>${item.price}</p>

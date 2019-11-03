@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 export default function ItemIndexItem(props) {
   const [imageIsReady, setImageIsReady] = useState(false);
@@ -16,12 +15,16 @@ export default function ItemIndexItem(props) {
   if (!imageIsReady) return null;
 
   return (
-    <img
-      width='100%'
-      height='100%'
-      className='photo'
-      src={props.src}
-      alt=''
-    />
+    <div className='css-fade-test'>
+      <div className='hover-black'>
+        <img
+          width='100%'
+          height='100%'
+          className='photo'
+          src={props.src}
+          alt=''
+        />
+      </div>
+    </div>
   );
 }
