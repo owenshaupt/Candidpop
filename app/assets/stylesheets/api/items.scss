@@ -113,16 +113,7 @@
   margin: 0px 4px 24px 4px;
 }
 
-// .LazyLoad {
-//   opacity: 0;
-//   transition: opacity 0.5s ease 1s;
-
-//   &.is-visible {
-//     opacity: 1;
-//   }
-// }
-
-.css-fade-test {
+.item-fade-in {
   opacity: 0;
   animation: 0.5s ease 1s 1 normal forwards running item-index-fade;
 }

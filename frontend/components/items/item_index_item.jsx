@@ -15,7 +15,7 @@ export default function ItemIndexItem(props) {
   if (!imageIsReady) return null;
 
   return (
-    <div className='css-fade-test'>
+    <div className='item-fade-in'>
       <div className='hover-black'>
         <img
           width='100%'
