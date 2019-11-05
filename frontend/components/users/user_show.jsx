@@ -114,7 +114,7 @@ class UserShow extends React.Component {
       );
     }
 
-    const items = this.props.user.items.reverse().map(item => {
+    const items = this.props.user.items.map(item => {
       return (
         <div key={item.id} className='user-show-index-item-padding'>
           <li key={item.id} className='items-index-li user-show-index-item'>
@@ -144,7 +144,7 @@ class UserShow extends React.Component {
     });
 
     const following = this.state.followed;
-
+    console.log('about to return item list')
     return (
       <div className='user-show-page-container'>
         <FollowsModal followed={this.state.followed} />
@@ -209,9 +209,6 @@ class UserShow extends React.Component {
               </div>
               <div className='errors-div'>{this.renderErrors()}</div>
             </div>
-            {/* <div className='user-show-bottom'>
-              <div></div> !!for bio if implemented
-            </div> */}
           </div>
 
           <div className='user-items-for-sale'>
