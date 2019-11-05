@@ -175,9 +175,10 @@ class UserShow extends React.Component {
                 <div className='follow-link followers-link'>
                   <button
                     className='follow-link-button'
-                    onClick={() =>
-                      this.props.openModal("followers", this.state.followed)
-                    }
+                    onClick={() => {
+                      this.props.openModal("followers", this.state.followed);
+                      this.props.clearFollowErrors();
+                    }}
                   >
                     <span className='follower-count follow-count'>
                       {this.props.user.followers.length}
@@ -188,9 +189,10 @@ class UserShow extends React.Component {
                 <div className='follow-link following-link'>
                   <button
                     className='follow-link-button'
-                    onClick={() =>
-                      this.props.openModal("following", this.state.followed)
-                    }
+                    onClick={() => {
+                      this.props.openModal("following", this.state.followed);
+                      this.props.clearFollowErrors();
+                    }}
                   >
                     <span className='following-count follow-count'>
                       {this.props.user.following.length}
