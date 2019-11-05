@@ -1,11 +1,11 @@
 import React from "react";
 import { openModal, closeModal } from "../../actions/modal";
+import { clearFollowErrors } from "../../actions/follow_actions";
 import { connect } from "react-redux";
 import FollowsContainer from "../follows/follows_container";
 
 class FollowsModal extends React.Component {
   constructor(props) {
-    // modal, followed, closeModal in this.props
     super(props);
     this.state = {
       followed: null
@@ -16,8 +16,7 @@ class FollowsModal extends React.Component {
     this.setState({ followed: this.props.followed });
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    // console.log("follows modal updating");
+  componentDidUpdate() {
     if (this.state.followed !== this.props.followed) {
       this.setState({ followed: this.props.followed });
     }
@@ -27,9 +26,6 @@ class FollowsModal extends React.Component {
     if (!this.props.modal) {
       return null;
     }
-
-    // console.log("in FollowsModal this.props.followed:", this.props.followed);
-    // console.log("in FollowsModal this.state:", this.state);
 
     let component;
     switch (this.props.modal) {
@@ -51,7 +47,10 @@ class FollowsModal extends React.Component {
       <div
         className='modal-background'
         id='modal-background'
-        onClick={this.props.closeModal}
+        onClick={() => {
+          this.props.clearFollowErrors();
+          this.props.closeModal();
+        }}
       >
         <div className='modal-child' onClick={e => e.stopPropagation()}>
           {component}
@@ -71,7 +70,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     closeModal: () => dispatch(closeModal()),
-    openModal: (modal, followed) => dispatch(openModal(modal, followed))
+    openModal: (modal, followed) => dispatch(openModal(modal, followed)),
+    clearFollowErrors: () => dispatch(clearFollowErrors())
   };
 };
 

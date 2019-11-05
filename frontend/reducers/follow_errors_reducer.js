@@ -1,4 +1,4 @@
-import { RECEIVE_FOLLOW, RECEIVE_FOLLOW_ERRORS } from "../actions/follow_actions";
+import { RECEIVE_FOLLOW, RECEIVE_FOLLOW_ERRORS, CLEAR_FOLLOW_ERRORS } from "../actions/follow_actions";
 
 let _nullState = {
   errors: []
@@ -11,6 +11,8 @@ export const followErrorsReducer = (state = _nullState, action) => {
       return _nullState;
     case RECEIVE_FOLLOW_ERRORS:
       return Object.assign({}, state, { errors: action.errors });
+    case CLEAR_FOLLOW_ERRORS:
+      return _nullState;
     default:
       return state;
   }

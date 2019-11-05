@@ -100,8 +100,8 @@ class FollowingListItem extends React.Component {
             {this.state.listItemFollowed === true
               ? "Unfollow"
               : this.state.listItemFollowed === false
-                ? "Follow"
-                : ""}
+              ? "Follow"
+              : ""}
           </span>
         </button>
       </div>

@@ -39,6 +39,8 @@ class FollowingList extends React.Component {
             fetchListItemFollow={this.props.fetchListItemFollow}
             listItemFollow={this.props.listItemFollow}
             currentUserId={this.props.currentUserId}
+            followErrors={this.props.followErrors}
+            clearErrors={this.props.clearErrors}
           />
         </div>
       );

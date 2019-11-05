@@ -57,6 +57,16 @@ class Follows extends React.Component {
     }
   }
 
+  renderErrors() {
+    return (
+      <ul>
+        {this.props.followErrors.map((error, i) => (
+          <li key={`error-${i}`}>{error}</li>
+        ))}
+      </ul>
+    );
+  }
+
   render() {
     return (
       <div className='follows-div'>
@@ -77,6 +87,7 @@ class Follows extends React.Component {
               <div>
                 <p className='header-username'>@{this.props.user.username}</p>
               </div>
+              <div className='errors-div user-show-errors'>{this.renderErrors()}</div>
             </div>
             <div className='tabs-container'>
               <button

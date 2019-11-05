@@ -4,6 +4,7 @@ export const RECEIVE_FOLLOW = 'RECEIVE_FOLLOW';
 export const RECEIVE_LIST_ITEM_FOLLOW = 'RECEIVE_LIST_ITEM_FOLLOW';
 export const REMOVE_FOLLOW = 'REMOVE_FOLLOW';
 export const RECEIVE_FOLLOW_ERRORS = 'RECEIVE_FOLLOW_ERRORS';
+export const CLEAR_FOLLOW_ERRORS = 'CLEAR_FOLLOW_ERRORS';
 
 const recieveFollow = follow => ({
   type: RECEIVE_FOLLOW,
@@ -23,6 +24,10 @@ const removeFollow = follow => ({
 export const receiveErrors = errors => ({
   type: RECEIVE_FOLLOW_ERRORS,
   errors
+});
+
+export const clearFollowErrors = () => ({
+  type: CLEAR_FOLLOW_ERRORS
 });
 
 export const fetchFollow = follow => dispatch => APIUtil.fetchFollow(follow)

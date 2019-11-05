@@ -176,7 +176,8 @@
   overflow: hidden;
 }
 
-.user-follow-button, .follow-button {
+.user-follow-button,
+.follow-button {
   display: flex;
   justify-content: center;
 }
@@ -189,7 +190,10 @@
   width: 56px;
 }
 
-
-.follow-button > span {
-  
+.errors-div.user-show-errors {
+  position: absolute;
+  right: 31px;
+  display: inline-block;
+  top: 16px;
+  margin-right: 16px;
 }

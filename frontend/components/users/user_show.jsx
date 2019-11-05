@@ -144,7 +144,7 @@ class UserShow extends React.Component {
     });
 
     const following = this.state.followed;
-    console.log('about to return item list')
+
     return (
       <div className='user-show-page-container'>
         <FollowsModal followed={this.state.followed} />
