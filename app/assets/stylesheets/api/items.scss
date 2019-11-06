@@ -115,7 +115,7 @@
 
 .item-fade-in {
   opacity: 0;
-  animation: 0.5s ease 1s 1 normal forwards running item-index-fade;
+  animation: 0.5s ease 0.5s 1 normal forwards running item-index-fade;
 }
 
 @keyframes item-index-fade {

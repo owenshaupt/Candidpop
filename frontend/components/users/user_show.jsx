@@ -4,6 +4,7 @@ import { ClipLoader } from "react-spinners";
 import { css } from "@emotion/core";
 import FollowsModal from "../modal/follows_modal";
 import LazyLoad from "react-lazy-load";
+import ItemIndexItem from "../items/item_index_item";
 
 const override = css`
   display: block;
@@ -123,15 +124,7 @@ class UserShow extends React.Component {
                 <div className='image-grey-out'>
                   <div className='index-item-photo'>
                     <LazyLoad>
-                      <div className='hover-black'>
-                        <img
-                          width='100%'
-                          height='100%'
-                          className='photo'
-                          src={item.photos[0].photoUrl}
-                          alt=''
-                        />
-                      </div>
+                      <ItemIndexItem src={item.photos[0].photoUrl} />
                     </LazyLoad>
                   </div>
                 </div>
