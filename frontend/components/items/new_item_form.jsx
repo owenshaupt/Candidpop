@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
 import { css } from "@emotion/core";
+import NewItemButton from "./new_item_form/item_upload_button";
 
 const override = css`
   display: block;
@@ -19,7 +20,7 @@ class NewItemForm extends React.Component {
       file2: null,
       file3: null,
       file4: null,
-      file1Url: null,
+      // file1Url: null,
       file2Url: null,
       file3Url: null,
       file4Url: null,
@@ -27,8 +28,9 @@ class NewItemForm extends React.Component {
       loading: false
     };
 
+    this.returnFileToParent = this.returnFileToParent.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleFile1 = this.handleFile1.bind(this);
+    // this.handleFile1 = this.handleFile1.bind(this);
     this.handleFile2 = this.handleFile2.bind(this);
     this.handleFile3 = this.handleFile3.bind(this);
     this.handleFile4 = this.handleFile4.bind(this);
@@ -38,10 +40,10 @@ class NewItemForm extends React.Component {
     return e => this.setState({ [field]: e.target.value });
   }
 
-  handleFile1(e) {
-    this.setState({ file1: e.currentTarget.files });
-    this.setState({ file1Url: URL.createObjectURL(e.target.files[0]) }); // from Egor Egorov @650egor on Medium
-  }
+  // handleFile1(e) {
+  //   this.setState({ file1: e.currentTarget.files });
+  //   this.setState({ file1Url: URL.createObjectURL(e.target.files[0]) }); // from Egor Egorov @650egor on Medium
+  // }
 
   handleFile2(e) {
     this.setState({ file2: e.currentTarget.files });
@@ -57,6 +59,11 @@ class NewItemForm extends React.Component {
     this.setState({ file4: e.currentTarget.files });
     this.setState({ file4Url: URL.createObjectURL(e.target.files[0]) }); // from Egor Egorov @650egor on Medium
   }
+
+  returnFileToParent = (file, id) => {
+    // callback to pass to new child component
+    this.setState({ [id]: file });
+  };
 
   handleSubmit(e) {
     e.preventDefault();
@@ -119,7 +126,13 @@ class NewItemForm extends React.Component {
             <div className='item-photos-upload-container'>
               <div className='item-photos-top-row'>
                 {/* vv-----inner most repeated elements-----vv */}
-                <div className='item-photo-upload-button'>
+
+                <NewItemButton
+                  id='file1'
+                  returnFileToParent={this.returnFileToParent}
+                />
+
+                {/* <div className='item-photo-upload-button'>
                   <div className='item-photo-holder'>
                     <img
                       className='upload-photo'
@@ -132,7 +145,7 @@ class NewItemForm extends React.Component {
                     />
                     <input type='file' onChange={this.handleFile1} />
                   </div>
-                </div>
+                </div> */}
                 {/* ^^-----inner most repeated elements-----^^ */}
 
                 {/* vv-----inner most repeated elements-----vv */}
