@@ -1,14 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 export default function ItemIndexItem(props) {
   const [imageIsReady, setImageIsReady] = useState(false);
+  const isMounted = useIsMounted();
 
   useEffect(() => {
-    const img = new Image();
+    let img = new Image();
     img.src = props.src;
 
     img.onload = () => {
-      setImageIsReady(true);
+      if (isMounted.current) {
+        setImageIsReady(true);
+      }
+    };
+
+    return () => {
+      img = null;
     };
   });
 
@@ -27,4 +34,16 @@ export default function ItemIndexItem(props) {
       </div>
     </div>
   );
+}
+
+function useIsMounted() {
+  const isMounted = useRef(true);
+
+  useEffect(() => {
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
+
+  return isMounted;
 }

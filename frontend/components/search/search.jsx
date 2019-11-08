@@ -22,6 +22,10 @@ class Search extends React.Component {
     this.props.searchItems(this.state.query);
   }
 
+  componentWillUnmount() {
+    this.props.clearItems();
+  }
+
   // Previously I wanted to implement an actively-updating search function,
   // i.e. an index which updates after every key stroke from a user. I did
   // implement this in a working fashion, however if the user typed very
