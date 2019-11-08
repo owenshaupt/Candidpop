@@ -42,7 +42,7 @@ class ItemIndex extends React.Component {
               <div className='image-grey-out'>
                 <div className='index-item-photo'>
                   <LazyLoad>
-                        <ItemIndexItem src={item.photos[0].photoUrl} />
+                        <ItemIndexItem type="index" src={item.photos[0].photoUrl} />
                   </LazyLoad>
                 </div>
               </div>

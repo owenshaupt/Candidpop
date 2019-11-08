@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
 import { css } from "@emotion/core";
-import LazyLoad from "react-lazy-load";
-import ItemShowItem from "./item_show_item";
+import ItemIndexItem from "./item_index_item";
 
 const override = css`
   display: block;
@@ -101,7 +100,7 @@ class ItemShow extends React.Component {
                 return (
                   <li key={photo.photoUrl} className='item-image-container'>
                     <div className='item-image'>
-                      <ItemShowItem src={photo.photoUrl} />
+                      <ItemIndexItem type='show' src={photo.photoUrl} />
                     </div>
                   </li>
                 );
