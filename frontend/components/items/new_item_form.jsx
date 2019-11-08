@@ -62,7 +62,7 @@ class NewItemForm extends React.Component {
 
   returnFileToParent = (file, id) => {
     // callback to pass to new child component
-    this.setState({ [id]: file });
+    this.setState({ [id]: file }); 
   };
 
   handleSubmit(e) {
