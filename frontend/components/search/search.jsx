@@ -1,11 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ClipLoader } from 'react-spinners';
-import { css } from '@emotion/core';
+import React from "react";
+import { Link } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
+import { css } from "@emotion/core";
+import ItemIndexItem from "../items/item_index_item";
 
 const override = css`
-    display: block;
-    margin: 0 auto;
+  display: block;
+  margin: 0 auto;
 `;
 
 class Search extends React.Component {
@@ -13,12 +14,12 @@ class Search extends React.Component {
     super(props);
     this.state = {
       query: ""
-    }
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
-    this.props.searchItems(this.state.query)
+    this.props.searchItems(this.state.query);
   }
 
   // Previously I wanted to implement an actively-updating search function,
@@ -30,24 +31,24 @@ class Search extends React.Component {
   // (filtered) item index faster than the previous result indices. This meant
   // sometimes the last AJAX call to be made did not correspond to the final
   // filtered returned to the wondow.
-  // 
+  //
   // I might re-explore this in the future using debouncing, but for now I am
   // more than happy with a press-enter-to-search function.
   // -------------------------------------------------------------------------
-  // 
+  //
   // onChange(e) {                  ---> this triggered from input onChange={}
   //   this.update('query', e)
   // }
-  // 
+  //
   // update(field, e) {
   //   this.setState({ [field]: e.currentTarget.value },
   //     () => this.props.searchItems(this.state.query));
   // }
 
   update(field) {
-    return (e) => {
-      this.setState({ [field]: e.currentTarget.value })
-    }
+    return e => {
+      this.setState({ [field]: e.currentTarget.value });
+    };
   }
 
   handleSubmit(e) {
@@ -56,17 +57,18 @@ class Search extends React.Component {
   }
 
   render() {
-    if (!this.props.items) return (
-      <div className='page-loading'>
-        <ClipLoader
-          css={override}
-          sizeUnit={"px"}
-          size={42}
-          color={'#282828'}
-          loading={true}
-        />
-      </div>
-    );
+    if (!this.props.items)
+      return (
+        <div className='page-loading'>
+          <ClipLoader
+            css={override}
+            sizeUnit={"px"}
+            size={42}
+            color={"#282828"}
+            loading={true}
+          />
+        </div>
+      );
 
     const items = this.props.items.map(item => {
       return (
@@ -75,42 +77,37 @@ class Search extends React.Component {
             <Link className='item-card-link' to={`/items/${item.id}`}>
               <div className='image-grey-out'>
                 <div className='index-item-photo'>
-                  <img width="100%"
-                    height="100%"
-                    className='photo'
-                    src={item.photos[0].photoUrl}
-                    alt=""
-                  />
+                  <ItemIndexItem type='index' src={item.photos[0].photoUrl} />
                 </div>
               </div>
               <p className='index-item-price'>${item.price}</p>
             </Link>
           </div>
         </li>
-      )
+      );
     });
 
     return (
       <div>
-        <br/>
+        <br />
         <div className='items-index-container'>
           <div className='items-list-container'>
             <form className='search-input-form' onSubmit={this.handleSubmit}>
               <input
                 className='search-input'
-                type="text"
+                type='text'
                 value={this.state.query}
                 placeholder='Search'
-                onChange={this.update('query')}
+                onChange={this.update("query")}
               />
             </form>
             <ul className='items-list'>
               {items}
-              <i className='filler-items' aria-hidden="true"></i>
-              <i className='filler-items' aria-hidden="true"></i>
-              <i className='filler-items' aria-hidden="true"></i>
-              <i className='filler-items' aria-hidden="true"></i>
-              <i className='filler-items' aria-hidden="true"></i>
+              <i className='filler-items' aria-hidden='true'></i>
+              <i className='filler-items' aria-hidden='true'></i>
+              <i className='filler-items' aria-hidden='true'></i>
+              <i className='filler-items' aria-hidden='true'></i>
+              <i className='filler-items' aria-hidden='true'></i>
             </ul>
           </div>
         </div>
