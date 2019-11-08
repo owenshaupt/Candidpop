@@ -20,49 +20,20 @@ class NewItemForm extends React.Component {
       file2: null,
       file3: null,
       file4: null,
-      // file1Url: null,
-      file2Url: null,
-      file3Url: null,
-      file4Url: null,
       sold: false,
       loading: false
     };
 
     this.returnFileToParent = this.returnFileToParent.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleFile1 = this.handleFile1.bind(this);
-    this.handleFile2 = this.handleFile2.bind(this);
-    this.handleFile3 = this.handleFile3.bind(this);
-    this.handleFile4 = this.handleFile4.bind(this);
   }
 
   update(field) {
     return e => this.setState({ [field]: e.target.value });
   }
 
-  // handleFile1(e) {
-  //   this.setState({ file1: e.currentTarget.files });
-  //   this.setState({ file1Url: URL.createObjectURL(e.target.files[0]) }); // from Egor Egorov @650egor on Medium
-  // }
-
-  handleFile2(e) {
-    this.setState({ file2: e.currentTarget.files });
-    this.setState({ file2Url: URL.createObjectURL(e.target.files[0]) }); // from Egor Egorov @650egor on Medium
-  }
-
-  handleFile3(e) {
-    this.setState({ file3: e.currentTarget.files });
-    this.setState({ file3Url: URL.createObjectURL(e.target.files[0]) }); // from Egor Egorov @650egor on Medium
-  }
-
-  handleFile4(e) {
-    this.setState({ file4: e.currentTarget.files });
-    this.setState({ file4Url: URL.createObjectURL(e.target.files[0]) }); // from Egor Egorov @650egor on Medium
-  }
-
   returnFileToParent = (file, id) => {
-    // callback to pass to new child component
-    this.setState({ [id]: file }); 
+    this.setState({ [id]: file });
   };
 
   handleSubmit(e) {
@@ -125,83 +96,27 @@ class NewItemForm extends React.Component {
 
             <div className='item-photos-upload-container'>
               <div className='item-photos-top-row'>
-                {/* vv-----inner most repeated elements-----vv */}
-
                 <NewItemButton
                   id='file1'
                   returnFileToParent={this.returnFileToParent}
                 />
 
-                {/* <div className='item-photo-upload-button'>
-                  <div className='item-photo-holder'>
-                    <img
-                      className='upload-photo'
-                      src={
-                        !!this.state.file1
-                          ? this.state.file1Url
-                          : window.uploadItemIconURL
-                      }
-                      alt=''
-                    />
-                    <input type='file' onChange={this.handleFile1} />
-                  </div>
-                </div> */}
-                {/* ^^-----inner most repeated elements-----^^ */}
-
-                {/* vv-----inner most repeated elements-----vv */}
-                <div className='item-photo-upload-button'>
-                  <div className='item-photo-holder'>
-                    <img
-                      className='upload-photo'
-                      src={
-                        !!this.state.file2
-                          ? this.state.file2Url
-                          : window.uploadItemIconURL
-                      }
-                      alt=''
-                    />
-                    <input type='file' onChange={this.handleFile2} />
-                  </div>
-                </div>
-                {/* ^^-----inner most repeated elements-----^^ */}
+                <NewItemButton
+                  id='file2'
+                  returnFileToParent={this.returnFileToParent}
+                />
               </div>
 
               <div className='item-photos-bottom-row'>
-                {/* vv-----inner most repeated elements-----vv */}
-                <div className='item-photo-upload-button'>
-                  <div className='item-photo-holder'>
-                    <div className='item-photo-holder'>
-                      <img
-                        className='upload-photo'
-                        src={
-                          !!this.state.file3
-                            ? this.state.file3Url
-                            : window.uploadItemIconURL
-                        }
-                        alt=''
-                      />
-                      <input type='file' onChange={this.handleFile3} />
-                    </div>
-                  </div>
-                </div>
-                {/* ^^-----inner most repeated elements-----^^ */}
+                <NewItemButton
+                  id='file3'
+                  returnFileToParent={this.returnFileToParent}
+                />
 
-                {/* vv-----inner most repeated elements-----vv */}
-                <div className='item-photo-upload-button'>
-                  <div className='item-photo-holder'>
-                    <img
-                      className='upload-photo'
-                      src={
-                        !!this.state.file4
-                          ? this.state.file4Url
-                          : window.uploadItemIconURL
-                      }
-                      alt=''
-                    />
-                    <input type='file' onChange={this.handleFile4} />
-                  </div>
-                </div>
-                {/* ^^-----inner most repeated elements-----^^ */}
+                <NewItemButton
+                  id='file4'
+                  returnFileToParent={this.returnFileToParent}
+                />
               </div>
             </div>
           </fieldset>

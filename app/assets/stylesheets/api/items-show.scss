@@ -45,6 +45,10 @@
   left: 0px;
 }
 
+.show-photo {
+  position: absolute;
+}
+
 .item-image > .item-fade-in {
   opacity: 0;
   animation: 0.5s ease 0.25s 1 normal forwards running item-index-fade;
