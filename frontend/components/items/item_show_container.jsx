@@ -1,5 +1,10 @@
 import { connect } from "react-redux";
-import { fetchItem, updateItem, deleteItem, clearItems } from "../../actions/item_actions";
+import {
+  fetchItem,
+  updateItem,
+  deleteItem,
+  clearItems
+} from "../../actions/item_actions";
 import ItemShow from "./item_show";
 
 const mapStateToProps = (state, ownProps) => ({

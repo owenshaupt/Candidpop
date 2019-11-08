@@ -6,15 +6,41 @@
   max-width: 1280px;
   margin: 0px auto;
   box-sizing: border-box;
+  padding-left: 12px;
+  padding-right: 16px;
+}
+
+@media (max-width: 1260px) {
+  .user-show-page-container {
+    max-width: 1052px;
+  }
+}
+
+@media (max-width: 1060px) {
+  .user-show-page-container {
+    max-width: 845px;
+  }
+}
+
+@media (max-width: 885px) {
+  .user-show-page-container {
+    max-width: 640px;
+  }
+}
+
+@media (max-width: 670px) {
+  .user-show-page-container {
+    max-width: 435px;
+  }
 }
 
 .user-show-page {
   margin: 0px auto;
-  padding: 0px 0.75rem 4rem;
 }
 
 .user-show-info {
-  margin-left: 4px;
+  max-width: 1280px;
+  padding-left: 4px;
 }
 
 .user-show-top {

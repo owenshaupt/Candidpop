@@ -29,3 +29,11 @@ img {
   top: 40%;
   left: 50%;
 }
+
+html {
+  overflow-y: scroll;
+}
+
+// html {
+//   margin-left: calc(100vw - 100%);
+// }
