@@ -14,39 +14,42 @@
 */
 
 // fonts
-@import 'base/fonts.scss';
+@import "base/fonts.scss";
 
 // CSS Reset
-@import 'base/reset.scss';
+@import "base/reset.scss";
 
 // Session
-@import 'api/sessions.scss';
+@import "api/sessions.scss";
 
 // Nav
-@import 'App.scss';
-@import 'components/nav/nav.scss';
+@import "App.scss";
+@import "components/nav/nav.scss";
 
 // Footer
-@import 'components/footer/footer.scss';
+@import "components/footer/footer.scss";
 
 // Login page
-@import 'components/login/login_form.scss';
+@import "components/login/login_form.scss";
 // Signin page
-@import 'components/signup/signup_form.scss';
+@import "components/signup/signup_form.scss";
 
 // Items
-@import 'api/items.scss';
-@import 'api/items-create.scss';
-@import 'api/items-show.scss';
+@import "api/items.scss";
+@import "api/items-create.scss";
+@import "api/items-show.scss";
 
 // Users
-@import 'api/users.scss';
+@import "api/users.scss";
 
 // Search
-@import 'api/search.scss';
+@import "api/search.scss";
 
 // Splash
-@import 'components/splash/splash.scss';
+@import "components/splash/splash.scss";
 
 // Follow
-@import 'api/follows.scss';
+@import "api/follows.scss";
+
+// Media queries
+@import "base/media-queries.scss";

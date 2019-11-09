@@ -12,45 +12,45 @@ header {
   margin: 0px auto;
 }
 
-@media (max-width: 1260px) {
-  .nav-bar {
-    max-width: 1052px;
-  }
-}
+// @media (max-width: 1260px) {
+//   .nav-bar {
+//     max-width: 1052px;
+//   }
+// }
 
-@media (max-width: 1060px) {
-  .nav-bar {
-    max-width: 845px;
-  }
-}
+// @media (max-width: 1060px) {
+//   .nav-bar {
+//     max-width: 845px;
+//   }
+// }
 
-@media (max-width: 885px) {
-  .nav-bar {
-    max-width: 640px;
-  }
-}
+// @media (max-width: 885px) {
+//   .nav-bar {
+//     max-width: 640px;
+//   }
+// }
 
-@media (max-width: 670px) {
-  .nav-bar {
-    max-width: 435px;
-  }
+// @media (max-width: 670px) {
+//   .nav-bar {
+//     max-width: 435px;
+//   }
 
-  .nav-right {
-    width: 170px;
-  }
+//   .nav-right {
+//     width: 170px;
+//   }
 
-  .nav-right > ul {
-    display: flex;
-  }
+//   .nav-right > ul {
+//     display: flex;
+//   }
 
-  .nav-right-child {
-    text-align: end;
-  }
+//   .nav-right-child {
+//     text-align: end;
+//   }
 
-  .nav-button {
-    margin: 0px !important;
-  }
-}
+//   .nav-button {
+//     margin: 0px !important;
+//   }
+// }
 
 .nav-left {
   color: #ff2301;
