@@ -96,6 +96,7 @@ class LoginForm extends React.Component {
                 value={this.state.password}
                 placeholder='Password*'
                 onChange={this.update("password")}
+                autoComplete='current-password'
               />
             </div>
           </div>
