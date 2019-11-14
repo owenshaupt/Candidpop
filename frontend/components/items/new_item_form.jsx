@@ -147,6 +147,7 @@ class NewItemForm extends React.Component {
                   type='number'
                   value={this.state.price}
                   onChange={this.update("price")}
+                  autoComplete='section-new-item'
                 />
               </div>
             </div>

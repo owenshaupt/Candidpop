@@ -103,6 +103,7 @@ class Search extends React.Component {
                 value={this.state.query}
                 placeholder='Search'
                 onChange={this.update("query")}
+                autoComplete='section-search'
               />
             </form>
             <ul className='items-list'>

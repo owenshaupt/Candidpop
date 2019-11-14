@@ -86,6 +86,7 @@ class LoginForm extends React.Component {
                 value={this.state.username}
                 placeholder='Username*'
                 onChange={this.update("username")}
+                autoComplete='section-login-username'
               />
             </div>
           </div>
@@ -96,7 +97,7 @@ class LoginForm extends React.Component {
                 value={this.state.password}
                 placeholder='Password*'
                 onChange={this.update("password")}
-                autoComplete='current-password'
+                autoComplete='section-login-password'
               />
             </div>
           </div>

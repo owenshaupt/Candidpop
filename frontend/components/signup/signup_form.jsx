@@ -110,6 +110,7 @@ class SignupForm extends React.Component {
                   value={this.state.first_name}
                   placeholder='First name'
                   onChange={this.update("first_name")}
+                  autoComplete='section-signup-first-name'
                 />
               </div>
               <div className='signup-last-name'>
@@ -119,6 +120,7 @@ class SignupForm extends React.Component {
                   value={this.state.last_name}
                   placeholder='Last name'
                   onChange={this.update("last_name")}
+                  autoComplete='section-signup-last-name'
                 />
               </div>
             </div>
@@ -131,6 +133,7 @@ class SignupForm extends React.Component {
                   value={this.state.email}
                   placeholder='Email'
                   onChange={this.update("email")}
+                  autoComplete='section-signup-email'
                 />
               </div>
             </div>
@@ -146,6 +149,7 @@ class SignupForm extends React.Component {
                   value={this.state.username}
                   placeholder='Username'
                   onChange={this.update("username")}
+                  autoComplete='section-signup-username'
                 />
               </div>
             </div>
@@ -157,6 +161,7 @@ class SignupForm extends React.Component {
                   value={this.state.password}
                   placeholder='Password'
                   onChange={this.update("password")}
+                  autoComplete='section-signup-password'
                 />
               </div>
             </div>

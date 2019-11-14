@@ -116,6 +116,7 @@ class EditItemForm extends React.Component {
                   type="number"
                   value={this.state.price}
                   onChange={this.update('price')}
+                  autoComplete='section-edit-item'
                 />
               </div>
             </div>
