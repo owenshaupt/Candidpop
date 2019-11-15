@@ -4,6 +4,7 @@ import { ClipLoader } from "react-spinners";
 import { css } from "@emotion/core";
 import LazyLoad from "react-lazy-load";
 import ItemIndexItem from "./item_index_item";
+import SharableItemIndex from "./sharable_item_index";
 
 const override = css`
   display: block;
@@ -57,7 +58,7 @@ class ItemIndex extends React.Component {
       <div className='items-index-container'>
         <div className='items-list-container'>
           <ul className='items-list'>
-            {items}
+            <SharableItemIndex items={this.props.items}/>
             <i className='filler-items' aria-hidden='true'></i>
             <i className='filler-items' aria-hidden='true'></i>
             <i className='filler-items' aria-hidden='true'></i>
