@@ -117,22 +117,20 @@ class UserShow extends React.Component {
 
     const items = this.props.user.items.map(item => {
       return (
-        <div key={item.id} className='user-show-index-item-padding'>
-          <li key={item.id} className='items-index-li user-show-index-item'>
-            <div className='items-index-item'>
-              <Link className='item-card-link' to={`/items/${item.id}`}>
-                <div className='image-grey-out'>
-                  <div className='index-item-photo'>
-                    <LazyLoad>
-                      <ItemIndexItem type='index' src={item.photos[0].photoUrl} />
-                    </LazyLoad>
-                  </div>
+        <li key={item.id} className='items-index-li user-show-index-item'>
+          <div className='items-index-item'>
+            <Link className='item-card-link' to={`/items/${item.id}`}>
+              <div className='image-grey-out'>
+                <div className='index-item-photo'>
+                  <LazyLoad>
+                    <ItemIndexItem type='index' src={item.photos[0].photoUrl} />
+                  </LazyLoad>
                 </div>
-                <p className='index-item-price'>${item.price}</p>
-              </Link>
-            </div>
-          </li>
-        </div>
+              </div>
+              <p className='index-item-price'>${item.price}</p>
+            </Link>
+          </div>
+        </li>
       );
     });
 
