@@ -1,9 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
 import { css } from "@emotion/core";
-import LazyLoad from "react-lazy-load";
-import ItemIndexItem from "./item_index_item";
 import SharableItemIndex from "./sharable_item_index";
 
 const override = css`
@@ -35,29 +32,10 @@ class ItemIndex extends React.Component {
       );
     }
 
-    const items = this.props.items.map(item => {
-      return (
-        <li key={item.id} className='items-index-li'>
-          <div className='items-index-item'>
-            <Link className='item-card-link' to={`/items/${item.id}`}>
-              <div className='image-grey-out'>
-                <div className='index-item-photo'>
-                  <LazyLoad>
-                    <ItemIndexItem type='index' src={item.photos[0].photoUrl} />
-                  </LazyLoad>
-                </div>
-              </div>
-              <p className='index-item-price'>${item.price}</p>
-            </Link>
-          </div>
-        </li>
-      );
-    });
-
     return (
       <div className='items-index-container'>
         <div className='items-list-container'>
-          <SharableItemIndex items={this.props.items} />
+          <SharableItemIndex items={this.props.items} userShow={false}/>
         </div>
       </div>
     );

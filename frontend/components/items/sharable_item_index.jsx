@@ -1,21 +1,27 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import LazyLoad from "react-lazy-load";
 import ItemIndexItem from "./item_index_item";
 
 export default function SharableItemIndex(props) {
   let [items, setItems] = useState(props.items);
-
-  console.log(props);
+  let [userShow, setUserShow] = useState(false);
 
   useEffect(() => {
     setItems(props.items);
+    setUserShow(props.userShow);
   });
+
+  let listStyle = {
+    className: userShow
+      ? "items-index-li user-show-index-item"
+      : "items-index-li"
+  };
 
   const index = items.map(item => {
     return (
       <li key={item.id} className='items-index-li'>
-        <div className='items-index-item'>
+        <div style={listStyle}>
           <Link className='item-card-link' to={`/items/${item.id}`}>
             <div className='image-grey-out'>
               <div className='index-item-photo'>

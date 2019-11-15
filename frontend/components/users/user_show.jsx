@@ -1,11 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
 import { css } from "@emotion/core";
 import FollowsModal from "../modal/follows_modal";
-import LazyLoad from "react-lazy-load";
-import ItemIndexItem from "../items/item_index_item";
-import SharableItemIndex from "./sharable_item_index";
+import SharableItemIndex from "../items/sharable_item_index";
 
 const override = css`
   display: block;
@@ -116,25 +113,6 @@ class UserShow extends React.Component {
       );
     }
 
-    const items = this.props.user.items.map(item => {
-      return (
-        <li key={item.id} className='items-index-li user-show-index-item'>
-          <div className='items-index-item'>
-            <Link className='item-card-link' to={`/items/${item.id}`}>
-              <div className='image-grey-out'>
-                <div className='index-item-photo'>
-                  <LazyLoad>
-                    <ItemIndexItem type='index' src={item.photos[0].photoUrl} />
-                  </LazyLoad>
-                </div>
-              </div>
-              <p className='index-item-price'>${item.price}</p>
-            </Link>
-          </div>
-        </li>
-      );
-    });
-
     const following = this.state.followed;
 
     return (
@@ -210,15 +188,11 @@ class UserShow extends React.Component {
               <div className='selling-header'>
                 <h3>Selling</h3>
               </div>
-              {items.length !== 0 ? (
-                <ul className='items-list'>
-                  {items}
-                  <i className='filler-items' aria-hidden='true'></i>
-                  <i className='filler-items' aria-hidden='true'></i>
-                  <i className='filler-items' aria-hidden='true'></i>
-                  <i className='filler-items' aria-hidden='true'></i>
-                  <i className='filler-items' aria-hidden='true'></i>
-                </ul>
+              {this.props.user.items.length !== 0 ? (
+                <SharableItemIndex
+                  items={this.props.user.items}
+                  userShow={true}
+                />
               ) : (
                 <h4 className='empty-store-note'>Nothing for sale!</h4>
               )}
