@@ -5,6 +5,7 @@ import { css } from "@emotion/core";
 import FollowsModal from "../modal/follows_modal";
 import LazyLoad from "react-lazy-load";
 import ItemIndexItem from "../items/item_index_item";
+import SharableItemIndex from "./sharable_item_index";
 
 const override = css`
   display: block;
@@ -210,7 +211,7 @@ class UserShow extends React.Component {
                 <h3>Selling</h3>
               </div>
               {items.length !== 0 ? (
-                <ul className='items-list user-show-items-list'>
+                <ul className='items-list'>
                   {items}
                   <i className='filler-items' aria-hidden='true'></i>
                   <i className='filler-items' aria-hidden='true'></i>

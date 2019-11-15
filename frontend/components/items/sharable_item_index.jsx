@@ -1,8 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import LazyLoad from "react-lazy-load";
+import ItemIndexItem from "./item_index_item";
 
 export default function SharableItemIndex(props) {
-  let [items] = useState(props.items);
+  let [items, setItems] = useState(props.items);
+
+  console.log(props);
+
+  useEffect(() => {
+    setItems(props.items);
+  });
 
   const index = items.map(item => {
     return (
@@ -23,5 +31,14 @@ export default function SharableItemIndex(props) {
     );
   });
 
-  return { index };
+  return (
+    <ul className='items-list'>
+      {index}
+      <i className='filler-items' aria-hidden='true'></i>
+      <i className='filler-items' aria-hidden='true'></i>
+      <i className='filler-items' aria-hidden='true'></i>
+      <i className='filler-items' aria-hidden='true'></i>
+      <i className='filler-items' aria-hidden='true'></i>
+    </ul>
+  );
 }

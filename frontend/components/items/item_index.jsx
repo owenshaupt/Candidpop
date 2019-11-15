@@ -57,14 +57,7 @@ class ItemIndex extends React.Component {
     return (
       <div className='items-index-container'>
         <div className='items-list-container'>
-          <ul className='items-list'>
-            <SharableItemIndex items={this.props.items}/>
-            <i className='filler-items' aria-hidden='true'></i>
-            <i className='filler-items' aria-hidden='true'></i>
-            <i className='filler-items' aria-hidden='true'></i>
-            <i className='filler-items' aria-hidden='true'></i>
-            <i className='filler-items' aria-hidden='true'></i>
-          </ul>
+          <SharableItemIndex items={this.props.items} />
         </div>
       </div>
     );
