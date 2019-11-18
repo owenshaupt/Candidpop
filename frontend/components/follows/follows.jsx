@@ -71,7 +71,7 @@ class Follows extends React.Component {
     return (
       <div className='follows-div'>
         <aside className='follows-ui'>
-          <div>
+          <>
             <div className='modal-header'>
               <button
                 className='header-close-button'
@@ -84,9 +84,9 @@ class Follows extends React.Component {
                   alt=''
                 />
               </button>
-              <div>
+              <>
                 <p className='header-username'>@{this.props.user.username}</p>
-              </div>
+              </>
               <div className='errors-div user-show-errors'>{this.renderErrors()}</div>
             </div>
             <div className='tabs-container'>
@@ -137,7 +137,7 @@ class Follows extends React.Component {
                 )}
               </div>
             </div>
-          </div>
+          </>
         </aside>
       </div>
     );

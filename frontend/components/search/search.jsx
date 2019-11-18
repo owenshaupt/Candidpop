@@ -92,7 +92,7 @@ class Search extends React.Component {
     });
 
     return (
-      <div>
+      <>
         <br />
         <div className='items-index-container'>
           <div className='items-list-container'>
@@ -116,7 +116,7 @@ class Search extends React.Component {
             </ul>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

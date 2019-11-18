@@ -166,7 +166,7 @@ class ItemShow extends React.Component {
 
             <div className='item-purchase'>
               {this.props.user === this.props.item.seller_id ? (
-                <div>
+                <>
                   <Link to={`/items/${this.props.item.id}/edit/`}>
                     <button
                       id='update-item-button'
@@ -194,7 +194,7 @@ class ItemShow extends React.Component {
                       />
                     </div>
                   </div>
-                </div> // this is important for ternary
+                </> // this is important for ternary
               ) : (
                 <div className='buy-button-container'>
                   <button

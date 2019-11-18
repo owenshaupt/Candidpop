@@ -135,9 +135,9 @@ class UserShow extends React.Component {
                   <h1 className='user-first'>{this.props.user.first_name}</h1>
                   <h1 className='user-last'>{this.props.user.last_name}</h1>
                 </div>
-                <div>
+                <>
                   <h5 className='user-username'>@{this.props.user.username}</h5>
-                </div>
+                </>
               </div>
             </div>
             <div className='follow-info'>
