@@ -7,7 +7,7 @@ export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
-  currentUser,
+  currentUser
 });
 
 const logoutCurrentUser = () => ({
